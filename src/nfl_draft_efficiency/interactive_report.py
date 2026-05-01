@@ -313,6 +313,7 @@ def render_interactive_report(
           <li>Usage value combines binary historical starter flags with continuous regular-season snap share.</li>
           <li>Regular-season snap share is measured against full team-season snap totals, not only games played.</li>
           <li>A small team-record context multiplier adjusts snap-share value so equivalent usage on stronger teams is worth slightly more.</li>
+          <li>Early-round busts are round 1-3 players with at least two eligible seasons, no starter outcome with any team, peak snap share at or below 35%, and no All-Pro or top-5 award honors.</li>
           <li>Historical Starters are still threshold-based snap-count outcomes since the draft, not current projected depth-chart starters.</li>
           <li>Missing premium pick penalties are {missing_penalty_label} for this run.</li>
         </ul>""",

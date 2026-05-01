@@ -666,13 +666,17 @@ function apDisplay(n) {
 }
 
 // Rankings table with sort
-let rankData = [...TEAM_SCORES];
+let rankData = TEAM_SCORES.map((r, i) => ({...r, displayRank: i + 1}));
 let sortState = {col:'rank', dir:'asc'};
 
+function updateDisplayRanks() {
+  rankData.forEach((r, i) => { r.displayRank = i + 1; });
+}
+
 function renderRankings() {
-  document.getElementById('rankings-tbody').innerHTML = rankData.map((r, i) => {
+  document.getElementById('rankings-tbody').innerHTML = rankData.map(r => {
     return `<tr>
-      <td class="rank-num">${i + 1}</td>
+      <td class="rank-num">${r.displayRank}</td>
       <td>${teamTag(r.team)}</td>
       <td class="num">${r.dei.toFixed(2)}</td>
       <td class="num">${r.badj.toFixed(2)}</td>
@@ -698,6 +702,7 @@ document.querySelectorAll('#rankings-table th.sortable').forEach(th => {
       const d = typeof a[col]==='number' ? a[col]-b[col] : String(a[col]).localeCompare(String(b[col]));
       return dir==='asc' ? d : -d;
     });
+    updateDisplayRanks();
     document.querySelectorAll('#rankings-table th').forEach(h => h.classList.remove('sort-asc','sort-desc'));
     th.classList.add(dir==='asc'?'sort-asc':'sort-desc');
     renderRankings();
