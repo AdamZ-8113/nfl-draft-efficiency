@@ -3,6 +3,7 @@ from __future__ import annotations
 import json
 import re
 from collections import OrderedDict
+from html import escape
 from pathlib import Path
 from typing import Any
 
@@ -52,6 +53,107 @@ def _replace_one(pattern: str, replacement: str, text: str) -> str:
     if count != 1:
         raise ValueError(f"Expected exactly one replacement for pattern: {pattern}")
     return updated
+
+
+def _fmt_points(value: Any) -> str:
+    number = float(value)
+    text = f"{number:g}"
+    return f"{text} pt" if number == 1 else f"{text} pts"
+
+
+def _fmt_value(value: Any) -> str:
+    return f"{float(value):g}"
+
+
+def _table_rows(rows: list[tuple[str, str]]) -> str:
+    return "\n".join(
+        f"                    <tr><td>{escape(label)}</td><td>{escape(value)}</td></tr>"
+        for label, value in rows
+    )
+
+
+def _build_scoring_details(config: dict[str, Any]) -> str:
+    round_pick_cost = config.get("round_pick_cost", {})
+    points = config.get("points", {})
+    snap_share = config.get("snap_share_value", {})
+    team_record = config.get("team_record_adjustment", {})
+    opportunity = config.get("opportunity_normalization", {})
+    composite = config.get("composite_weights", {})
+
+    round_rows = [
+        (f"Round {round_number}", _fmt_points(round_pick_cost.get(str(round_number), 0)))
+        for round_number in range(1, 8)
+    ]
+    point_rows = [
+        ("Still with drafting team", _fmt_points(points.get("still_on_drafting_team", 0))),
+        ("Starter with drafting team", _fmt_points(points.get("starter_with_drafting_team", 0))),
+        ("Starter with any team", _fmt_points(points.get("starter_with_any_team", 0))),
+        ("Second-team All-Pro", _fmt_points(points.get("second_team_all_pro", 0))),
+        ("First-team All-Pro", _fmt_points(points.get("first_team_all_pro", 0))),
+        ("Top-5 award finish", _fmt_points(points.get("top5_award_finish", 0))),
+        ("Top-5 MVP finish", _fmt_points(points.get("top5_mvp_finish", 0))),
+    ]
+    snap_rows = [
+        (
+            "Full season with drafting team",
+            _fmt_points(snap_share.get("with_drafting_team_per_full_season", 0)),
+        ),
+        (
+            "Full season with another team",
+            _fmt_points(snap_share.get("with_any_team_per_full_season", 0)),
+        ),
+        (
+            "Team record multiplier range",
+            f"{_fmt_value(team_record.get('min_multiplier', 0))}x-{_fmt_value(team_record.get('max_multiplier', 0))}x",
+        ),
+        ("Record multiplier weight", _fmt_value(team_record.get("win_pct_multiplier_weight", 0))),
+    ]
+    normalization_rows = [
+        ("Opportunity method", str(opportunity.get("method", ""))),
+        ("Maximum seasons", _fmt_value(opportunity.get("max_seasons", 0))),
+        ("Composite retention weight", _fmt_value(composite.get("retention", 0))),
+        ("Composite starter weight", _fmt_value(composite.get("starter", 0))),
+        ("Composite star weight", _fmt_value(composite.get("star", 0))),
+    ]
+
+    return f"""<div class="scoring-detail-grid">
+              <div class="scoring-detail-card">
+                <h3>Draft Pick Cost</h3>
+                <p>Team value is divided by draft capital, so expensive early picks carry higher expectations.</p>
+                <table>
+                  <tbody>
+{_table_rows(round_rows)}
+                  </tbody>
+                </table>
+              </div>
+              <div class="scoring-detail-card">
+                <h3>Player Points</h3>
+                <p>These are raw point values before opportunity-window normalization and team aggregation.</p>
+                <table>
+                  <tbody>
+{_table_rows(point_rows)}
+                  </tbody>
+                </table>
+              </div>
+              <div class="scoring-detail-card">
+                <h3>Snap Share</h3>
+                <p>Snap share gives partial credit for real playing time, even when a player does not cross a starter threshold.</p>
+                <table>
+                  <tbody>
+{_table_rows(snap_rows)}
+                  </tbody>
+                </table>
+              </div>
+              <div class="scoring-detail-card">
+                <h3>Normalization</h3>
+                <p>Raw player scores are adjusted so newer draft classes are not punished for having fewer NFL seasons.</p>
+                <table>
+                  <tbody>
+{_table_rows(normalization_rows)}
+                  </tbody>
+                </table>
+              </div>
+            </div>"""
 
 
 def _build_team_scores(team_scores: pd.DataFrame) -> list[dict[str, object]]:
@@ -145,6 +247,15 @@ def render_interactive_report(
     html = html.replace(
         "Active Starters = players who are starters with the drafting team as of roster snapshot 2025-W18.",
         "Historical Starters = players who have recorded starter-level snap seasons with the drafting team since being drafted.",
+    )
+    html = _replace_one(
+        r"<!-- SCORING_DETAILS_START -->.*?<!-- SCORING_DETAILS_END -->",
+        (
+            "<!-- SCORING_DETAILS_START -->\n            "
+            + _build_scoring_details(metadata.get("scoring_config", {}))
+            + "\n            <!-- SCORING_DETAILS_END -->"
+        ),
+        html,
     )
     html = _replace_one(
         r'<ul class="notes-list">.*?</ul>',
