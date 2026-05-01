@@ -93,34 +93,6 @@
       margin-bottom: 24px;
     }
 
-    /* ── Stat Grid ───────────────────────────────────────────────── */
-    .stat-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 1px;
-      background: var(--border);
-      border: 1px solid var(--border);
-      margin-bottom: 28px;
-    }
-    .stat-cell {
-      background: var(--surface);
-      padding: 22px 24px 20px;
-    }
-    .stat-value {
-      font-family: var(--mono);
-      font-size: 30px;
-      font-weight: 700;
-      line-height: 1;
-      margin-bottom: 8px;
-    }
-    .stat-label {
-      font-size: 10px;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--muted);
-    }
-
     /* ── Panel ───────────────────────────────────────────────────── */
     .panel {
       background: var(--surface);
@@ -404,12 +376,10 @@
 
     /* ── Responsive ──────────────────────────────────────────────── */
     @media (max-width: 960px) {
-      .stat-grid { grid-template-columns: 1fr 1fr; }
       .team-score-strip { grid-template-columns: repeat(3, 1fr); }
       .methodology-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 600px) {
-      .stat-grid { grid-template-columns: 1fr; }
       .methodology-grid { grid-template-columns: 1fr; }
       .nav-wordmark { display: none; }
       .page { padding: 0 14px 60px; }
@@ -421,7 +391,6 @@
 <nav class="site-nav">
   <span class="nav-wordmark">NFL Draft Efficiency</span>
   <ul class="nav-links">
-    <li><a href="#overview">Overview</a></li>
     <li><a href="#rankings">Rankings</a></li>
     <li><a href="#players">Players</a></li>
     <li><a href="#team">Team Detail</a></li>
@@ -430,31 +399,6 @@
 </nav>
 
 <div class="page">
-
-  <!-- OVERVIEW -->
-  <section id="overview" class="section">
-    <div class="section-label">Draft Efficiency Report &mdash; 2021&ndash;2025 Classes</div>
-
-    <div class="stat-grid">
-      <div class="stat-cell">
-        <div class="stat-value" style="color:#FFA300">LA</div>
-        <div class="stat-label">Highest Draft Efficiency</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-value" style="font-size:22px">123.56</div>
-        <div class="stat-label">Index Points &mdash; LA</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-value">32</div>
-        <div class="stat-label">Teams Evaluated</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-value">1,294</div>
-        <div class="stat-label">Draft Picks Analyzed</div>
-      </div>
-    </div>
-
-  </section>
 
   <!-- FULL RANKINGS -->
   <section id="rankings" class="section">
@@ -767,7 +711,7 @@ function renderTeamDetail(abbr) {
 
 // Nav active-section highlight
 (function() {
-  const ids = ['overview','rankings','players','team','notes'];
+  const ids = ['rankings','players','team','notes'];
   const map = {};
   ids.forEach(id => { map[id] = document.querySelector(`.nav-links a[href="#${id}"]`); });
   const obs = new IntersectionObserver(entries => {

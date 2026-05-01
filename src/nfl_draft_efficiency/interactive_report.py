@@ -133,38 +133,14 @@ def render_interactive_report(
     template_path = Path(__file__).with_name("report_template.html")
     template = template_path.read_text(encoding="utf-8")
 
-    top_team = team_scores.sort_values(["rank", "team"]).iloc[0]
-    team_count = len(team_scores.index)
-    player_count = len(player_scores.index)
-    top_color = TEAM_INFO.get(str(top_team["team"]), {}).get("color", "#3b82f6")
-
     team_scores_js = json.dumps(_build_team_scores(team_scores), separators=(",", ":"))
     top_players_js = json.dumps(_build_top_players(player_scores), separators=(",", ":"))
     all_players_js = json.dumps(_build_all_players(player_scores), separators=(",", ":"))
     team_info_js = json.dumps(TEAM_INFO, separators=(",", ":"))
-    stat_grid_html = f"""<div class="stat-grid">
-      <div class="stat-cell">
-        <div class="stat-value" style="color:{top_color}">{top_team["team"]}</div>
-        <div class="stat-label">Highest Draft Efficiency</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-value" style="font-size:22px">{float(top_team["draft_efficiency_index"]):.2f}</div>
-        <div class="stat-label">Index Points &mdash; {top_team["team"]}</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-value">{team_count:,}</div>
-        <div class="stat-label">Teams Evaluated</div>
-      </div>
-      <div class="stat-cell">
-        <div class="stat-value">{player_count:,}</div>
-        <div class="stat-label">Draft Picks Analyzed</div>
-      </div>
-    </div>"""
 
     html = template
     html = html.replace(">Starter</th>", ">Usage</th>")
     html = html.replace('<div class="score-lbl">Starter</div>', '<div class="score-lbl">Usage</div>')
-    html = _replace_one(r'<div class="stat-grid">.*?</div>\s*</div>', stat_grid_html, html)
     html = html.replace("Active Starters</th>", "Historical Starters</th>")
     html = html.replace(
         "Active Starters = players who are starters with the drafting team as of roster snapshot 2025-W18.",
