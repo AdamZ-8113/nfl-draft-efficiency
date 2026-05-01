@@ -670,9 +670,9 @@ let rankData = [...TEAM_SCORES];
 let sortState = {col:'rank', dir:'asc'};
 
 function renderRankings() {
-  document.getElementById('rankings-tbody').innerHTML = rankData.map(r => {
+  document.getElementById('rankings-tbody').innerHTML = rankData.map((r, i) => {
     return `<tr>
-      <td class="rank-num">${r.rank}</td>
+      <td class="rank-num">${i + 1}</td>
       <td>${teamTag(r.team)}</td>
       <td class="num">${r.dei.toFixed(2)}</td>
       <td class="num">${r.badj.toFixed(2)}</td>
