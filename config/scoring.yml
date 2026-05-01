@@ -48,11 +48,11 @@
     "penalty_by_round": {
       "1": -4.0,
       "2": -2.5,
-      "3": -1.5
+      "3": -1.0
     },
     "missing_pick_penalty_by_round": {
-      "1": -4.0,
-      "2": -2.5,
+      "1": -3.0,
+      "2": -1.0,
       "3": -1.5
     },
     "min_eligible_seasons": 2,

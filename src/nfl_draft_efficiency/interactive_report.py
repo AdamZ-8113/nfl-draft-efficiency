@@ -128,6 +128,8 @@ def _build_scoring_details(config: dict[str, Any]) -> str:
         ("Round 2 bust penalty", _fmt_points(_mapping_get(bust_penalty_by_round, 2, 0))),
         ("Round 3 bust penalty", _fmt_points(_mapping_get(bust_penalty_by_round, 3, 0))),
         ("Round 1 missing-pick penalty", _fmt_points(_mapping_get(missing_penalty_by_round, 1, 0))),
+        ("Round 2 missing-pick penalty", _fmt_points(_mapping_get(missing_penalty_by_round, 2, 0))),
+        ("Round 3 missing-pick penalty", _fmt_points(_mapping_get(missing_penalty_by_round, 3, 0))),
         ("Minimum seasons before bust", _fmt_value(bust_adjustment.get("min_eligible_seasons", 0))),
         ("Max peak snap share for bust", f"{float(bust_adjustment.get('max_peak_snap_share_any_team', 0)) * 100:g}%"),
     ]

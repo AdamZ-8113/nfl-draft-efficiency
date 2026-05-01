@@ -170,7 +170,7 @@
     .header-tooltip {
       position: fixed;
       z-index: 1000;
-      max-width: 260px;
+      max-width: 310px;
       padding: 9px 11px;
       border: 1px solid var(--border-2);
       border-radius: 8px;
@@ -178,10 +178,10 @@
       box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
       color: var(--text);
       font-family: var(--sans);
-      font-size: 11px;
+      font-size: 13px;
       font-weight: 500;
       letter-spacing: 0;
-      line-height: 1.35;
+      line-height: 1.45;
       text-align: left;
       text-transform: none;
       white-space: normal;
@@ -487,9 +487,9 @@
             <tr>
               <th class="sortable" data-col="rank" data-tooltip="Current row number for the active sort. This updates when you sort another column." style="text-align:right">#</th>
               <th data-tooltip="NFL team abbreviation. Click a team code in the table to open that team's player detail.">Team</th>
-              <th class="sortable" data-col="dei" data-tooltip="Draft Efficiency Index. Overall draft value divided by draft-pick cost across the selected draft window, scaled so about 100 is league average. This does not include the extra early-round bust adjustment." style="text-align:right">DEI</th>
               <th class="sortable sort-desc" data-col="badj" data-tooltip="Overall with bust adjustment. Starts with the full-team DEI across all included rounds, then applies extra penalties for round 1-3 busts and, when enabled, missing premium picks. This is the default sort." style="text-align:right">Overall w/Bust Adj</th>
               <th class="sortable" data-col="prem" data-tooltip="Rounds 1-3 with bust adjustment. Measures only premium picks from rounds 1-3, where pick cost and expectations are highest. Later-round picks do not affect this column." style="text-align:right">Rounds 1-3 w/Bust Adj</th>
+              <th class="sortable" data-col="dei" data-tooltip="Draft Efficiency Index. Overall draft value divided by draft-pick cost across the selected draft window, scaled so about 100 is league average. This does not include the extra early-round bust adjustment." style="text-align:right">DEI</th>
               <th class="sortable" data-col="bust" data-tooltip="Share of eligible round 1-3 picks classified as busts. Lower is better." style="text-align:right">Premium Bust %</th>
               <th class="sortable" data-col="score" data-tooltip="Raw production score before dividing by draft cost. This includes roster status, usage, honors, and other player value signals." style="text-align:right">Score</th>
               <th class="sortable" data-col="ret" data-tooltip="Retention component. Rewards drafted players who remain with the team, with higher credit for active contributors and starters." style="text-align:right">Retention</th>
@@ -753,9 +753,9 @@ function renderRankings() {
     return `<tr>
       <td class="rank-num">${r.displayRank}</td>
       <td>${teamTag(r.team)}</td>
-      <td class="num">${r.dei.toFixed(2)}</td>
       <td class="num">${r.badj.toFixed(2)}</td>
       <td class="num">${r.prem.toFixed(2)}</td>
+      <td class="num">${r.dei.toFixed(2)}</td>
       <td class="num">${(r.bust * 100).toFixed(1)}%</td>
       <td class="num">${r.score.toFixed(2)}</td>
       <td class="num">${r.ret.toFixed(2)}</td>
@@ -846,9 +846,9 @@ function renderTeamDetail(abbr) {
   if (ts) {
     html += `<div class="team-score-strip">
       <div class="score-cell"><div class="score-v" style="color:${col}">${ts.rank}</div><div class="score-lbl">Rank</div></div>
-      <div class="score-cell"><div class="score-v">${ts.dei.toFixed(2)}</div><div class="score-lbl">DEI</div></div>
       <div class="score-cell"><div class="score-v">${ts.badj.toFixed(2)}</div><div class="score-lbl">Overall w/Bust Adj</div></div>
       <div class="score-cell"><div class="score-v">${ts.prem.toFixed(2)}</div><div class="score-lbl">Rounds 1-3 w/Bust Adj</div></div>
+      <div class="score-cell"><div class="score-v">${ts.dei.toFixed(2)}</div><div class="score-lbl">DEI</div></div>
       <div class="score-cell"><div class="score-v">${(ts.bust * 100).toFixed(1)}%</div><div class="score-lbl">Premium Bust</div></div>
       <div class="score-cell"><div class="score-v">${ts.score.toFixed(2)}</div><div class="score-lbl">Team Score</div></div>
       <div class="score-cell"><div class="score-v">${ts.ret.toFixed(2)}</div><div class="score-lbl">Retention</div></div>
