@@ -307,7 +307,7 @@ def render_interactive_report(
         r'<ul class="notes-list">.*?</ul>',
         f"""<ul class="notes-list">
           <li>Draft window set to {draft_year_label.replace("-", "&ndash;")} for this run.</li>
-          <li>Rank is based solely on Draft Efficiency Index (DEI), not the component-score blend.</li>
+          <li>The table defaults to Overall w/Bust Adj, which uses full-team DEI after early-round bust and missing premium-pick penalties.</li>
           <li>v1 uses draft_picks.allpro as first-team All-Pro count. Second-team and award-vote scraping deferred.</li>
           <li>Retention uses canonical team codes plus roster status; released or retired players are not counted as retained.</li>
           <li>Usage value combines binary historical starter flags with continuous regular-season snap share.</li>

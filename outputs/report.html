@@ -167,15 +167,9 @@
       text-decoration: underline dotted var(--border-2);
       text-underline-offset: 3px;
     }
-    .data-table th[data-tooltip]:hover::before,
-    .data-table th[data-tooltip]:focus-visible::before {
-      content: attr(data-tooltip);
-      position: absolute;
-      left: 50%;
-      bottom: calc(100% + 10px);
-      transform: translateX(-50%);
-      z-index: 20;
-      width: max-content;
+    .header-tooltip {
+      position: fixed;
+      z-index: 1000;
       max-width: 260px;
       padding: 9px 11px;
       border: 1px solid var(--border-2);
@@ -192,21 +186,13 @@
       text-transform: none;
       white-space: normal;
       pointer-events: none;
+      opacity: 0;
+      transform: translate(-50%, -8px);
+      transition: opacity 120ms ease, transform 120ms ease;
     }
-    .data-table th[data-tooltip]:hover::after,
-    .data-table th[data-tooltip]:focus-visible::after {
-      content: '';
-      position: absolute;
-      left: 50%;
-      bottom: calc(100% + 5px);
-      transform: translateX(-50%) rotate(45deg);
-      z-index: 19;
-      width: 10px;
-      height: 10px;
-      border-right: 1px solid var(--border-2);
-      border-bottom: 1px solid var(--border-2);
-      background: var(--surface);
-      pointer-events: none;
+    .header-tooltip.visible {
+      opacity: 1;
+      transform: translate(-50%, 0);
     }
     .data-table th.sortable { cursor: pointer; user-select: none; }
     .data-table th.sortable:hover { color: var(--text); }
@@ -501,9 +487,9 @@
             <tr>
               <th class="sortable" data-col="rank" data-tooltip="Current row number for the active sort. This updates when you sort another column." style="text-align:right">#</th>
               <th data-tooltip="NFL team abbreviation. Click a team code in the table to open that team's player detail.">Team</th>
-              <th class="sortable" data-col="dei" data-tooltip="Draft Efficiency Index. The main ranking metric: total draft value divided by draft-pick cost, scaled so about 100 is league average." style="text-align:right">DEI</th>
-              <th class="sortable" data-col="badj" data-tooltip="Bust-adjusted DEI. DEI after applying extra penalties for early-round busts and, when enabled, missing premium picks." style="text-align:right">Bust Adj. DEI</th>
-              <th class="sortable" data-col="prem" data-tooltip="Premium DEI. Efficiency using only rounds 1-3, where picks are most expensive and expectations are highest." style="text-align:right">Premium DEI</th>
+              <th class="sortable" data-col="dei" data-tooltip="Draft Efficiency Index. Overall draft value divided by draft-pick cost across the selected draft window, scaled so about 100 is league average. This does not include the extra early-round bust adjustment." style="text-align:right">DEI</th>
+              <th class="sortable sort-desc" data-col="badj" data-tooltip="Overall with bust adjustment. Starts with the full-team DEI across all included rounds, then applies extra penalties for round 1-3 busts and, when enabled, missing premium picks. This is the default sort." style="text-align:right">Overall w/Bust Adj</th>
+              <th class="sortable" data-col="prem" data-tooltip="Rounds 1-3 with bust adjustment. Measures only premium picks from rounds 1-3, where pick cost and expectations are highest. Later-round picks do not affect this column." style="text-align:right">Rounds 1-3 w/Bust Adj</th>
               <th class="sortable" data-col="bust" data-tooltip="Share of eligible round 1-3 picks classified as busts. Lower is better." style="text-align:right">Premium Bust %</th>
               <th class="sortable" data-col="score" data-tooltip="Raw production score before dividing by draft cost. This includes roster status, usage, honors, and other player value signals." style="text-align:right">Score</th>
               <th class="sortable" data-col="ret" data-tooltip="Retention component. Rewards drafted players who remain with the team, with higher credit for active contributors and starters." style="text-align:right">Retention</th>
@@ -680,7 +666,7 @@
             <div class="methodology-subhead">Technical Notes</div>
             <ul class="notes-list">
           <li>Draft window set to 2021&ndash;2025 for this run.</li>
-          <li>Rank is based solely on Draft Efficiency Index (DEI), not the component-score blend.</li>
+          <li>The table defaults to Overall w/Bust Adj, which uses full-team DEI after early-round bust and missing premium-pick penalties.</li>
           <li>v1 uses draft_picks.allpro as first-team All-Pro count. Second-team and award-vote scraping deferred.</li>
           <li>Retention uses canonical team codes plus roster status; released or retired players are not counted as retained.</li>
           <li>Usage value combines binary historical starter flags with continuous regular-season snap share.</li>
@@ -692,7 +678,7 @@
         </ul>
           </div>
         </div>
-        <p class="footer-line">Generated 2026-05-01T16:33:04.371592+00:00 &nbsp;&middot;&nbsp; Roster snapshot 2025-W18 &nbsp;&middot;&nbsp; Snap counts through 2025</p>
+        <p class="footer-line">Generated 2026-05-01T16:40:39.930400+00:00 &nbsp;&middot;&nbsp; Roster snapshot 2025-W18 &nbsp;&middot;&nbsp; Snap counts through 2025</p>
       </div>
     </div>
   </section>
@@ -728,9 +714,52 @@ function apDisplay(n) {
   return `<span class="ap-count">${'★'.repeat(n)}&nbsp;${n}</span>`;
 }
 
+// Header tooltips use fixed positioning so table overflow cannot clip them.
+(function() {
+  const tooltip = document.createElement('div');
+  tooltip.className = 'header-tooltip';
+  document.body.appendChild(tooltip);
+
+  function positionTooltip(target) {
+    const rect = target.getBoundingClientRect();
+    const x = Math.min(Math.max(rect.left + rect.width / 2, 150), window.innerWidth - 150);
+    const y = Math.max(rect.top - tooltip.offsetHeight - 12, 10);
+    tooltip.style.left = `${x}px`;
+    tooltip.style.top = `${y}px`;
+  }
+
+  function showTooltip(target) {
+    tooltip.textContent = target.dataset.tooltip;
+    tooltip.classList.add('visible');
+    positionTooltip(target);
+  }
+
+  function hideTooltip() {
+    tooltip.classList.remove('visible');
+  }
+
+  document.querySelectorAll('th[data-tooltip]').forEach(th => {
+    th.setAttribute('tabindex', '0');
+    th.setAttribute('title', th.dataset.tooltip);
+    th.addEventListener('mouseenter', () => showTooltip(th));
+    th.addEventListener('mouseleave', hideTooltip);
+    th.addEventListener('focus', () => showTooltip(th));
+    th.addEventListener('blur', hideTooltip);
+    th.addEventListener('mousemove', () => positionTooltip(th));
+  });
+
+  window.addEventListener('scroll', hideTooltip, {passive: true});
+  window.addEventListener('resize', hideTooltip);
+})();
+
 // Rankings table with sort
 let rankData = TEAM_SCORES.map((r, i) => ({...r, displayRank: i + 1}));
-let sortState = {col:'rank', dir:'asc'};
+let sortState = {col:'badj', dir:'desc'};
+
+function compareRankRows(a, b, col, dir) {
+  const d = typeof a[col]==='number' ? a[col]-b[col] : String(a[col]).localeCompare(String(b[col]));
+  return dir==='asc' ? d : -d;
+}
 
 function updateDisplayRanks() {
   rankData.forEach((r, i) => { r.displayRank = i + 1; });
@@ -754,6 +783,8 @@ function renderRankings() {
     </tr>`;
   }).join('');
 }
+rankData.sort((a, b) => compareRankRows(a, b, sortState.col, sortState.dir));
+updateDisplayRanks();
 renderRankings();
 
 document.querySelectorAll('#rankings-table th.sortable').forEach(th => {
@@ -761,10 +792,7 @@ document.querySelectorAll('#rankings-table th.sortable').forEach(th => {
     const col = th.dataset.col;
     const dir = (sortState.col===col && sortState.dir==='asc') ? 'desc' : 'asc';
     sortState = {col, dir};
-    rankData.sort((a,b) => {
-      const d = typeof a[col]==='number' ? a[col]-b[col] : String(a[col]).localeCompare(String(b[col]));
-      return dir==='asc' ? d : -d;
-    });
+    rankData.sort((a,b) => compareRankRows(a, b, col, dir));
     updateDisplayRanks();
     document.querySelectorAll('#rankings-table th').forEach(h => h.classList.remove('sort-asc','sort-desc'));
     th.classList.add(dir==='asc'?'sort-asc':'sort-desc');
@@ -836,8 +864,8 @@ function renderTeamDetail(abbr) {
     html += `<div class="team-score-strip">
       <div class="score-cell"><div class="score-v" style="color:${col}">${ts.rank}</div><div class="score-lbl">Rank</div></div>
       <div class="score-cell"><div class="score-v">${ts.dei.toFixed(2)}</div><div class="score-lbl">DEI</div></div>
-      <div class="score-cell"><div class="score-v">${ts.badj.toFixed(2)}</div><div class="score-lbl">Bust Adj. DEI</div></div>
-      <div class="score-cell"><div class="score-v">${ts.prem.toFixed(2)}</div><div class="score-lbl">Premium DEI</div></div>
+      <div class="score-cell"><div class="score-v">${ts.badj.toFixed(2)}</div><div class="score-lbl">Overall w/Bust Adj</div></div>
+      <div class="score-cell"><div class="score-v">${ts.prem.toFixed(2)}</div><div class="score-lbl">Rounds 1-3 w/Bust Adj</div></div>
       <div class="score-cell"><div class="score-v">${(ts.bust * 100).toFixed(1)}%</div><div class="score-lbl">Premium Bust</div></div>
       <div class="score-cell"><div class="score-v">${ts.score.toFixed(2)}</div><div class="score-lbl">Team Score</div></div>
       <div class="score-cell"><div class="score-v">${ts.ret.toFixed(2)}</div><div class="score-lbl">Retention</div></div>
