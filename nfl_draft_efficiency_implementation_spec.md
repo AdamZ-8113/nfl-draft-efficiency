@@ -71,11 +71,11 @@ Rules:
 - Reject negative values.
 - Fail fast with a clear error if the `allpro` column is missing.
 
-v1 does not include scraped honors in the shipped score:
+Current shipped scoring includes AP award finalists/winners from NFL.com AP Honors pages:
 
 - `second_team_all_pro_count = 0`
-- `top5_award_finish_count = 0`
-- `top5_mvp_finish_count = 0`
+- `top5_award_finish_count` is populated for AP OPOY, DPOY, OROY, DROY, and CPOY finalists/winners
+- `top5_mvp_finish_count` is populated for AP MVP finalists/winners
 
 Scraping modules may exist as placeholders, but they must not be required for the core pipeline or for passing tests.
 
@@ -269,7 +269,7 @@ Application rules:
 - If `starter_with_drafting_team` is true, add `+4`.
 - Else if `starter_with_any_team` is true, add `+3`.
 - Do not award both starter bonuses to the same player.
-- `second_team_all_pro`, `top5_award_finish`, and `top5_mvp_finish` remain zero in v1 because scraping is out of scope for the shipped MVP score.
+- `second_team_all_pro` remains zero unless a second-team All-Pro source is added; AP player-award and MVP finalist/winner counts are populated from NFL.com.
 - `first_team_all_pro_count` can contribute across seasons.
 
 v1 caps:
@@ -280,7 +280,7 @@ caps:
   max_award_points_per_player: 16
 ```
 
-Because award inputs are zero in v1, only the All-Pro cap is active in practice.
+The All-Pro cap and award cap are both active when the AP award cache is populated.
 
 ## Opportunity Normalization
 
@@ -355,7 +355,7 @@ For v1:
 - `draft_year_start = 2021`
 - `draft_year_end = 2025`
 - `second_team_all_pro_count = 0`
-- `top5_award_finish_count = 0`
+- `top5_award_finish_count` is populated from the AP award cache
 
 ### outputs/player_scores.csv
 

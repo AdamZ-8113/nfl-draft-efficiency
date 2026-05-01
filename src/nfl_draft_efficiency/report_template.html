@@ -47,7 +47,7 @@
       height: 46px;
     }
     .nav-wordmark {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -63,7 +63,7 @@
       align-items: center;
       padding: 0 14px;
       height: 100%;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 600;
       letter-spacing: 0.06em;
       text-transform: uppercase;
@@ -83,7 +83,7 @@
     }
     .section { padding-top: 52px; }
     .section-label {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
@@ -101,7 +101,7 @@
     .panel-hd {
       padding: 11px 18px;
       border-bottom: 1px solid var(--border);
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -111,7 +111,7 @@
       justify-content: space-between;
     }
     .panel-hd-note {
-      font-size: 10px;
+      font-size: 12px;
       color: var(--faint);
       letter-spacing: 0.04em;
       text-transform: none;
@@ -129,7 +129,7 @@
       gap: 10px;
     }
     .bar-team-lbl {
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.06em;
       text-align: right;
@@ -143,7 +143,7 @@
     .bar-fill { position: absolute; inset: 0 auto 0 0; height: 100%; }
     .bar-val {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 12px;
       color: var(--muted);
       text-align: right;
     }
@@ -153,7 +153,7 @@
     .data-table th {
       padding: 9px 14px;
       text-align: left;
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -220,7 +220,7 @@
     /* ── Team Badge ──────────────────────────────────────────────── */
     .team-tag {
       display: inline-block;
-      font-size: 11px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.06em;
       padding: 2px 7px;
@@ -235,7 +235,7 @@
       display: inline-flex;
       align-items: center;
       gap: 5px;
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.08em;
       text-transform: uppercase;
@@ -257,8 +257,31 @@
     .s-inactive .status-dot { background: var(--faint); }
 
     /* ── AP Stars ────────────────────────────────────────────────── */
-    .ap-count { font-family: var(--mono); font-size: 11px; color: var(--yellow); }
+    .ap-count { font-family: var(--mono); font-size: 12px; color: var(--yellow); }
     .ap-empty { color: var(--faint); }
+    .award-badges {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 4px;
+    }
+    .award-badge {
+      display: inline-block;
+      padding: 2px 5px;
+      border: 1px solid var(--border-2);
+      border-radius: 999px;
+      background: var(--surface-2);
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 12px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .award-mvp {
+      border-color: rgba(217, 119, 6, 0.35);
+      background: rgba(217, 119, 6, 0.12);
+      color: var(--yellow);
+    }
 
     /* ── Team Detail ─────────────────────────────────────────────── */
     .team-picker-row {
@@ -268,7 +291,7 @@
       margin-bottom: 28px;
     }
     .picker-lbl {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -300,7 +323,7 @@
     }
     .team-hd-sub {
       font-family: var(--mono);
-      font-size: 11px;
+      font-size: 12px;
       color: var(--muted);
     }
 
@@ -321,7 +344,7 @@
       margin-bottom: 5px;
     }
     .score-lbl {
-      font-size: 9px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.12em;
       text-transform: uppercase;
@@ -338,13 +361,13 @@
       margin-bottom: 0;
     }
     .year-title {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.16em;
       text-transform: uppercase;
       color: var(--muted);
     }
-    .year-summary { font-family: var(--mono); font-size: 10px; color: var(--faint); }
+    .year-summary { font-family: var(--mono); font-size: 12px; color: var(--faint); }
 
     /* ── Notes ───────────────────────────────────────────────────── */
     .methodology-content { display: grid; gap: 18px; }
@@ -367,7 +390,7 @@
       min-height: 138px;
     }
     .methodology-card h3 {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -380,7 +403,7 @@
       color: var(--muted);
     }
     .methodology-subhead {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -398,7 +421,7 @@
       padding: 14px 16px;
     }
     .scoring-detail-card h3 {
-      font-size: 10px;
+      font-size: 12px;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -440,7 +463,7 @@
     .notes-list li::before { content: '\2014'; color: var(--faint); flex-shrink: 0; }
     .footer-line {
       font-family: var(--mono);
-      font-size: 10px;
+      font-size: 12px;
       color: var(--faint);
       padding-top: 16px;
       letter-spacing: 0.04em;
@@ -495,6 +518,7 @@
               <th class="sortable" data-col="ret" data-tooltip="Retention component. Rewards drafted players who remain with the team, with higher credit for active contributors and starters." style="text-align:right">Retention</th>
               <th class="sortable" data-col="str" data-tooltip="Usage component. Rewards playing-time value such as starter status and snap-share contribution." style="text-align:right">Usage</th>
               <th class="sortable" data-col="star" data-tooltip="Star component. Rewards high-end outcomes such as All-Pro selections and major award-level finishes." style="text-align:right">Star</th>
+              <th class="sortable" data-col="apaw" data-tooltip="AP player-award finalist count. Includes MVP, Offensive/Defensive Player of the Year, Offensive/Defensive Rookie of the Year, and Comeback Player of the Year. All-Pro is tracked separately." style="text-align:right">AP Awards</th>
               <th class="sortable" data-col="picks" data-tooltip="Number of draft picks included for this team in the selected draft window." style="text-align:right">Picks</th>
               <th class="sortable" data-col="starters" data-tooltip="Number of drafted players who became starters for this team or elsewhere." style="text-align:right">Historical Starters</th>
             </tr>
@@ -525,6 +549,7 @@
               <th style="text-align:right">Norm. Score</th>
               <th style="text-align:right">Raw Score</th>
               <th style="text-align:center">All-Pro</th>
+              <th style="text-align:center">AP Awards</th>
               <th style="text-align:center">Status</th>
             </tr>
           </thead>
@@ -560,7 +585,7 @@
           <div class="methodology-grid">
             <div class="methodology-card">
               <h3>Player Value</h3>
-              <p>Players earn credit for staying with the drafting team, becoming meaningful contributors, playing regular-season snaps, and earning All-Pro honors.</p>
+              <p>Players earn credit for staying with the drafting team, becoming meaningful contributors, playing regular-season snaps, and earning All-Pro or AP player-award honors.</p>
             </div>
             <div class="methodology-card">
               <h3>Usage</h3>
@@ -652,7 +677,7 @@
             <ul class="notes-list">
               <li>Draft window fixed to 2021&ndash;2025 in v1.</li>
               <li>Rank is based solely on Draft Efficiency Index (DEI), not the component-score blend.</li>
-              <li>v1 uses draft_picks.allpro as first-team All-Pro count. Second-team and award-vote scraping deferred.</li>
+              <li>All-Pro counts come from draft_picks.allpro. AP player-award finalists come from NFL.com AP Honors finalist pages.</li>
               <li>Retention uses canonical team codes plus roster status; released or retired players are not counted as retained.</li>
               <li>Usage value combines binary historical starter flags with continuous regular-season snap share.</li>
               <li>Regular-season snap share is measured against full team-season snap totals, not only games played.</li>
@@ -695,6 +720,15 @@ function statusBadge(on, st, sa) {
 function apDisplay(n) {
   if (!n) return `<span class="ap-empty">&#x2014;</span>`;
   return `<span class="ap-count">${'★'.repeat(n)}&nbsp;${n}</span>`;
+}
+
+function awardDisplay(mvp, awards, details) {
+  const labels = [];
+  if (mvp) labels.push(`<span class="award-badge award-mvp">MVP x${mvp}</span>`);
+  if (awards) labels.push(`<span class="award-badge">AP x${awards}</span>`);
+  if (!labels.length) return `<span class="ap-empty">&#x2014;</span>`;
+  const title = details ? ` title="${details}"` : '';
+  return `<span class="award-badges"${title}>${labels.join('')}</span>`;
 }
 
 // Header tooltips use fixed positioning so table overflow cannot clip them.
@@ -761,6 +795,7 @@ function renderRankings() {
       <td class="num">${r.ret.toFixed(2)}</td>
       <td class="num">${r.str.toFixed(2)}</td>
       <td class="num">${r.star.toFixed(2)}</td>
+      <td class="num">${r.apaw}</td>
       <td class="num">${r.picks}</td>
       <td class="num">${r.starters}</td>
     </tr>`;
@@ -791,10 +826,11 @@ document.querySelectorAll('#rankings-table th.sortable').forEach(th => {
       <td>${teamTag(p.team)}</td>
       <td>${p.name}</td>
       <td class="num" style="text-align:left">${p.year}</td>
-      <td><span style="font-size:10px;font-family:var(--mono);color:var(--muted)">${p.pos}</span></td>
+      <td><span style="font-size:12px;font-family:var(--mono);color:var(--muted)">${p.pos}</span></td>
       <td class="num">${p.nsc.toFixed(2)}</td>
       <td class="num">${p.rsc}</td>
       <td style="text-align:center">${apDisplay(p.ap)}</td>
+      <td style="text-align:center">${awardDisplay(p.mvp, p.aw, p.awd)}</td>
       <td style="text-align:center">${statusBadge(p.on, p.st, p.sa)}</td>
     </tr>`
   ).join('');
@@ -854,6 +890,7 @@ function renderTeamDetail(abbr) {
       <div class="score-cell"><div class="score-v">${ts.ret.toFixed(2)}</div><div class="score-lbl">Retention</div></div>
       <div class="score-cell"><div class="score-v">${ts.str.toFixed(2)}</div><div class="score-lbl">Usage</div></div>
       <div class="score-cell"><div class="score-v">${ts.star.toFixed(2)}</div><div class="score-lbl">Star</div></div>
+      <div class="score-cell"><div class="score-v">${ts.apaw}</div><div class="score-lbl">AP Awards</div></div>
     </div>`;
   }
 
@@ -877,6 +914,7 @@ function renderTeamDetail(abbr) {
           <th style="text-align:right">Peak Snap %</th>
           <th style="text-align:right">Snap Seasons</th>
           <th style="text-align:center">All-Pro</th>
+          <th style="text-align:center">AP Awards</th>
           <th style="text-align:center">Status</th>
         </tr></thead>
         <tbody>${yps.map(p => {
@@ -887,12 +925,13 @@ function renderTeamDetail(abbr) {
             <td class="num" style="color:var(--faint)">${p.r}</td>
             <td class="num" style="color:var(--faint)">${p.p}</td>
             <td>${p.n}</td>
-            <td><span style="font-size:10px;font-family:var(--mono);color:var(--muted)">${p.pos}</span></td>
+            <td><span style="font-size:12px;font-family:var(--mono);color:var(--muted)">${p.pos}</span></td>
             <td class="num">${p.bas.toFixed(2)}<span style="display:inline-block;height:3px;width:${bw}px;background:${col};opacity:0.55;vertical-align:middle;margin-left:5px"></span></td>
             <td style="text-align:center">${p.bst ? '<span class="status s-inactive"><span class="status-dot"></span>Bust</span>' : '<span class="ap-empty">&#x2014;</span>'}</td>
             <td class="num">${peakSnapPct}%</td>
             <td class="num">${snapSeasons}</td>
             <td style="text-align:center">${apDisplay(p.ap)}</td>
+            <td style="text-align:center">${awardDisplay(p.mvp, p.aw, p.awd)}</td>
             <td style="text-align:center">${statusBadge(p.on, p.st, p.sa)}</td>
           </tr>`;
         }).join('')}</tbody>

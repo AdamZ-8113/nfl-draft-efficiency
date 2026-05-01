@@ -87,6 +87,7 @@ def build_player_scores(
         "record_adjusted_snap_share_with_drafting_team": 0.0,
         "record_adjusted_snap_share_elsewhere": 0.0,
         "weighted_win_pct_with_drafting_team": None,
+        "ap_award_details": "",
     }
     for column, default_value in default_columns.items():
         if column not in frame.columns:
@@ -127,6 +128,7 @@ def build_player_scores(
     ]
     for column in int_columns:
         frame[column] = pd.to_numeric(frame[column], errors="coerce").fillna(0).astype(int)
+    frame["ap_award_details"] = frame["ap_award_details"].fillna("").astype("string")
 
     float_columns = [
         "total_relevant_snaps_with_drafting_team",
@@ -240,6 +242,7 @@ def build_player_scores(
             "second_team_all_pro_count",
             "top5_award_finish_count",
             "top5_mvp_finish_count",
+            "ap_award_details",
             "eligible_seasons",
             "retention_points_raw",
             "starter_points_raw",

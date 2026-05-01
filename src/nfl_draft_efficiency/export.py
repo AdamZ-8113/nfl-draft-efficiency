@@ -109,6 +109,7 @@ def write_outputs(
         "second_team_all_pro_count",
         "top5_award_finish_count",
         "top5_mvp_finish_count",
+        "ap_award_details",
         "eligible_seasons",
         "retention_points_raw",
         "starter_points_raw",

@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T17:07:32.461179+00:00",
+  "generated_at": "2026-05-01T17:26:28.355874+00:00",
   "draft_years": [
     2021,
     2022,
@@ -218,6 +218,7 @@
     "nflverse weekly_rosters release CSV",
     "nflverse snap_counts release CSV",
     "nflverse games.csv regular-season records",
-    "draft_picks.allpro"
+    "draft_picks.allpro",
+    "AP NFL award finalists via NFL.com"
   ]
 }

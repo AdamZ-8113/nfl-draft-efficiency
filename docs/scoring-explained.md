@@ -19,7 +19,7 @@ A team scores well when it:
 - keeps drafted players on the roster
 - turns picks into real contributors
 - gets strong players without spending too much draft capital
-- finds players who earn honors like All-Pro
+- finds players who earn honors like All-Pro or AP player-award recognition
 
 Then the model adjusts for two things:
 
@@ -64,10 +64,14 @@ Why this matters:
 
 - First-team All-Pro adds more value.
 - Second-team All-Pro adds some value.
+- AP player-award finalists and winners add value.
+- AP MVP recognition is tracked separately from other AP player awards.
 
 Why this matters:
 
 - Elite players should move the score more than average starters.
+
+The AP player-award data includes MVP, Offensive Player of the Year, Defensive Player of the Year, Offensive Rookie of the Year, Defensive Rookie of the Year, and Comeback Player of the Year. Coach awards are excluded because they are not player draft outcomes.
 
 ## What does "starter" mean here?
 
@@ -152,7 +156,7 @@ Example:
 ## What this model does well
 
 - It rewards real playing time, not just reputation.
-- It gives extra credit for stars and All-Pros.
+- It gives extra credit for stars, All-Pros, and AP player-award recognition.
 - It accounts for cheaper vs. more expensive picks.
 - It is easier to understand than a black-box model.
 
@@ -179,7 +183,7 @@ If you want to tune the model, the main settings live in:
 
 That file controls things like:
 
-- points for starters and All-Pro selections
+- points for starters, All-Pro selections, and AP player-award recognition
 - pick-cost values by round
 - how much snap share matters
 - how much team record matters

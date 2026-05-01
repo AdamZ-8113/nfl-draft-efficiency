@@ -97,8 +97,8 @@ def _build_scoring_details(config: dict[str, Any]) -> str:
         ("Starter with any team", _fmt_points(points.get("starter_with_any_team", 0))),
         ("Second-team All-Pro", _fmt_points(points.get("second_team_all_pro", 0))),
         ("First-team All-Pro", _fmt_points(points.get("first_team_all_pro", 0))),
-        ("Top-5 award finish", _fmt_points(points.get("top5_award_finish", 0))),
-        ("Top-5 MVP finish", _fmt_points(points.get("top5_mvp_finish", 0))),
+        ("AP player-award finalist/winner", _fmt_points(points.get("top5_award_finish", 0))),
+        ("AP MVP finalist/winner", _fmt_points(points.get("top5_mvp_finish", 0))),
     ]
     snap_rows = [
         (
@@ -203,6 +203,8 @@ def _build_team_scores(team_scores: pd.DataFrame) -> list[dict[str, object]]:
                 "ret": round(float(row.retention_score), 6),
                 "str": round(float(row.starter_score) + float(getattr(row, "snap_share_score", 0.0)), 6),
                 "star": round(float(row.star_score), 6),
+                "apaw": int(getattr(row, "top5_award_finish_count", 0)) + int(getattr(row, "top5_mvp_finish_count", 0)),
+                "mvp": int(getattr(row, "top5_mvp_finish_count", 0)),
                 "prem": round(float(getattr(row, "premium_pick_dei", 0.0)), 2),
                 "bust": round(float(getattr(row, "premium_bust_rate", 0.0) or 0.0), 4),
                 "badj": round(float(getattr(row, "bust_adjusted_dei", 0.0)), 2),
@@ -230,6 +232,9 @@ def _build_top_players(player_scores: pd.DataFrame) -> list[dict[str, object]]:
                 "nsc": round(float(row.normalized_player_score), 2),
                 "rsc": int(round(float(row.raw_player_score))),
                 "ap": int(row.first_team_all_pro_count),
+                "aw": int(getattr(row, "top5_award_finish_count", 0)),
+                "mvp": int(getattr(row, "top5_mvp_finish_count", 0)),
+                "awd": str(getattr(row, "ap_award_details", "") or ""),
                 "on": bool(row.still_on_drafting_team),
                 "st": bool(row.starter_with_drafting_team),
                 "sa": bool(row.starter_with_any_team),
@@ -254,6 +259,9 @@ def _build_all_players(player_scores: pd.DataFrame) -> list[dict[str, object]]:
                 "st": bool(row.starter_with_drafting_team),
                 "sa": bool(row.starter_with_any_team),
                 "ap": int(row.first_team_all_pro_count),
+                "aw": int(getattr(row, "top5_award_finish_count", 0)),
+                "mvp": int(getattr(row, "top5_mvp_finish_count", 0)),
+                "awd": str(getattr(row, "ap_award_details", "") or ""),
                 "bst": bool(getattr(row, "early_round_bust", False)),
                 "sc": round(float(row.raw_player_score), 4),
                 "bas": round(float(getattr(row, "bust_adjusted_raw_player_score", row.raw_player_score)), 4),
@@ -310,7 +318,7 @@ def render_interactive_report(
         f"""<ul class="notes-list">
           <li>Draft window set to {draft_year_label.replace("-", "&ndash;")} for this run.</li>
           <li>The table defaults to Overall w/Bust Adj, which uses full-team DEI after early-round bust and missing premium-pick penalties.</li>
-          <li>v1 uses draft_picks.allpro as first-team All-Pro count. Second-team and award-vote scraping deferred.</li>
+          <li>All-Pro counts come from draft_picks.allpro. AP player-award finalists come from NFL.com AP Honors finalist pages and include MVP, OPOY, DPOY, OROY, DROY, and Comeback Player of the Year.</li>
           <li>Retention uses canonical team codes plus roster status; released or retired players are not counted as retained.</li>
           <li>Usage value combines binary historical starter flags with continuous regular-season snap share.</li>
           <li>Regular-season snap share is measured against full team-season snap totals, not only games played.</li>

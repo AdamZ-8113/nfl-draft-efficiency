@@ -90,6 +90,8 @@ def aggregate_team_scores(
         player_scores["bust_adjusted_normalized_player_score"] = player_scores["normalized_player_score"]
     if "round" not in player_scores:
         player_scores["round"] = 99
+    if "top5_mvp_finish_count" not in player_scores:
+        player_scores["top5_mvp_finish_count"] = 0
     grouped = player_scores.groupby("draft_team", dropna=False)
 
     team_scores = grouped.agg(
@@ -101,6 +103,7 @@ def aggregate_team_scores(
         first_team_all_pro_count=("first_team_all_pro_count", "sum"),
         second_team_all_pro_count=("second_team_all_pro_count", "sum"),
         top5_award_finish_count=("top5_award_finish_count", "sum"),
+        top5_mvp_finish_count=("top5_mvp_finish_count", "sum"),
         retention_points=("retention_points", "sum"),
         starter_points=("starter_points", "sum"),
         snap_share_points=("snap_share_points", "sum"),
@@ -189,6 +192,7 @@ def aggregate_team_scores(
             "first_team_all_pro_count",
             "second_team_all_pro_count",
             "top5_award_finish_count",
+            "top5_mvp_finish_count",
             "retention_score",
             "starter_score",
             "snap_share_score",

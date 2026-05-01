@@ -69,7 +69,7 @@ python -m nfl_draft_efficiency.cli run --force-refresh-cache --validate-external
 
 - Draft window: `2018-2025`
 - Core score: `draft_efficiency_index`
-- Honors in v1: `draft_picks.allpro` only
+- Honors: `draft_picks.allpro` plus AP player-award finalists/winners from NFL.com
 - Starter model: position-aware snap-count thresholds
 - Bust-adjusted score: configurable round 1-3 bust penalties
 - Missing premium pick penalties: off by default, enabled with `--penalize-missing-premium-picks`
