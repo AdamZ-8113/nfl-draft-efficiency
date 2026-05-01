@@ -1,0 +1,174 @@
+draft_player_id,draft_year,draft_team,player_name,position,pipeline_latest_roster_team,pipeline_latest_team,pipeline_latest_roster_status,pipeline_latest_roster_status_bucket,pipeline_still_on_drafting_team,pipeline_starter_with_drafting_team,espn_on_drafting_team,espn_roster_groups,espn_current_depth_starter,espn_depth_starter_slots,validation_issues
+6,2021,MIA,Jaylen Waddle,WR,MIA,MIA,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+9,2021,DEN,Patrick Surtain II,DB,DEN,DEN,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+14,2021,NYJ,Alijah Vera-Tucker,OL,NYJ,NYJ,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+21,2021,IND,Kwity Paye,DL,IND,IND,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+25,2021,JAX,Travis Etienne,RB,JAX,JAX,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+30,2021,BUF,Gregory Rousseau,DL,BUF,BUF,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+42,2021,MIA,Liam Eichenberg,OL,MIA,MIA,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+51,2021,WAS,Samuel Cosmi,OL,WAS,WAS,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+57,2021,LA,Tutu Atwell,WR,LA,LA,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+69,2021,CIN,Joseph Ossai,LB,CIN,CIN,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+70,2021,CAR,Brady Christensen,OL,CAR,CAR,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+75,2021,DAL,Osa Odighizuwa,DL,DAL,DAL,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+82,2021,WAS,Dyami Brown,WR,JAX,JAX,ACT,active_roster,False,False,True,Offense,False,,roster_membership_mismatch
+111,2021,CIN,Cameron Sample,DE,CIN,CIN,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+131,2021,BAL,Tylan Wallace,WR,BAL,BAL,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+149,2021,CIN,Evan McPherson,K,CIN,CIN,ACT,active_roster,True,False,True,Special Teams,True,Special Teams:PK,current_depth_chart_starter_not_historical_starter
+156,2021,PIT,Isaiahh Loudermilk,DE,PIT,PIT,RES,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+206,2021,NO,Landon Young,T,NO,NO,RES,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+234,2021,PHI,Patrick Johnson,DE,PHI,PHI,DEV,practice_squad,True,False,False,,False,,roster_membership_mismatch
+276,2022,LAC,Zion Johnson,G,LAC,LAC,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+280,2022,KC,Trent McDuffie,CB,KC,KC,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+281,2022,GB,Quay Walker,LB,GB,GB,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+284,2022,BAL,Tyler Linderbaum,OL,BAL,BAL,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+285,2022,NYJ,Jermaine Johnson II,LB,NYJ,NYJ,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+286,2022,JAX,Devin Lloyd,LB,JAX,JAX,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+290,2022,CIN,Daxton Hill,DB,CIN,CIN,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+292,2022,TB,Logan Hall,DE,TB,TB,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+297,2022,ATL,Arnold Ebiketie,DE,ATL,ATL,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+299,2022,SEA,Boye Mafe,DE,SEA,SEA,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+300,2022,SEA,Kenneth Walker III,RB,SEA,SEA,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+302,2022,NYG,Wan'Dale Robinson,WR,NYG,NYG,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+304,2022,BAL,David Ojabo,LB,BAL,BAL,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+305,2022,DET,Josh Paschal,DE,DET,DET,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+307,2022,CHI,Jaquan Brisker,S,CHI,CHI,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+308,2022,NO,Alontae Taylor,DB,NO,NO,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+315,2022,DAL,Sam Williams,DE,DAL,DAL,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+319,2022,CIN,Cam Taylor-Britt,CB,CIN,CIN,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+321,2022,KC,Bryan Cook,S,KC,KC,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+327,2022,CLE,Martin Emerson,CB,CLE,CLE,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+334,2022,HOU,Christian Harris,LB,HOU,HOU,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+340,2022,NYG,Cordale Flott,CB,NYG,NYG,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+342,2022,PHI,Nakobe Dean,LB,PHI,PHI,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+343,2022,PIT,DeMarvin Leal,DT,PIT,PIT,DEV,practice_squad,True,False,False,,False,,roster_membership_mismatch
+347,2022,DAL,Jalen Tolbert,WR,DAL,DAL,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+349,2022,LV,Dylan Parham,OL,LV,LV,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+350,2022,TB,Rachaad White,RB,TB,TB,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+355,2022,IND,Nick Cross,DB,IND,IND,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+362,2022,KC,Leo Chenal,LB,KC,KC,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+368,2022,SEA,Coby Bryant,CB,SEA,SEA,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+369,2022,BAL,Daniel Faalele,T,BAL,BAL,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+371,2022,NYG,Daniel Bellinger,TE,NYG,NYG,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+373,2022,NYG,Dane Belton,DB,NYG,NYG,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+376,2022,NYJ,Micheal Clemons,DT,NYJ,NYJ,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+381,2022,LV,Zamir White,RB,LV,LV,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+387,2022,BAL,Charlie Kolar,TE,BAL,BAL,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+389,2022,BAL,Jordan Stout,P,BAL,BAL,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+391,2022,GB,Romeo Doubs,WR,GB,GB,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+393,2022,SF,Spencer Burford,OL,SF,SF,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+394,2022,KC,Joshua Williams,CB,KC,KC,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+395,2022,CIN,Cordell Volson,T,CIN,CIN,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+397,2022,PIT,Calvin Austin III,WR,PIT,PIT,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+398,2022,BAL,Isaiah Likely,TE,BAL,BAL,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+401,2022,LA,Cobie Durant,DB,LA,LA,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+402,2022,TEN,Chig Okonkwo,TE,TEN,TEN,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+406,2022,NYG,DJ Davidson,DT,NYG,NYG,RES,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+410,2022,ATL,Tyler Allgeier,RB,ATL,ATL,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+411,2022,DEN,Delarrin Turner-Yell,S,DEN,DEN,DEV,practice_squad,True,False,False,,False,,roster_membership_mismatch
+412,2022,SEA,Riq Woolen,CB,SEA,SEA,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+415,2022,CLE,Jerome Ford,RB,CLE,CLE,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+418,2022,IND,Eric Johnson,DT,IND,IND,INA,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+419,2022,LAC,Otito Ogbonnia,DT,LAC,LAC,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+425,2022,CIN,Tycen Anderson,S,CIN,CIN,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+428,2022,MIN,Ty Chandler,RB,MIN,MIN,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+433,2022,CHI,Dominique Robinson,DE,CHI,CHI,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+438,2022,GB,Kingsley Enagbare,DE,GB,GB,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+450,2022,MIN,Jalen Nailor,WR,MIN,MIN,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+451,2022,IND,Andrew Ogletree,TE,IND,IND,RES,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+454,2022,LAC,Jamaree Salyer,OL,LAC,LAC,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+458,2022,CAR,Cade Mays,OL,CAR,CAR,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+467,2022,PIT,Connor Heyward,TE,PIT,PIT,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+471,2022,LA,Derion Kendrick,DB,LA,LA,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+479,2022,SF,Kalia Davis,DT,SF,SF,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+490,2022,BUF,Baylon Spector,LB,BUF,BUF,DEV,practice_squad,True,False,False,,False,,roster_membership_mismatch
+492,2022,SEA,Dareke Young,WR,SEA,SEA,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+498,2022,IND,Rodney Thomas II,LB,IND,IND,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+502,2022,KC,Jaylen Watson,DB,KC,KC,RES,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+508,2022,GB,Rasheed Walker,OL,GB,GB,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+510,2022,KC,Isiah Pacheco,RB,KC,KC,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+518,2022,KC,Nazeeh Johnson,S,KC,KC,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+528,2023,LV,Tyree Wilson,OLB,LV,LV,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+552,2023,KC,Felix Anudike-Uzomah,DE,KC,KC,RES,reserve_inactive,True,False,True,Defense,True,Base 4-3 D:RDE,current_depth_chart_starter_not_historical_starter
+583,2023,HOU,Juice Scruggs,OL,HOU,HOU,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+584,2023,DEN,Marvin Mims,WR,DEN,DEN,ACT,active_roster,True,False,True,Offense,True,Special Teams:PR | Special Teams:KR,current_depth_chart_starter_not_historical_starter
+587,2023,PHI,Sydney Brown,DB,PHI,PHI,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+592,2023,NO,Kendre Miller,RB,NO,NO,RES,reserve_inactive,True,False,True,Offense,True,Special Teams:KR,current_depth_chart_starter_not_historical_starter
+596,2023,ATL,Zach Harrison,DE,ATL,ATL,RES,reserve_inactive,True,False,True,Defense,True,Base 3-4 D:RDE,current_depth_chart_starter_not_historical_starter
+597,2023,NE,Marte Mapu,DB,NE,NE,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+637,2023,GB,Colby Wooden,DE,GB,GB,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+646,2023,LAC,Derius Davis,WR,LAC,LAC,ACT,active_roster,True,False,True,Offense,True,Special Teams:PR,current_depth_chart_starter_not_historical_starter
+648,2023,NO,Jake Haener,QB,NO,NO,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+652,2023,CIN,Charlie Jones,WR,CIN,CIN,INA,reserve_inactive,True,False,True,Offense,True,Special Teams:PR | Special Teams:KR,current_depth_chart_starter_not_historical_starter
+667,2023,NO,Jordan Howden,DB,NO,NO,ACT,active_roster,True,False,True,Defense,True,Base 3-4 D:NB,current_depth_chart_starter_not_historical_starter
+675,2023,SEA,Olusegun Oluwatimi,C,SEA,SEA,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+680,2023,GB,Dontayvion Wicks,WR,GB,GB,INA,reserve_inactive,True,True,False,,False,,roster_membership_mismatch
+682,2023,LA,Nick Hampton,OLB,LA,LA,DEV,practice_squad,True,False,False,,False,,roster_membership_mismatch
+694,2023,SF,Robert Beal,OLB,SF,SF,INA,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+713,2023,NE,Bryce Baringer,P,NE,NE,ACT,active_roster,True,False,True,Special Teams,True,Special Teams:P | Special Teams:H,current_depth_chart_starter_not_historical_starter
+714,2023,WAS,Chris Rodriguez,RB,WAS,WAS,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+737,2023,SF,Dee Winters,LB,SF,SF,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+744,2023,LA,Ethan Evans,P,LA,LA,ACT,active_roster,True,False,True,Special Teams,True,Special Teams:P | Special Teams:H,current_depth_chart_starter_not_historical_starter
+746,2023,ATL,Jovaughn Gwyn,OL,ATL,ATL,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+747,2023,JAX,Cooper Hodges,OL,JAX,JAX,RES,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+751,2023,BUF,Nick Broeker,OL,KC,KC,DEV,practice_squad,False,False,True,Offense,False,,roster_membership_mismatch
+772,2023,PIT,Spencer Anderson,OL,PIT,PIT,ACT,active_roster,True,False,True,Offense,True,3WR 1TE:LG,current_depth_chart_starter_not_historical_starter
+791,2024,NYJ,Olumuyiwa Fashanu,OL,NYJ,NYJ,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+815,2024,ATL,Ruke Orhorhoro,DT,ATL,ATL,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+818,2024,TEN,T'Vondre Sweat,DL,TEN,TEN,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+828,2024,JAX,Maason Smith,DT,JAX,JAX,INA,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+834,2024,CLE,Michael Hall,DT,CLE,CLE,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+850,2024,NYG,Andru Phillips,DB,NYG,NYG,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+857,2024,LV,Delmar Glaze,OL,LV,LV,ACT,active_roster,True,True,False,,False,,roster_membership_mismatch
+880,2024,WAS,Luke McCaffrey,WR,WAS,WAS,RES,reserve_inactive,True,False,True,Offense,True,3WR 1TE:WR | Special Teams:KR,current_depth_chart_starter_not_historical_starter
+893,2024,BAL,Devontez Walker,WR,BAL,BAL,ACT,active_roster,True,False,True,Offense,True,3WR 1TE:WR,current_depth_chart_starter_not_historical_starter
+902,2024,CHI,Tory Taylor,P,CHI,CHI,ACT,active_roster,True,False,True,Special Teams,True,Special Teams:P | Special Teams:H,current_depth_chart_starter_not_historical_starter
+907,2024,PHI,Will Shipley,RB,PHI,PHI,ACT,active_roster,True,False,True,Offense,True,Special Teams:KR,current_depth_chart_starter_not_historical_starter
+908,2024,BUF,Ray Davis,RB,BUF,BUF,ACT,active_roster,True,False,True,Offense,True,Special Teams:KR,current_depth_chart_starter_not_historical_starter
+909,2024,SF,Isaac Guerendo,RB,SF,SF,INA,reserve_inactive,True,False,True,Offense,True,Special Teams:KR,current_depth_chart_starter_not_historical_starter
+915,2024,SF,Jacob Cowing,WR,SF,SF,RES,reserve_inactive,True,False,True,Offense,True,Special Teams:PR,current_depth_chart_starter_not_historical_starter
+922,2024,IND,Anthony Gould,WR,IND,IND,RES,reserve_inactive,True,False,True,Offense,True,Special Teams:PR | Special Teams:KR,current_depth_chart_starter_not_historical_starter
+945,2024,BAL,Rasheen Ali,RB,BAL,BAL,ACT,active_roster,True,False,True,Offense,True,Special Teams:KR,current_depth_chart_starter_not_historical_starter
+980,2024,CAR,Jaden Crumedy,DT,CAR,CAR,DEV,practice_squad,True,False,False,,False,,roster_membership_mismatch
+983,2024,MIN,Will Reichard,K,MIN,MIN,ACT,active_roster,True,False,True,Special Teams,True,Special Teams:PK,current_depth_chart_starter_not_historical_starter
+988,2024,LV,Dylan Laube,RB,LV,LV,ACT,active_roster,True,False,True,Offense,True,Special Teams:KR,current_depth_chart_starter_not_historical_starter
+992,2024,JAX,Cam Little,K,JAX,JAX,ACT,active_roster,True,False,True,Special Teams,True,Special Teams:PK,current_depth_chart_starter_not_historical_starter
+993,2024,LA,Jordan Whittington,WR,LA,LA,ACT,active_roster,True,False,True,Offense,True,3WR 1TE:WR | Special Teams:KR,current_depth_chart_starter_not_historical_starter
+996,2024,DAL,Ryan Flournoy,WR,DAL,DAL,ACT,active_roster,True,False,True,Offense,True,3WR 1TE:WR,current_depth_chart_starter_not_historical_starter
+1013,2024,DAL,Nathan Thomas,OL,DAL,DAL,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+1017,2024,CIN,Matt Lee,C,CIN,CIN,RES,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+1022,2024,TEN,James Williams,SAF,TEN,TEN,ACT,active_roster,True,False,True,Defense,True,Base 4-3 D:SLB,current_depth_chart_starter_not_historical_starter
+1039,2025,JAX,Travis Hunter,WR,JAX,JAX,RES,reserve_inactive,True,False,True,Offense,True,Base 4-3 D:LCB,current_depth_chart_starter_not_historical_starter
+1053,2025,ARI,Walter Nolen,DT,ARI,ARI,RES,reserve_inactive,True,False,True,Defense,True,Base 4-3 D:RDT,current_depth_chart_starter_not_historical_starter
+1076,2025,CHI,Luther Burden,WR,CHI,CHI,ACT,active_roster,True,False,True,Offense,True,3WR 1TE:WR,current_depth_chart_starter_not_historical_starter
+1078,2025,BUF,T.J. Sanders,DT,BUF,BUF,ACT,active_roster,True,False,True,Defense,True,Base 3-4 D:LDE,current_depth_chart_starter_not_historical_starter
+1082,2025,IND,JT Tuimoloau,DE,IND,IND,ACT,active_roster,True,False,True,Defense,True,Base 4-3 D:LDE,current_depth_chart_starter_not_historical_starter
+1090,2025,TB,Benjamin Morrison,CB,TB,TB,ACT,active_roster,True,False,True,Defense,True,Base 3-4 D:RCB,current_depth_chart_starter_not_historical_starter
+1092,2025,LAC,Tre Harris,WR,LAC,LAC,ACT,active_roster,True,False,True,Offense,True,3WR 1TE:WR,current_depth_chart_starter_not_historical_starter
+1102,2025,NYG,Darius Alexander,DT,NYG,NYG,ACT,active_roster,True,False,True,Defense,True,Base 3-4 D:RDE,current_depth_chart_starter_not_historical_starter
+1107,2025,DET,Isaac TeSlaa,WR,DET,DET,ACT,active_roster,True,False,True,Offense,True,3WR 1TE:WR,current_depth_chart_starter_not_historical_starter
+1108,2025,NO,Vernon Broughton,DT,NO,NO,RES,reserve_inactive,True,False,True,Defense,True,Base 3-4 D:LDE,current_depth_chart_starter_not_historical_starter
+1113,2025,DAL,Shavon Revel,CB,DAL,DAL,INA,reserve_inactive,True,False,True,Defense,True,Base 3-4 D:LCB,current_depth_chart_starter_not_historical_starter
+1116,2025,HOU,Jaylin Noel,WR,HOU,HOU,ACT,active_roster,True,False,True,Offense,True,Special Teams:PR | Special Teams:KR,current_depth_chart_starter_not_historical_starter
+1122,2025,KC,Nohl Williams,CB,KC,KC,ACT,active_roster,True,False,True,Defense,True,Base 4-3 D:LCB,current_depth_chart_starter_not_historical_starter
+1139,2025,MIN,Tai Felton,WR,MIN,MIN,ACT,active_roster,True,False,True,Offense,True,3WR 1TE:WR,current_depth_chart_starter_not_historical_starter
+1141,2025,JAX,Bhayshul Tuten,RB,JAX,JAX,ACT,active_roster,True,False,True,Offense,True,Special Teams:KR,current_depth_chart_starter_not_historical_starter
+1142,2025,NYG,Cam Skattebo,RB,NYG,NYG,RES,reserve_inactive,True,False,True,Offense,True,3WR 1TE:RB,current_depth_chart_starter_not_historical_starter
+1144,2025,JAX,Jack Kiser,LB,JAX,JAX,RES,reserve_inactive,True,False,True,Defense,True,Base 4-3 D:SLB,current_depth_chart_starter_not_historical_starter
+1150,2025,SF,CJ West,DT,SF,SF,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+1151,2025,CAR,Trevor Etienne,RB,CAR,CAR,ACT,active_roster,True,False,True,Offense,True,Special Teams:PR | Special Teams:KR,current_depth_chart_starter_not_historical_starter
+1155,2025,ATL,Billy Bowman,SAF,ATL,ATL,RES,reserve_inactive,True,False,True,Defense,True,Base 3-4 D:NB,current_depth_chart_starter_not_historical_starter
+1164,2025,IND,Jalen Travis,OT,IND,IND,ACT,active_roster,True,False,True,Offense,True,3WR 1TE:RT,current_depth_chart_starter_not_historical_starter
+1165,2025,WAS,Jaylin Lane,WR,WAS,WAS,RES,reserve_inactive,True,False,True,Offense,True,Special Teams:PR,current_depth_chart_starter_not_historical_starter
+1171,2025,DEN,Quandarrius Robinson,LB,DEN,DEN,INA,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+1187,2025,MIA,Jason Marshall,CB,MIA,MIA,ACT,active_roster,True,False,True,Defense,True,Base 4-3 D:NB,current_depth_chart_starter_not_historical_starter
+1192,2025,MIA,Dante Trader,SAF,MIA,MIA,ACT,active_roster,True,False,True,Defense,True,Base 4-3 D:SS,current_depth_chart_starter_not_historical_starter
+1199,2025,NYJ,Francisco Mauigoa,LB,NYJ,NYJ,RES,reserve_inactive,True,False,False,,False,,roster_membership_mismatch
+1212,2025,SEA,Robbie Ouzts,TE,SEA,SEA,ACT,active_roster,True,False,True,Offense,True,3WR 1TE:FB,current_depth_chart_starter_not_historical_starter
+1218,2025,PHI,Kyle McCord,QB,PHI,PHI,DEV,practice_squad,True,False,False,,False,,roster_membership_mismatch
+1219,2025,NE,Andres Borregales,K,NE,NE,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+1223,2025,BAL,Tyler Loop,K,BAL,BAL,ACT,active_roster,True,False,True,Special Teams,True,Special Teams:PK,current_depth_chart_starter_not_historical_starter
+1240,2025,BAL,LaJohntay Wester,WR,BAL,BAL,ACT,active_roster,True,False,True,Offense,True,Special Teams:PR,current_depth_chart_starter_not_historical_starter
+1251,2025,LAC,R.J. Mickens,SAF,LAC,LAC,ACT,active_roster,True,False,False,,False,,roster_membership_mismatch
+1253,2025,DEN,Jeremy Crawshaw,P,DEN,DEN,ACT,active_roster,True,False,True,Special Teams,True,Special Teams:P | Special Teams:H,current_depth_chart_starter_not_historical_starter
+1288,2025,NE,Julian Ashby,LS,NE,NE,ACT,active_roster,True,False,True,Special Teams,True,Special Teams:LS,current_depth_chart_starter_not_historical_starter
