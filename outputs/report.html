@@ -162,6 +162,52 @@
       border-bottom: 1px solid var(--border-2);
       white-space: nowrap;
     }
+    .data-table th[data-tooltip] {
+      position: relative;
+      text-decoration: underline dotted var(--border-2);
+      text-underline-offset: 3px;
+    }
+    .data-table th[data-tooltip]:hover::before,
+    .data-table th[data-tooltip]:focus-visible::before {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 10px);
+      transform: translateX(-50%);
+      z-index: 20;
+      width: max-content;
+      max-width: 260px;
+      padding: 9px 11px;
+      border: 1px solid var(--border-2);
+      border-radius: 8px;
+      background: var(--surface);
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.16);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.35;
+      text-align: left;
+      text-transform: none;
+      white-space: normal;
+      pointer-events: none;
+    }
+    .data-table th[data-tooltip]:hover::after,
+    .data-table th[data-tooltip]:focus-visible::after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      bottom: calc(100% + 5px);
+      transform: translateX(-50%) rotate(45deg);
+      z-index: 19;
+      width: 10px;
+      height: 10px;
+      border-right: 1px solid var(--border-2);
+      border-bottom: 1px solid var(--border-2);
+      background: var(--surface);
+      pointer-events: none;
+    }
     .data-table th.sortable { cursor: pointer; user-select: none; }
     .data-table th.sortable:hover { color: var(--text); }
     .data-table th.sort-asc::after  { content: ' \2191'; color: var(--accent); }
@@ -453,18 +499,18 @@
         <table class="data-table" id="rankings-table">
           <thead>
             <tr>
-              <th class="sortable" data-col="rank" style="text-align:right">#</th>
-              <th>Team</th>
-              <th class="sortable" data-col="dei" style="text-align:right">DEI</th>
-              <th class="sortable" data-col="badj" style="text-align:right">Bust Adj. DEI</th>
-              <th class="sortable" data-col="prem" style="text-align:right">Premium DEI</th>
-              <th class="sortable" data-col="bust" style="text-align:right">Premium Bust %</th>
-              <th class="sortable" data-col="score" style="text-align:right">Score</th>
-              <th class="sortable" data-col="ret" style="text-align:right">Retention</th>
-              <th class="sortable" data-col="str" style="text-align:right">Usage</th>
-              <th class="sortable" data-col="star" style="text-align:right">Star</th>
-              <th class="sortable" data-col="picks" style="text-align:right">Picks</th>
-              <th class="sortable" data-col="starters" style="text-align:right">Historical Starters</th>
+              <th class="sortable" data-col="rank" data-tooltip="Current row number for the active sort. This updates when you sort another column." style="text-align:right">#</th>
+              <th data-tooltip="NFL team abbreviation. Click a team code in the table to open that team's player detail.">Team</th>
+              <th class="sortable" data-col="dei" data-tooltip="Draft Efficiency Index. The main ranking metric: total draft value divided by draft-pick cost, scaled so about 100 is league average." style="text-align:right">DEI</th>
+              <th class="sortable" data-col="badj" data-tooltip="Bust-adjusted DEI. DEI after applying extra penalties for early-round busts and, when enabled, missing premium picks." style="text-align:right">Bust Adj. DEI</th>
+              <th class="sortable" data-col="prem" data-tooltip="Premium DEI. Efficiency using only rounds 1-3, where picks are most expensive and expectations are highest." style="text-align:right">Premium DEI</th>
+              <th class="sortable" data-col="bust" data-tooltip="Share of eligible round 1-3 picks classified as busts. Lower is better." style="text-align:right">Premium Bust %</th>
+              <th class="sortable" data-col="score" data-tooltip="Raw production score before dividing by draft cost. This includes roster status, usage, honors, and other player value signals." style="text-align:right">Score</th>
+              <th class="sortable" data-col="ret" data-tooltip="Retention component. Rewards drafted players who remain with the team, with higher credit for active contributors and starters." style="text-align:right">Retention</th>
+              <th class="sortable" data-col="str" data-tooltip="Usage component. Rewards playing-time value such as starter status and snap-share contribution." style="text-align:right">Usage</th>
+              <th class="sortable" data-col="star" data-tooltip="Star component. Rewards high-end outcomes such as All-Pro selections and major award-level finishes." style="text-align:right">Star</th>
+              <th class="sortable" data-col="picks" data-tooltip="Number of draft picks included for this team in the selected draft window." style="text-align:right">Picks</th>
+              <th class="sortable" data-col="starters" data-tooltip="Number of drafted players who became starters for this team or elsewhere." style="text-align:right">Historical Starters</th>
             </tr>
           </thead>
           <tbody id="rankings-tbody"></tbody>
@@ -646,7 +692,7 @@
         </ul>
           </div>
         </div>
-        <p class="footer-line">Generated 2026-05-01T16:28:39.106918+00:00 &nbsp;&middot;&nbsp; Roster snapshot 2025-W18 &nbsp;&middot;&nbsp; Snap counts through 2025</p>
+        <p class="footer-line">Generated 2026-05-01T16:33:04.371592+00:00 &nbsp;&middot;&nbsp; Roster snapshot 2025-W18 &nbsp;&middot;&nbsp; Snap counts through 2025</p>
       </div>
     </div>
   </section>
