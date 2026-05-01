@@ -120,8 +120,13 @@ def write_outputs(
         "snap_share_points",
         "star_points_raw",
         "star_points",
+        "early_round_bust",
+        "bust_penalty_points_raw",
+        "bust_penalty_points",
         "raw_player_score",
         "normalized_player_score",
+        "bust_adjusted_raw_player_score",
+        "bust_adjusted_normalized_player_score",
         "pick_cost",
     ]
     player_export = player_scores[player_export_columns].copy()
@@ -158,12 +163,14 @@ def build_metadata(
     latest_snap_count_season: int,
     config: dict[str, Any],
     data_sources: list[str],
+    penalize_missing_premium_picks: bool = False,
 ) -> dict[str, Any]:
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "draft_years": draft_years,
         "latest_roster_snapshot": latest_roster_snapshot,
         "latest_snap_count_season": latest_snap_count_season,
+        "penalize_missing_premium_picks": penalize_missing_premium_picks,
         "scoring_config": config,
         "data_sources": data_sources,
     }

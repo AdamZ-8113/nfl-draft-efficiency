@@ -93,7 +93,7 @@ This adjustment is intentionally modest. The goal is to add context without lett
 
 ## How younger players are treated fairly
 
-A player drafted in 2025 has had much less time to build a résumé than a player drafted in 2021.
+A player drafted in 2025 has had much less time to build a resume than a player drafted in 2018.
 
 So the model softens that difference by normalizing scores for opportunity window.
 
@@ -111,6 +111,22 @@ This matters because:
 - a team that finds strong players with cheaper picks should get credit for that
 
 So the score is really about **value per unit of draft capital**, not just total value.
+
+## How early-round busts are handled
+
+The report also includes a stricter bust-adjusted score.
+
+This adds explicit penalties for rounds 1-3 when a player has had enough time to develop but still has not become a meaningful contributor.
+
+By default:
+
+- Round 1 bust: `-4` raw points
+- Round 2 bust: `-2.5` raw points
+- Round 3 bust: `-1.5` raw points
+
+A player avoids the bust label if he becomes a starter, earns meaningful playing time above the configured snap-share threshold, or earns high-end honors.
+
+There is also an optional setting to penalize teams for missing premium picks entirely. If enabled, a team with no first-round pick in a draft year receives the configured missing-pick penalty for Round 1. This option is off by default because missing picks can happen for different reasons, including trades.
 
 ## What the final team score means
 

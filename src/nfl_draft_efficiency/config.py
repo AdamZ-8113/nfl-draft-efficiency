@@ -49,6 +49,16 @@ def load_runtime_config(config_path: str | None = None) -> dict[str, Any]:
         config = deep_merge(config, load_yaml_file(override_path))
     if "round_pick_cost" in config:
         config["round_pick_cost"] = {int(key): value for key, value in config["round_pick_cost"].items()}
+    bust_adjustment = config.get("early_round_bust_adjustment")
+    if isinstance(bust_adjustment, dict):
+        if "penalty_by_round" in bust_adjustment:
+            bust_adjustment["penalty_by_round"] = {
+                int(key): value for key, value in bust_adjustment["penalty_by_round"].items()
+            }
+        if "missing_pick_penalty_by_round" in bust_adjustment:
+            bust_adjustment["missing_pick_penalty_by_round"] = {
+                int(key): value for key, value in bust_adjustment["missing_pick_penalty_by_round"].items()
+            }
     return config
 
 

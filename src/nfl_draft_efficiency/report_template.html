@@ -274,7 +274,7 @@
 
     .team-score-strip {
       display: grid;
-      grid-template-columns: repeat(6, 1fr);
+      grid-template-columns: repeat(9, 1fr);
       gap: 1px;
       background: var(--border);
       border: 1px solid var(--border);
@@ -456,6 +456,9 @@
               <th class="sortable" data-col="rank" style="text-align:right">#</th>
               <th>Team</th>
               <th class="sortable" data-col="dei" style="text-align:right">DEI</th>
+              <th class="sortable" data-col="badj" style="text-align:right">Bust Adj. DEI</th>
+              <th class="sortable" data-col="prem" style="text-align:right">Premium DEI</th>
+              <th class="sortable" data-col="bust" style="text-align:right">Premium Bust %</th>
               <th class="sortable" data-col="score" style="text-align:right">Score</th>
               <th class="sortable" data-col="ret" style="text-align:right">Retention</th>
               <th class="sortable" data-col="str" style="text-align:right">Usage</th>
@@ -672,6 +675,9 @@ function renderRankings() {
       <td class="rank-num">${r.rank}</td>
       <td>${teamTag(r.team)}</td>
       <td class="num">${r.dei.toFixed(2)}</td>
+      <td class="num">${r.badj.toFixed(2)}</td>
+      <td class="num">${r.prem.toFixed(2)}</td>
+      <td class="num">${(r.bust * 100).toFixed(1)}%</td>
       <td class="num">${r.score.toFixed(2)}</td>
       <td class="num">${r.ret.toFixed(2)}</td>
       <td class="num">${r.str.toFixed(2)}</td>
@@ -762,6 +768,9 @@ function renderTeamDetail(abbr) {
     html += `<div class="team-score-strip">
       <div class="score-cell"><div class="score-v" style="color:${col}">${ts.rank}</div><div class="score-lbl">Rank</div></div>
       <div class="score-cell"><div class="score-v">${ts.dei.toFixed(2)}</div><div class="score-lbl">DEI</div></div>
+      <div class="score-cell"><div class="score-v">${ts.badj.toFixed(2)}</div><div class="score-lbl">Bust Adj. DEI</div></div>
+      <div class="score-cell"><div class="score-v">${ts.prem.toFixed(2)}</div><div class="score-lbl">Premium DEI</div></div>
+      <div class="score-cell"><div class="score-v">${(ts.bust * 100).toFixed(1)}%</div><div class="score-lbl">Premium Bust</div></div>
       <div class="score-cell"><div class="score-v">${ts.score.toFixed(2)}</div><div class="score-lbl">Team Score</div></div>
       <div class="score-cell"><div class="score-v">${ts.ret.toFixed(2)}</div><div class="score-lbl">Retention</div></div>
       <div class="score-cell"><div class="score-v">${ts.str.toFixed(2)}</div><div class="score-lbl">Usage</div></div>
@@ -785,6 +794,7 @@ function renderTeamDetail(abbr) {
           <th>Player</th>
           <th>Pos</th>
           <th style="text-align:right">Score</th>
+          <th style="text-align:center">Bust</th>
           <th style="text-align:right">Peak Snap %</th>
           <th style="text-align:right">Snap Seasons</th>
           <th style="text-align:center">All-Pro</th>
@@ -799,7 +809,8 @@ function renderTeamDetail(abbr) {
             <td class="num" style="color:var(--faint)">${p.p}</td>
             <td>${p.n}</td>
             <td><span style="font-size:10px;font-family:var(--mono);color:var(--muted)">${p.pos}</span></td>
-            <td class="num">${p.sc.toFixed(2)}<span style="display:inline-block;height:3px;width:${bw}px;background:${col};opacity:0.55;vertical-align:middle;margin-left:5px"></span></td>
+            <td class="num">${p.bas.toFixed(2)}<span style="display:inline-block;height:3px;width:${bw}px;background:${col};opacity:0.55;vertical-align:middle;margin-left:5px"></span></td>
+            <td style="text-align:center">${p.bst ? '<span class="status s-inactive"><span class="status-dot"></span>Bust</span>' : '<span class="ap-empty">&#x2014;</span>'}</td>
             <td class="num">${peakSnapPct}%</td>
             <td class="num">${snapSeasons}</td>
             <td style="text-align:center">${apDisplay(p.ap)}</td>

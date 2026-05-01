@@ -30,14 +30,25 @@ def build_parser() -> argparse.ArgumentParser:
     subparsers = parser.add_subparsers(dest="command", required=True)
 
     run_parser = subparsers.add_parser("run", help="Run the draft efficiency pipeline")
-    run_parser.add_argument("--draft-window-years", type=int, default=None)
-    run_parser.add_argument("--min-draft-year", type=int, default=None)
-    run_parser.add_argument("--max-draft-year", type=int, default=None)
+    run_parser.add_argument(
+        "--draft-window-years",
+        type=int,
+        default=None,
+        help="Number of draft years to include, ending at --max-draft-year or the config default max year.",
+    )
+    run_parser.add_argument("--min-draft-year", type=int, default=None, help="First draft year to include.")
+    run_parser.add_argument("--max-draft-year", type=int, default=None, help="Last draft year to include.")
     run_parser.add_argument("--config", type=str, default=None)
     run_parser.add_argument("--output-dir", type=str, default="outputs")
     run_parser.add_argument("--skip-scraping", action="store_true", default=False)
     run_parser.add_argument("--force-refresh-cache", action="store_true", default=False)
     run_parser.add_argument("--validate-external-references", action="store_true", default=False)
+    run_parser.add_argument(
+        "--penalize-missing-premium-picks",
+        action="store_true",
+        default=False,
+        help="Apply configured round 1-3 penalties when a team has no pick in those rounds for a draft year.",
+    )
     return parser
 
 
@@ -86,7 +97,12 @@ def run_pipeline(args: argparse.Namespace) -> dict[str, Path]:
         latest_completed_season=latest_completed_season,
         config=config,
     )
-    team_scores = aggregate_team_scores(player_scores, draft_years)
+    team_scores = aggregate_team_scores(
+        player_scores,
+        draft_years,
+        config=config,
+        penalize_missing_premium_picks=args.penalize_missing_premium_picks,
+    )
     unmatched_players = build_unmatched_players(draft_picks, roster_matches, starter_flags)
 
     metadata = build_metadata(
@@ -101,6 +117,7 @@ def run_pipeline(args: argparse.Namespace) -> dict[str, Path]:
             "nflverse games.csv regular-season records",
             "draft_picks.allpro",
         ],
+        penalize_missing_premium_picks=args.penalize_missing_premium_picks,
     )
 
     outputs = write_outputs(

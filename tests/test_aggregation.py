@@ -59,6 +59,59 @@ class AggregationTests(unittest.TestCase):
         self.assertEqual(int(aaa["rank"]), 1)
         self.assertEqual(int(bbb["rank"]), 2)
 
+    def test_missing_premium_pick_penalty_is_optional(self) -> None:
+        player_scores = pd.DataFrame(
+            [
+                {
+                    "draft_player_id": 1,
+                    "draft_team": "AAA",
+                    "draft_year": 2025,
+                    "round": 2,
+                    "pick_cost": 6.0,
+                    "still_on_drafting_team": False,
+                    "starter_with_drafting_team": False,
+                    "starter_with_any_team": False,
+                    "first_team_all_pro_count": 0,
+                    "second_team_all_pro_count": 0,
+                    "top5_award_finish_count": 0,
+                    "retention_points": 0.0,
+                    "starter_points": 0.0,
+                    "snap_share_points": 0.0,
+                    "star_points": 0.0,
+                    "early_round_bust": True,
+                    "bust_penalty_points": -2.5,
+                    "normalized_player_score": 0.0,
+                    "bust_adjusted_normalized_player_score": -2.5,
+                }
+            ]
+        )
+        config = {
+            "round_pick_cost": {1: 8.0, 2: 6.0, 3: 4.0},
+            "opportunity_normalization": {"method": "sqrt", "max_seasons": 8},
+            "early_round_bust_adjustment": {
+                "rounds": [1, 2, 3],
+                "missing_pick_penalty_by_round": {1: -4.0, 2: -2.5, 3: -1.5},
+            },
+        }
+
+        without_missing = aggregate_team_scores(
+            player_scores,
+            [2025],
+            config=config,
+            penalize_missing_premium_picks=False,
+        ).iloc[0]
+        with_missing = aggregate_team_scores(
+            player_scores,
+            [2025],
+            config=config,
+            penalize_missing_premium_picks=True,
+        ).iloc[0]
+
+        self.assertEqual(int(without_missing["missing_premium_pick_count"]), 0)
+        self.assertEqual(int(with_missing["missing_premium_pick_count"]), 2)
+        self.assertTrue(math.isclose(with_missing["missing_pick_penalty_points"], -5.5))
+        self.assertLess(with_missing["bust_adjusted_team_score"], without_missing["bust_adjusted_team_score"])
+
 
 if __name__ == "__main__":
     unittest.main()

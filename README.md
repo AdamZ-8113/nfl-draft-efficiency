@@ -1,6 +1,6 @@
 # NFL Draft Efficiency
 
-Python pipeline for ranking NFL teams by draft efficiency across the fixed 2021-2025 draft window.
+Python pipeline for ranking NFL teams by draft efficiency across a configurable draft window.
 
 Live report:
 
@@ -25,6 +25,20 @@ Plain-English scoring explainer:
 python -m pip install -e .
 python -m nfl_draft_efficiency.cli run
 python -m unittest discover -s tests
+```
+
+By default the model includes the eight most recent configured draft classes, currently `2018-2025`.
+To change the window for a run:
+
+```bash
+python -m nfl_draft_efficiency.cli run --draft-window-years 5
+python -m nfl_draft_efficiency.cli run --min-draft-year 2021 --max-draft-year 2025
+```
+
+To include penalties for missing round 1-3 picks in the bust-adjusted score:
+
+```bash
+python -m nfl_draft_efficiency.cli run --penalize-missing-premium-picks
 ```
 
 Regenerate the local report and GitHub Pages entry point from existing output CSVs:
@@ -53,7 +67,9 @@ python -m nfl_draft_efficiency.cli run --force-refresh-cache --validate-external
 
 ## Defaults
 
-- Draft window: `2021-2025`
+- Draft window: `2018-2025`
 - Core score: `draft_efficiency_index`
 - Honors in v1: `draft_picks.allpro` only
 - Starter model: position-aware snap-count thresholds
+- Bust-adjusted score: configurable round 1-3 bust penalties
+- Missing premium pick penalties: off by default, enabled with `--penalize-missing-premium-picks`

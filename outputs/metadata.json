@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T07:51:10.724080+00:00",
+  "generated_at": "2026-05-01T16:19:45.356256+00:00",
   "draft_years": [
     2021,
     2022,
@@ -9,10 +9,11 @@
   ],
   "latest_roster_snapshot": "2025-W18",
   "latest_snap_count_season": 2025,
+  "penalize_missing_premium_picks": true,
   "scoring_config": {
-    "default_min_draft_year": 2021,
+    "default_min_draft_year": 2018,
     "default_max_draft_year": 2025,
-    "default_draft_window_years": 5,
+    "default_draft_window_years": 8,
     "round_pick_cost": {
       "1": 8.0,
       "2": 6.0,
@@ -37,7 +38,7 @@
     },
     "opportunity_normalization": {
       "method": "sqrt",
-      "max_seasons": 5
+      "max_seasons": 8
     },
     "composite_weights": {
       "retention": 0.2,
@@ -52,6 +53,28 @@
       "win_pct_multiplier_weight": 0.15,
       "min_multiplier": 0.9,
       "max_multiplier": 1.1
+    },
+    "early_round_bust_adjustment": {
+      "enabled": true,
+      "rounds": [
+        1,
+        2,
+        3
+      ],
+      "penalty_by_round": {
+        "1": -5.0,
+        "2": -2.5,
+        "3": -1.5
+      },
+      "missing_pick_penalty_by_round": {
+        "1": -4.0,
+        "2": -2.5,
+        "3": -1.5
+      },
+      "min_eligible_seasons": 2,
+      "max_peak_snap_share_any_team": 0.35,
+      "count_starter_elsewhere_as_non_bust": true,
+      "count_honors_as_non_bust": true
     },
     "position_groups": {
       "QB": [

@@ -21,6 +21,37 @@ def _normalization_divisor(eligible_seasons: int, method: str) -> float:
     raise ValueError(f"Unsupported normalization method: {method}")
 
 
+def _build_bust_mask(frame: pd.DataFrame, config: dict[str, Any]) -> pd.Series:
+    bust_config = config.get("early_round_bust_adjustment", {})
+    if not bust_config.get("enabled", False):
+        return pd.Series(False, index=frame.index)
+
+    rounds = {int(round_value) for round_value in bust_config.get("rounds", [])}
+    min_eligible_seasons = int(bust_config.get("min_eligible_seasons", 2))
+    max_peak_snap_share = float(bust_config.get("max_peak_snap_share_any_team", 0.35))
+    count_starter_elsewhere_as_non_bust = bool(bust_config.get("count_starter_elsewhere_as_non_bust", True))
+    count_honors_as_non_bust = bool(bust_config.get("count_honors_as_non_bust", True))
+
+    starter_column = "starter_with_any_team" if count_starter_elsewhere_as_non_bust else "starter_with_drafting_team"
+    peak_snap_share = frame[["peak_season_snap_share_with_drafting_team", "peak_season_snap_share_any_team"]].max(axis=1)
+    has_honors = (
+        frame["first_team_all_pro_count"]
+        + frame["second_team_all_pro_count"]
+        + frame["top5_award_finish_count"]
+        + frame["top5_mvp_finish_count"]
+    ) > 0
+
+    mask = (
+        frame["round"].astype(int).isin(rounds)
+        & (frame["eligible_seasons"] >= min_eligible_seasons)
+        & ~frame[starter_column]
+        & (peak_snap_share.fillna(0.0) <= max_peak_snap_share)
+    )
+    if count_honors_as_non_bust:
+        mask &= ~has_honors
+    return mask
+
+
 def build_player_scores(
     draft_picks: pd.DataFrame,
     roster_matches: pd.DataFrame,
@@ -146,12 +177,25 @@ def build_player_scores(
         + frame["snap_share_points_raw"]
         + frame["star_points_raw"]
     )
+    bust_config = config.get("early_round_bust_adjustment", {})
+    penalty_by_round = bust_config.get("penalty_by_round", {})
+    frame["early_round_bust"] = _build_bust_mask(frame, config)
+    frame["bust_penalty_points_raw"] = 0.0
+    if penalty_by_round:
+        frame.loc[frame["early_round_bust"], "bust_penalty_points_raw"] = frame.loc[
+            frame["early_round_bust"], "round"
+        ].map(lambda value: float(penalty_by_round.get(int(value), 0.0)))
+    frame["bust_adjusted_raw_player_score"] = frame["raw_player_score"] + frame["bust_penalty_points_raw"]
 
     frame["retention_points"] = frame["retention_points_raw"] / frame["opportunity_divisor"]
     frame["starter_points"] = frame["starter_points_raw"] / frame["opportunity_divisor"]
     frame["snap_share_points"] = frame["snap_share_points_raw"] / frame["opportunity_divisor"]
     frame["star_points"] = frame["star_points_raw"] / frame["opportunity_divisor"]
+    frame["bust_penalty_points"] = frame["bust_penalty_points_raw"] / frame["opportunity_divisor"]
     frame["normalized_player_score"] = frame["raw_player_score"] / frame["opportunity_divisor"]
+    frame["bust_adjusted_normalized_player_score"] = (
+        frame["bust_adjusted_raw_player_score"] / frame["opportunity_divisor"]
+    )
     frame["pick_cost"] = frame["round"].map(lambda value: get_pick_cost(int(value), config))
 
     frame["latest_team"] = frame["latest_team"].where(frame["latest_team"].notna(), None)
@@ -207,8 +251,13 @@ def build_player_scores(
             "snap_share_points",
             "star_points_raw",
             "star_points",
+            "early_round_bust",
+            "bust_penalty_points_raw",
+            "bust_penalty_points",
             "raw_player_score",
             "normalized_player_score",
+            "bust_adjusted_raw_player_score",
+            "bust_adjusted_normalized_player_score",
             "pick_cost",
         ]
     ]

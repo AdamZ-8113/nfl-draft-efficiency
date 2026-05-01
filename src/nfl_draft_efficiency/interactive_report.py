@@ -49,7 +49,7 @@ TEAM_INFO = OrderedDict(
 
 
 def _replace_one(pattern: str, replacement: str, text: str) -> str:
-    updated, count = re.subn(pattern, replacement, text, count=1, flags=re.S)
+    updated, count = re.subn(pattern, lambda _match: replacement, text, count=1, flags=re.S)
     if count != 1:
         raise ValueError(f"Expected exactly one replacement for pattern: {pattern}")
     return updated
@@ -63,6 +63,10 @@ def _fmt_points(value: Any) -> str:
 
 def _fmt_value(value: Any) -> str:
     return f"{float(value):g}"
+
+
+def _mapping_get(mapping: dict[Any, Any], key: int, default: Any = 0) -> Any:
+    return mapping.get(key, mapping.get(str(key), default))
 
 
 def _table_rows(rows: list[tuple[str, str]]) -> str:
@@ -79,9 +83,12 @@ def _build_scoring_details(config: dict[str, Any]) -> str:
     team_record = config.get("team_record_adjustment", {})
     opportunity = config.get("opportunity_normalization", {})
     composite = config.get("composite_weights", {})
+    bust_adjustment = config.get("early_round_bust_adjustment", {})
+    bust_penalty_by_round = bust_adjustment.get("penalty_by_round", {})
+    missing_penalty_by_round = bust_adjustment.get("missing_pick_penalty_by_round", {})
 
     round_rows = [
-        (f"Round {round_number}", _fmt_points(round_pick_cost.get(str(round_number), 0)))
+        (f"Round {round_number}", _fmt_points(_mapping_get(round_pick_cost, round_number, 0)))
         for round_number in range(1, 8)
     ]
     point_rows = [
@@ -114,6 +121,15 @@ def _build_scoring_details(config: dict[str, Any]) -> str:
         ("Composite retention weight", _fmt_value(composite.get("retention", 0))),
         ("Composite starter weight", _fmt_value(composite.get("starter", 0))),
         ("Composite star weight", _fmt_value(composite.get("star", 0))),
+    ]
+    bust_rows = [
+        ("Bust rounds", ", ".join(f"Round {round_value}" for round_value in bust_adjustment.get("rounds", []))),
+        ("Round 1 bust penalty", _fmt_points(_mapping_get(bust_penalty_by_round, 1, 0))),
+        ("Round 2 bust penalty", _fmt_points(_mapping_get(bust_penalty_by_round, 2, 0))),
+        ("Round 3 bust penalty", _fmt_points(_mapping_get(bust_penalty_by_round, 3, 0))),
+        ("Round 1 missing-pick penalty", _fmt_points(_mapping_get(missing_penalty_by_round, 1, 0))),
+        ("Minimum seasons before bust", _fmt_value(bust_adjustment.get("min_eligible_seasons", 0))),
+        ("Max peak snap share for bust", f"{float(bust_adjustment.get('max_peak_snap_share_any_team', 0)) * 100:g}%"),
     ]
 
     return f"""<div class="scoring-detail-grid">
@@ -153,7 +169,23 @@ def _build_scoring_details(config: dict[str, Any]) -> str:
                   </tbody>
                 </table>
               </div>
+              <div class="scoring-detail-card">
+                <h3>Bust Adjustment</h3>
+                <p>Rounds 1-3 can receive explicit negative value when a pick has enough time to develop but never becomes a meaningful contributor.</p>
+                <table>
+                  <tbody>
+{_table_rows(bust_rows)}
+                  </tbody>
+                </table>
+              </div>
             </div>"""
+
+
+def _draft_year_label(metadata: dict[str, Any]) -> str:
+    years = [int(year) for year in metadata.get("draft_years", [])]
+    if not years:
+        return "Draft Window"
+    return f"{min(years)}-{max(years)}"
 
 
 def _build_team_scores(team_scores: pd.DataFrame) -> list[dict[str, object]]:
@@ -169,6 +201,10 @@ def _build_team_scores(team_scores: pd.DataFrame) -> list[dict[str, object]]:
                 "ret": round(float(row.retention_score), 6),
                 "str": round(float(row.starter_score) + float(getattr(row, "snap_share_score", 0.0)), 6),
                 "star": round(float(row.star_score), 6),
+                "prem": round(float(getattr(row, "premium_pick_dei", 0.0)), 2),
+                "bust": round(float(getattr(row, "premium_bust_rate", 0.0) or 0.0), 4),
+                "badj": round(float(getattr(row, "bust_adjusted_dei", 0.0)), 2),
+                "miss": int(getattr(row, "missing_premium_pick_count", 0)),
                 "picks": int(row.total_picks),
                 "starters": int(row.starter_with_drafting_team_count),
             }
@@ -216,7 +252,9 @@ def _build_all_players(player_scores: pd.DataFrame) -> list[dict[str, object]]:
                 "st": bool(row.starter_with_drafting_team),
                 "sa": bool(row.starter_with_any_team),
                 "ap": int(row.first_team_all_pro_count),
+                "bst": bool(getattr(row, "early_round_bust", False)),
                 "sc": round(float(row.raw_player_score), 4),
+                "bas": round(float(getattr(row, "bust_adjusted_raw_player_score", row.raw_player_score)), 4),
                 "ssd": round(float(getattr(row, "snap_share_with_drafting_team", 0.0)), 4),
                 "sse": round(float(getattr(row, "snap_share_elsewhere", 0.0)), 4),
                 "psd": round(float(getattr(row, "peak_season_snap_share_with_drafting_team", 0.0)), 4),
@@ -239,10 +277,18 @@ def render_interactive_report(
     top_players_js = json.dumps(_build_top_players(player_scores), separators=(",", ":"))
     all_players_js = json.dumps(_build_all_players(player_scores), separators=(",", ":"))
     team_info_js = json.dumps(TEAM_INFO, separators=(",", ":"))
+    draft_year_label = _draft_year_label(metadata)
+    missing_penalty_label = "enabled" if metadata.get("penalize_missing_premium_picks", False) else "disabled"
 
     html = template
+    html = _replace_one(
+        r"<title>NFL Draft Efficiency .*?</title>",
+        f"<title>NFL Draft Efficiency &mdash; {draft_year_label}</title>",
+        html,
+    )
     html = html.replace(">Starter</th>", ">Usage</th>")
     html = html.replace('<div class="score-lbl">Starter</div>', '<div class="score-lbl">Usage</div>')
+    html = html.replace("2021&ndash;2025", draft_year_label.replace("-", "&ndash;"))
     html = html.replace("Active Starters</th>", "Historical Starters</th>")
     html = html.replace(
         "Active Starters = players who are starters with the drafting team as of roster snapshot 2025-W18.",
@@ -259,8 +305,8 @@ def render_interactive_report(
     )
     html = _replace_one(
         r'<ul class="notes-list">.*?</ul>',
-        """<ul class="notes-list">
-          <li>Draft window fixed to 2021&ndash;2025 in v1.</li>
+        f"""<ul class="notes-list">
+          <li>Draft window set to {draft_year_label.replace("-", "&ndash;")} for this run.</li>
           <li>Rank is based solely on Draft Efficiency Index (DEI), not the component-score blend.</li>
           <li>v1 uses draft_picks.allpro as first-team All-Pro count. Second-team and award-vote scraping deferred.</li>
           <li>Retention uses canonical team codes plus roster status; released or retired players are not counted as retained.</li>
@@ -268,6 +314,7 @@ def render_interactive_report(
           <li>Regular-season snap share is measured against full team-season snap totals, not only games played.</li>
           <li>A small team-record context multiplier adjusts snap-share value so equivalent usage on stronger teams is worth slightly more.</li>
           <li>Historical Starters are still threshold-based snap-count outcomes since the draft, not current projected depth-chart starters.</li>
+          <li>Missing premium pick penalties are {missing_penalty_label} for this run.</li>
         </ul>""",
         html,
     )

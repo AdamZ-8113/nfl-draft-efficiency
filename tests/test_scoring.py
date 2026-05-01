@@ -29,6 +29,15 @@ def _test_config() -> dict:
             "with_drafting_team_per_full_season": 1.0,
             "with_any_team_per_full_season": 0.5,
         },
+        "early_round_bust_adjustment": {
+            "enabled": True,
+            "rounds": [1, 2, 3],
+            "penalty_by_round": {1: -4.0, 2: -2.5, 3: -1.5},
+            "min_eligible_seasons": 2,
+            "max_peak_snap_share_any_team": 0.35,
+            "count_starter_elsewhere_as_non_bust": True,
+            "count_honors_as_non_bust": True,
+        },
     }
 
 
@@ -166,6 +175,77 @@ class ScoringTests(unittest.TestCase):
 
         self.assertTrue(math.isclose(alpha["normalized_player_score"], 15.5 / math.sqrt(5)))
         self.assertTrue(math.isclose(beta["normalized_player_score"], 3.75 / math.sqrt(4)))
+
+    def test_early_round_bust_penalty_applies_to_low_usage_miss(self) -> None:
+        config = _test_config()
+        draft_picks = pd.DataFrame(
+            [
+                {
+                    "draft_player_id": 1,
+                    "draft_year": 2022,
+                    "draft_team": "DET",
+                    "round": 1,
+                    "pick": 1,
+                    "overall": 1,
+                    "player_name": "First Round Miss",
+                    "position": "QB",
+                    "gsis_id": "GSIS1",
+                    "pfr_player_id": "PFR1",
+                }
+            ]
+        )
+        roster_matches = pd.DataFrame(
+            [{"draft_player_id": 1, "latest_team": "DET", "still_on_drafting_team": False}]
+        )
+        starter_flags = pd.DataFrame(
+            [
+                {
+                    "draft_player_id": 1,
+                    "starter_with_drafting_team": False,
+                    "starter_with_any_team": False,
+                    "starter_seasons_with_drafting_team": 0,
+                    "starter_seasons_with_any_team": 0,
+                    "special_teams_contributor": False,
+                    "has_snap_match": True,
+                    "snap_match_method": "pfr_player_id",
+                    "total_relevant_snaps_with_drafting_team": 100.0,
+                    "total_relevant_snaps_any_team": 100.0,
+                    "snap_share_with_drafting_team": 0.1,
+                    "snap_share_elsewhere": 0.0,
+                    "peak_season_snap_share_with_drafting_team": 0.2,
+                    "peak_season_snap_share_any_team": 0.2,
+                    "record_adjusted_snap_share_with_drafting_team": 0.1,
+                    "record_adjusted_snap_share_elsewhere": 0.0,
+                    "weighted_win_pct_with_drafting_team": 0.5,
+                }
+            ]
+        )
+        honors = pd.DataFrame(
+            [{"draft_player_id": 1, "first_team_all_pro_count": 0, "second_team_all_pro_count": 0}]
+        )
+        awards = pd.DataFrame(
+            [{"draft_player_id": 1, "top5_award_finish_count": 0, "top5_mvp_finish_count": 0}]
+        )
+
+        scores = build_player_scores(
+            draft_picks=draft_picks,
+            roster_matches=roster_matches,
+            starter_flags=starter_flags,
+            honors=honors,
+            awards=awards,
+            latest_completed_season=2025,
+            config=config,
+        )
+        player = scores.iloc[0]
+
+        self.assertTrue(bool(player["early_round_bust"]))
+        self.assertEqual(player["bust_penalty_points_raw"], -4.0)
+        self.assertTrue(
+            math.isclose(
+                player["bust_adjusted_normalized_player_score"],
+                (0.1 - 4.0) / math.sqrt(4),
+            )
+        )
 
 
 if __name__ == "__main__":
