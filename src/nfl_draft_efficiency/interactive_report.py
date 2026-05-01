@@ -164,7 +164,7 @@ def render_interactive_report(
     html = template
     html = html.replace(">Starter</th>", ">Usage</th>")
     html = html.replace('<div class="score-lbl">Starter</div>', '<div class="score-lbl">Usage</div>')
-    html = _replace_one(r'<div class="stat-grid">.*?</div>\s*</div>\s*<div class="two-col">', f"{stat_grid_html}\n\n    <div class=\"two-col\">", html)
+    html = _replace_one(r'<div class="stat-grid">.*?</div>\s*</div>', stat_grid_html, html)
     html = html.replace("Active Starters</th>", "Historical Starters</th>")
     html = html.replace(
         "Active Starters = players who are starters with the drafting team as of roster snapshot 2025-W18.",

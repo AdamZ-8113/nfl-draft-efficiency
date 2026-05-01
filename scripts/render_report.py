@@ -2,15 +2,18 @@ from __future__ import annotations
 
 import json
 import shutil
+import sys
 from pathlib import Path
 
 import pandas as pd
 
-from nfl_draft_efficiency.interactive_report import render_interactive_report
-
 
 def main() -> None:
     project_root = Path(__file__).resolve().parents[1]
+    sys.path.insert(0, str(project_root / "src"))
+
+    from nfl_draft_efficiency.interactive_report import render_interactive_report
+
     output_dir = project_root / "outputs"
     output_path = output_dir / "report.html"
     pages_path = project_root / "docs" / "index.html"
