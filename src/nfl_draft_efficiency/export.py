@@ -27,11 +27,14 @@ def write_html_report(
 def write_summary_markdown(output_path: Path, team_scores: pd.DataFrame, metadata: dict[str, Any]) -> None:
     top_team = team_scores.iloc[0]
     bottom_team = team_scores.iloc[-1]
-    top_ten = team_scores.head(10)[["rank", "team", "draft_efficiency_index", "team_score"]]
-    markdown_rows = ["| Rank | Team | Draft Efficiency Index | Team Score |", "| --- | --- | ---: | ---: |"]
+    top_ten = team_scores.head(10)[["rank", "team", "bust_adjusted_dei", "draft_efficiency_index", "team_score"]]
+    markdown_rows = [
+        "| Rank | Team | Overall | DEI (no BP) | Team Score |",
+        "| --- | --- | ---: | ---: | ---: |",
+    ]
     for row in top_ten.itertuples(index=False):
         markdown_rows.append(
-            f"| {int(row.rank)} | {row.team} | {row.draft_efficiency_index:.1f} | {row.team_score:.3f} |"
+            f"| {int(row.rank)} | {row.team} | {row.bust_adjusted_dei:.1f} | {row.draft_efficiency_index:.1f} | {row.team_score:.3f} |"
         )
     summary = f"""# NFL Draft Efficiency Summary
 
@@ -42,9 +45,9 @@ def write_summary_markdown(output_path: Path, team_scores: pd.DataFrame, metadat
 
 ## Headline
 
-`{top_team.team}` finished first with a draft efficiency index of `{top_team.draft_efficiency_index:.1f}`.
+`{top_team.team}` finished first with an Overall score of `{top_team.bust_adjusted_dei:.1f}`.
 
-`{bottom_team.team}` finished last with a draft efficiency index of `{bottom_team.draft_efficiency_index:.1f}`.
+`{bottom_team.team}` finished last with an Overall score of `{bottom_team.bust_adjusted_dei:.1f}`.
 
 ## Top 10 Teams
 
@@ -114,11 +117,13 @@ def write_outputs(
         "retention_points_raw",
         "starter_points_raw",
         "snap_share_points_raw",
+        "starter_longevity_points_raw",
         "all_pro_points_raw",
         "award_points_raw",
         "retention_points",
         "starter_points",
         "snap_share_points",
+        "starter_longevity_points",
         "star_points_raw",
         "star_points",
         "early_round_bust",
@@ -164,7 +169,7 @@ def build_metadata(
     latest_snap_count_season: int,
     config: dict[str, Any],
     data_sources: list[str],
-    penalize_missing_premium_picks: bool = False,
+    penalize_missing_premium_picks: bool = True,
 ) -> dict[str, Any]:
     return {
         "generated_at": datetime.now(timezone.utc).isoformat(),

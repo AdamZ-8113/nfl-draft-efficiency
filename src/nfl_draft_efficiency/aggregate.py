@@ -30,6 +30,8 @@ def _missing_premium_pick_penalties(
 
     bust_config = config.get("early_round_bust_adjustment", {})
     rounds = [int(round_value) for round_value in bust_config.get("rounds", [])]
+    if not rounds or "draft_year" not in player_scores:
+        return base
     penalty_by_round = bust_config.get("missing_pick_penalty_by_round", {})
     round_pick_cost = config.get("round_pick_cost", {})
     normalization = config.get("opportunity_normalization", {})
@@ -78,7 +80,7 @@ def aggregate_team_scores(
     player_scores: pd.DataFrame,
     draft_years: list[int],
     config: dict[str, Any] | None = None,
-    penalize_missing_premium_picks: bool = False,
+    penalize_missing_premium_picks: bool = True,
 ) -> pd.DataFrame:
     config = config or {}
     player_scores = player_scores.copy()
@@ -92,6 +94,10 @@ def aggregate_team_scores(
         player_scores["round"] = 99
     if "top5_mvp_finish_count" not in player_scores:
         player_scores["top5_mvp_finish_count"] = 0
+    if "starter_longevity_points" not in player_scores:
+        player_scores["starter_longevity_points"] = 0.0
+    if "starter_seasons_with_any_team" not in player_scores:
+        player_scores["starter_seasons_with_any_team"] = 0
     grouped = player_scores.groupby("draft_team", dropna=False)
 
     team_scores = grouped.agg(
@@ -100,6 +106,7 @@ def aggregate_team_scores(
         players_still_on_team=("still_on_drafting_team", "sum"),
         starter_with_drafting_team_count=("starter_with_drafting_team", "sum"),
         starter_with_any_team_count=("starter_with_any_team", "sum"),
+        starter_seasons_with_any_team=("starter_seasons_with_any_team", "sum"),
         first_team_all_pro_count=("first_team_all_pro_count", "sum"),
         second_team_all_pro_count=("second_team_all_pro_count", "sum"),
         top5_award_finish_count=("top5_award_finish_count", "sum"),
@@ -107,6 +114,7 @@ def aggregate_team_scores(
         retention_points=("retention_points", "sum"),
         starter_points=("starter_points", "sum"),
         snap_share_points=("snap_share_points", "sum"),
+        starter_longevity_points=("starter_longevity_points", "sum"),
         star_points=("star_points", "sum"),
         bust_penalty_points=("bust_penalty_points", "sum"),
         premium_bust_count=("early_round_bust", "sum"),
@@ -122,6 +130,18 @@ def aggregate_team_scores(
             premium_picks=("draft_player_id", "count"),
             premium_draft_capital=("pick_cost", "sum"),
             premium_raw_score=("normalized_player_score", "sum"),
+            premium_bust_adjusted_raw_score=("bust_adjusted_normalized_player_score", "sum"),
+        )
+        .rename_axis("team")
+        .reset_index()
+    )
+    late_round_counts = (
+        player_scores.loc[player_scores["round"].astype(int).between(4, 7)]
+        .groupby("draft_team", dropna=False)
+        .agg(
+            late_round_picks=("draft_player_id", "count"),
+            late_round_draft_capital=("pick_cost", "sum"),
+            late_round_raw_score=("normalized_player_score", "sum"),
         )
         .rename_axis("team")
         .reset_index()
@@ -131,8 +151,16 @@ def aggregate_team_scores(
         on="team",
         how="left",
     )
-    team_scores[["premium_picks", "premium_draft_capital", "premium_raw_score"]] = team_scores[
-        ["premium_picks", "premium_draft_capital", "premium_raw_score"]
+    team_scores = team_scores.merge(
+        late_round_counts,
+        on="team",
+        how="left",
+    )
+    team_scores[["premium_picks", "premium_draft_capital", "premium_raw_score", "premium_bust_adjusted_raw_score"]] = team_scores[
+        ["premium_picks", "premium_draft_capital", "premium_raw_score", "premium_bust_adjusted_raw_score"]
+    ].fillna(0.0)
+    team_scores[["late_round_picks", "late_round_draft_capital", "late_round_raw_score"]] = team_scores[
+        ["late_round_picks", "late_round_draft_capital", "late_round_raw_score"]
     ].fillna(0.0)
 
     missing_penalties = _missing_premium_pick_penalties(
@@ -147,18 +175,34 @@ def aggregate_team_scores(
     )
     team_scores["draft_year_start"] = min(draft_years)
     team_scores["draft_year_end"] = max(draft_years)
+    team_scores["avg_starter_years_any_team"] = (
+        team_scores["starter_seasons_with_any_team"] / team_scores["total_picks"].where(team_scores["total_picks"] > 0)
+    ).fillna(0.0)
     team_scores["retention_score"] = team_scores["retention_points"] / team_scores["draft_capital"]
     team_scores["starter_score"] = team_scores["starter_points"] / team_scores["draft_capital"]
     team_scores["snap_share_score"] = team_scores["snap_share_points"] / team_scores["draft_capital"]
+    team_scores["starter_longevity_score"] = team_scores["starter_longevity_points"] / team_scores["draft_capital"]
     team_scores["star_score"] = team_scores["star_points"] / team_scores["draft_capital"]
     team_scores["team_score"] = team_scores["raw_score"] / team_scores["draft_capital"]
     team_scores["premium_bust_rate"] = team_scores["premium_bust_count"] / team_scores["premium_picks"].where(
         team_scores["premium_picks"] > 0
     )
-    team_scores["premium_pick_score"] = team_scores["premium_raw_score"] / team_scores["premium_draft_capital"].where(
-        team_scores["premium_draft_capital"] > 0
+    team_scores["premium_bust_adjusted_raw_score"] = (
+        team_scores["premium_bust_adjusted_raw_score"] + team_scores["missing_pick_penalty_points"]
+    )
+    team_scores["premium_bust_adjusted_draft_capital"] = (
+        team_scores["premium_draft_capital"] + team_scores["missing_premium_pick_cost"]
+    )
+    team_scores["premium_pick_score"] = team_scores["premium_bust_adjusted_raw_score"] / team_scores[
+        "premium_bust_adjusted_draft_capital"
+    ].where(
+        team_scores["premium_bust_adjusted_draft_capital"] > 0
     )
     team_scores["premium_pick_score"] = team_scores["premium_pick_score"].fillna(0.0)
+    team_scores["late_round_score"] = team_scores["late_round_raw_score"] / team_scores[
+        "late_round_draft_capital"
+    ].where(team_scores["late_round_draft_capital"] > 0)
+    team_scores["late_round_score"] = team_scores["late_round_score"].fillna(0.0)
     team_scores["bust_adjusted_raw_score"] = (
         team_scores["bust_adjusted_raw_score"] + team_scores["missing_pick_penalty_points"]
     )
@@ -171,10 +215,11 @@ def aggregate_team_scores(
 
     team_scores["draft_efficiency_index"] = _index_from_league_average(team_scores["team_score"])
     team_scores["premium_pick_dei"] = _index_from_league_average(team_scores["premium_pick_score"])
+    team_scores["late_round_dei"] = _index_from_league_average(team_scores["late_round_score"])
     team_scores["bust_adjusted_dei"] = _index_from_league_average(team_scores["bust_adjusted_team_score"])
 
     team_scores = team_scores.sort_values(
-        by=["draft_efficiency_index", "team_score", "team"],
+        by=["bust_adjusted_dei", "bust_adjusted_team_score", "team"],
         ascending=[False, False, True],
     ).reset_index(drop=True)
     team_scores["rank"] = range(1, len(team_scores) + 1)
@@ -189,6 +234,8 @@ def aggregate_team_scores(
             "players_still_on_team",
             "starter_with_drafting_team_count",
             "starter_with_any_team_count",
+            "starter_seasons_with_any_team",
+            "avg_starter_years_any_team",
             "first_team_all_pro_count",
             "second_team_all_pro_count",
             "top5_award_finish_count",
@@ -196,14 +243,22 @@ def aggregate_team_scores(
             "retention_score",
             "starter_score",
             "snap_share_score",
+            "starter_longevity_score",
             "star_score",
             "premium_picks",
             "premium_bust_count",
             "premium_bust_rate",
             "premium_draft_capital",
             "premium_raw_score",
+            "premium_bust_adjusted_raw_score",
+            "premium_bust_adjusted_draft_capital",
             "premium_pick_score",
             "premium_pick_dei",
+            "late_round_picks",
+            "late_round_draft_capital",
+            "late_round_raw_score",
+            "late_round_score",
+            "late_round_dei",
             "bust_penalty_points",
             "missing_premium_pick_count",
             "missing_premium_pick_cost",

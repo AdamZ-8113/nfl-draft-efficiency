@@ -25,6 +25,7 @@ Then the model adjusts for two things:
 
 - newer draft classes have had less time to prove themselves
 - early draft picks are more expensive than late picks
+- premium-pick busts and missing premium picks are penalized in the default ranking
 
 ## How a player earns points
 
@@ -60,7 +61,25 @@ Why this matters:
 - Some players contribute a lot even if they do not cleanly fit a starter label.
 - This makes the model more fair than a pure yes/no starter system.
 
-### 4. Earning high-end honors
+### 4. Staying a starter
+
+- The first starter season is already rewarded by the starter score.
+- Additional starter seasons add a capped longevity bonus.
+- Extra starter seasons with the drafting team are worth more than starter seasons elsewhere.
+
+Current starter-longevity settings:
+
+- Baseline starter seasons before bonus: `1`
+- Maximum extra starter seasons counted: `4`
+- Extra starter season with drafting team: `0.75` raw points
+- Extra starter season elsewhere: `0.25` raw points
+
+Why this matters:
+
+- A rookie starter should get credit, but a three-to-five-year starter has proven more.
+- This helps longer lookback windows distinguish sustained hits from short-term need fillers.
+
+### 5. Earning high-end honors
 
 - First-team All-Pro adds more value.
 - Second-team All-Pro adds some value.
@@ -130,17 +149,38 @@ By default:
 
 A player avoids the bust label if he becomes a starter, earns meaningful playing time above the configured snap-share threshold, or earns high-end honors.
 
-There is also an optional setting to penalize teams for missing premium picks entirely. If enabled, a team with no first-round pick in a draft year receives the configured missing-pick penalty for Round 1. This option is off by default because missing picks can happen for different reasons, including trades.
+The model also penalizes teams for missing premium picks entirely. If a team has no pick in a configured premium round for a draft year, it receives that round's missing-pick penalty. This is on by default because the scorecard is measuring draft results, and trading away premium picks still leaves the team without a drafted player from that slot.
+
+You can disable this behavior for a run with:
+
+```bash
+python -m nfl_draft_efficiency.cli run --no-penalize-missing-premium-picks
+```
 
 Current missing-pick penalties are:
 
 - Missing Round 1 pick: `-3` raw points
 - Missing Round 2 pick: `-1` raw point
-- Missing Round 3 pick: `-1.5` raw points
+- Missing Round 3 pick: `-0.5` raw points
 
-## What the final team score means
+## What the main report columns mean
 
-The final ranking uses a metric called **Draft Efficiency Index (DEI)**.
+The default ranking column is **Overall**.
+
+Overall means:
+
+- player value from all rounds
+- divided by draft capital
+- adjusted for round 1-3 bust penalties
+- adjusted for missing round 1-3 picks
+- scaled so league average is about `100`
+
+The report also shows supporting views:
+
+- **Round 1-3 Only** isolates premium picks and includes the same bust and missing-pick penalties.
+- **Rounds 4-7 Only** isolates late-round draft value.
+- **DEI (no BP)** is the overall Draft Efficiency Index before explicit bust penalties or missing-pick penalties.
+- **Avg Starter Years** is the average number of starter-level seasons per drafted player, counting starter seasons with the drafting team or another NFL team.
 
 Think of it like this:
 
@@ -148,7 +188,7 @@ Think of it like this:
 - above `100` means better than average
 - below `100` means worse than average
 
-Example:
+Example for any index-style column:
 
 - `115` means the team scored about 15% better than league average
 - `90` means the team scored about 10% worse than league average
@@ -188,12 +228,24 @@ That file controls things like:
 - how much snap share matters
 - how much team record matters
 
+## Data sources
+
+The model uses public NFL data sources:
+
+- nflverse draft pick release data
+- nflverse roster snapshot release data
+- nflverse snap count release data
+- nflverse regular-season game data for team records
+- `draft_picks.allpro` for All-Pro counts
+- NFL.com AP Honors articles for AP player-award finalists and winners
+
 ## Bottom line
 
 This model is trying to reward teams that:
 
 - draft players who stay
 - draft players who play
+- draft players who keep starting for multiple seasons
 - draft players who become important contributors
 - draft stars
 - do all of that without overspending draft capital

@@ -1,0 +1,230 @@
+{
+  "generated_at": "2026-05-01T23:17:34.364172+00:00",
+  "draft_years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "latest_roster_snapshot": "2025-W18",
+  "latest_snap_count_season": 2025,
+  "penalize_missing_premium_picks": true,
+  "scoring_config": {
+    "default_min_draft_year": 2018,
+    "default_max_draft_year": 2025,
+    "default_draft_window_years": 8,
+    "round_pick_cost": {
+      "1": 8.0,
+      "2": 6.0,
+      "3": 4.0,
+      "4": 3.0,
+      "5": 2.0,
+      "6": 1.0,
+      "7": 0.5
+    },
+    "points": {
+      "still_on_drafting_team": 1,
+      "starter_with_drafting_team": 5,
+      "starter_with_any_team": 2,
+      "second_team_all_pro": 2,
+      "first_team_all_pro": 3,
+      "top5_award_finish": 1,
+      "top5_mvp_finish": 1
+    },
+    "caps": {
+      "max_all_pro_points_per_player": 24,
+      "max_award_points_per_player": 16
+    },
+    "opportunity_normalization": {
+      "method": "sqrt",
+      "max_seasons": 8
+    },
+    "composite_weights": {
+      "retention": 0.2,
+      "starter": 0.55,
+      "star": 0.25
+    },
+    "snap_share_value": {
+      "with_drafting_team_per_full_season": 1.0,
+      "with_any_team_per_full_season": 0.35
+    },
+    "starter_longevity_value": {
+      "baseline_starter_seasons": 1,
+      "max_extra_starter_seasons": 4,
+      "with_drafting_team_per_extra_starter_season": 0.75,
+      "elsewhere_per_extra_starter_season": 0.25
+    },
+    "team_record_adjustment": {
+      "win_pct_multiplier_weight": 0.15,
+      "min_multiplier": 0.9,
+      "max_multiplier": 1.1
+    },
+    "early_round_bust_adjustment": {
+      "enabled": true,
+      "rounds": [
+        1,
+        2,
+        3
+      ],
+      "penalty_by_round": {
+        "1": -4.0,
+        "2": -2.5,
+        "3": -1.0
+      },
+      "missing_pick_penalty_by_round": {
+        "1": -3.0,
+        "2": -1.0,
+        "3": -0.5
+      },
+      "min_eligible_seasons": 2,
+      "max_peak_snap_share_any_team": 0.35,
+      "count_starter_elsewhere_as_non_bust": true,
+      "count_honors_as_non_bust": true
+    },
+    "position_groups": {
+      "QB": [
+        "QB"
+      ],
+      "RB": [
+        "RB",
+        "HB",
+        "FB"
+      ],
+      "WR": [
+        "WR"
+      ],
+      "TE": [
+        "TE"
+      ],
+      "OL": [
+        "C",
+        "G",
+        "T",
+        "OL",
+        "OT",
+        "OG",
+        "LT",
+        "RT",
+        "LG",
+        "RG"
+      ],
+      "DL": [
+        "DT",
+        "NT",
+        "DE",
+        "DL",
+        "IDL"
+      ],
+      "EDGE": [
+        "EDGE",
+        "OLB"
+      ],
+      "LB": [
+        "LB",
+        "ILB",
+        "MLB",
+        "WILL",
+        "MIKE",
+        "SAM"
+      ],
+      "DB": [
+        "CB",
+        "S",
+        "FS",
+        "SS",
+        "SAF",
+        "DB"
+      ],
+      "K": [
+        "K",
+        "PK"
+      ],
+      "P": [
+        "P"
+      ],
+      "LS": [
+        "LS"
+      ]
+    },
+    "starter_thresholds": {
+      "QB": {
+        "side": "offense",
+        "min_pct": 50,
+        "min_games": 6
+      },
+      "RB": {
+        "side": "offense",
+        "min_pct": 35,
+        "min_games": 8
+      },
+      "WR": {
+        "side": "offense",
+        "min_pct": 50,
+        "min_games": 8
+      },
+      "TE": {
+        "side": "offense",
+        "min_pct": 50,
+        "min_games": 8
+      },
+      "OL": {
+        "side": "offense",
+        "min_pct": 50,
+        "min_games": 8
+      },
+      "DL": {
+        "side": "defense",
+        "min_pct": 45,
+        "min_games": 8
+      },
+      "EDGE": {
+        "side": "defense",
+        "min_pct": 45,
+        "min_games": 8
+      },
+      "LB": {
+        "side": "defense",
+        "min_pct": 45,
+        "min_games": 8
+      },
+      "DB": {
+        "side": "defense",
+        "min_pct": 45,
+        "min_games": 8
+      },
+      "K": {
+        "side": "special",
+        "min_pct": 50,
+        "min_games": 8
+      },
+      "P": {
+        "side": "special",
+        "min_pct": 50,
+        "min_games": 8
+      },
+      "LS": {
+        "side": "special",
+        "min_pct": 50,
+        "min_games": 8
+      }
+    },
+    "fallback_starter_threshold": {
+      "side": "either",
+      "min_pct": 50,
+      "min_games": 8
+    },
+    "special_teams_threshold": {
+      "min_pct": 50,
+      "min_games": 8
+    }
+  },
+  "data_sources": [
+    "nflverse draft_picks release CSV",
+    "nflverse weekly_rosters release CSV",
+    "nflverse snap_counts release CSV",
+    "nflverse games.csv regular-season records",
+    "draft_picks.allpro",
+    "AP NFL award finalists via NFL.com"
+  ]
+}

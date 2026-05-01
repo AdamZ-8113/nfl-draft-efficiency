@@ -32,12 +32,12 @@ TEAM_INFO = OrderedDict(
         ("LA", {"name": "Los Angeles Rams", "color": "#FFA300"}),
         ("LV", {"name": "Las Vegas Raiders", "color": "#A5ACAF"}),
         ("MIA", {"name": "Miami Dolphins", "color": "#00B5C0"}),
-        ("MIN", {"name": "Minnesota Vikings", "color": "#FFC62F"}),
+        ("MIN", {"name": "Minnesota Vikings", "color": "#4F2683"}),
         ("NE", {"name": "New England Patriots", "color": "#C60C30"}),
         ("NO", {"name": "New Orleans Saints", "color": "#C2A35D"}),
         ("NYG", {"name": "New York Giants", "color": "#A71930"}),
         ("NYJ", {"name": "New York Jets", "color": "#3DA35C"}),
-        ("PHI", {"name": "Philadelphia Eagles", "color": "#A5ACAF"}),
+        ("PHI", {"name": "Philadelphia Eagles", "color": "#007A33"}),
         ("PIT", {"name": "Pittsburgh Steelers", "color": "#FFB612"}),
         ("SEA", {"name": "Seattle Seahawks", "color": "#69BE28"}),
         ("SF", {"name": "San Francisco 49ers", "color": "#CF2B2B"}),
@@ -80,6 +80,7 @@ def _build_scoring_details(config: dict[str, Any]) -> str:
     round_pick_cost = config.get("round_pick_cost", {})
     points = config.get("points", {})
     snap_share = config.get("snap_share_value", {})
+    starter_longevity = config.get("starter_longevity_value", {})
     team_record = config.get("team_record_adjustment", {})
     opportunity = config.get("opportunity_normalization", {})
     composite = config.get("composite_weights", {})
@@ -114,6 +115,24 @@ def _build_scoring_details(config: dict[str, Any]) -> str:
             f"{_fmt_value(team_record.get('min_multiplier', 0))}x-{_fmt_value(team_record.get('max_multiplier', 0))}x",
         ),
         ("Record multiplier weight", _fmt_value(team_record.get("win_pct_multiplier_weight", 0))),
+    ]
+    starter_longevity_rows = [
+        (
+            "Baseline starter seasons",
+            _fmt_value(starter_longevity.get("baseline_starter_seasons", 1)),
+        ),
+        (
+            "Max extra starter seasons",
+            _fmt_value(starter_longevity.get("max_extra_starter_seasons", 0)),
+        ),
+        (
+            "Extra year with drafting team",
+            _fmt_points(starter_longevity.get("with_drafting_team_per_extra_starter_season", 0)),
+        ),
+        (
+            "Extra year elsewhere",
+            _fmt_points(starter_longevity.get("elsewhere_per_extra_starter_season", 0)),
+        ),
     ]
     normalization_rows = [
         ("Opportunity method", str(opportunity.get("method", ""))),
@@ -163,6 +182,15 @@ def _build_scoring_details(config: dict[str, Any]) -> str:
                 </table>
               </div>
               <div class="scoring-detail-card">
+                <h3>Starter Longevity</h3>
+                <p>The first starter season is already rewarded by starter status; extra starter seasons add capped bonus value.</p>
+                <table>
+                  <tbody>
+{_table_rows(starter_longevity_rows)}
+                  </tbody>
+                </table>
+              </div>
+              <div class="scoring-detail-card">
                 <h3>Normalization</h3>
                 <p>Raw player scores are adjusted so newer draft classes are not punished for having fewer NFL seasons.</p>
                 <table>
@@ -190,6 +218,75 @@ def _draft_year_label(metadata: dict[str, Any]) -> str:
     return f"{min(years)}-{max(years)}"
 
 
+SOURCE_LINKS = OrderedDict(
+    [
+        (
+            "nflverse draft_picks release CSV",
+            "https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv",
+        ),
+        (
+            "nflverse roster_snapshot release CSV",
+            "https://github.com/nflverse/nflverse-data/releases",
+        ),
+        (
+            "nflverse weekly_rosters release CSV",
+            "https://github.com/nflverse/nflverse-data/releases",
+        ),
+        (
+            "nflverse snap_counts release CSV",
+            "https://github.com/nflverse/nflverse-data/releases",
+        ),
+        (
+            "nflverse games.csv regular-season records",
+            "https://raw.githubusercontent.com/nflverse/nfldata/master/data/games.csv",
+        ),
+        (
+            "draft_picks.allpro",
+            "https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv",
+        ),
+        ("AP NFL award finalists via NFL.com", "https://www.nfl.com/news"),
+    ]
+)
+
+
+def _extract_inline_style(html: str) -> str | None:
+    match = re.search(r"<style>\s*(.*?)\s*</style>", html, flags=re.S)
+    if not match:
+        return None
+    return match.group(1).strip() + "\n"
+
+
+def _ensure_stylesheet(output_path: Path, template_html: str, stylesheet_name: str = "report.css") -> None:
+    stylesheet_path = output_path.with_name(stylesheet_name)
+    if stylesheet_path.exists():
+        return
+
+    existing_style = None
+    if output_path.exists():
+        existing_style = _extract_inline_style(output_path.read_text(encoding="utf-8"))
+
+    source_stylesheet_path = Path(__file__).with_name(stylesheet_name)
+    if existing_style:
+        stylesheet = existing_style
+    elif source_stylesheet_path.exists():
+        stylesheet = source_stylesheet_path.read_text(encoding="utf-8")
+    else:
+        stylesheet = _extract_inline_style(template_html)
+
+    if not stylesheet:
+        raise ValueError("Could not find report CSS in the stylesheet source or HTML template.")
+    stylesheet_path.write_text(stylesheet, encoding="utf-8")
+
+
+def _externalize_styles(html: str, stylesheet_name: str = "report.css") -> str:
+    stylesheet_link = f'<link rel="stylesheet" href="{stylesheet_name}">'
+    if re.search(r"<style>.*?</style>", html, flags=re.S):
+        return _replace_one(r"<style>.*?</style>", stylesheet_link, html)
+    if stylesheet_link in html:
+        return html
+    return html.replace("</head>", f"  {stylesheet_link}\n</head>", 1)
+
+
 def _build_team_scores(team_scores: pd.DataFrame) -> list[dict[str, object]]:
     ordered = team_scores.sort_values(["rank", "team"]).reset_index(drop=True)
     rows: list[dict[str, object]] = []
@@ -201,19 +298,37 @@ def _build_team_scores(team_scores: pd.DataFrame) -> list[dict[str, object]]:
                 "dei": round(float(row.draft_efficiency_index), 2),
                 "score": round(float(row.team_score), 6),
                 "ret": round(float(row.retention_score), 6),
-                "str": round(float(row.starter_score) + float(getattr(row, "snap_share_score", 0.0)), 6),
+                "str": round(
+                    float(row.starter_score)
+                    + float(getattr(row, "snap_share_score", 0.0))
+                    + float(getattr(row, "starter_longevity_score", 0.0)),
+                    6,
+                ),
                 "star": round(float(row.star_score), 6),
                 "apaw": int(getattr(row, "top5_award_finish_count", 0)) + int(getattr(row, "top5_mvp_finish_count", 0)),
                 "mvp": int(getattr(row, "top5_mvp_finish_count", 0)),
                 "prem": round(float(getattr(row, "premium_pick_dei", 0.0)), 2),
+                "late": round(float(getattr(row, "late_round_dei", 0.0)), 2),
                 "bust": round(float(getattr(row, "premium_bust_rate", 0.0) or 0.0), 4),
                 "badj": round(float(getattr(row, "bust_adjusted_dei", 0.0)), 2),
                 "miss": int(getattr(row, "missing_premium_pick_count", 0)),
                 "picks": int(row.total_picks),
-                "starters": int(row.starter_with_drafting_team_count),
+                "starters": round(float(getattr(row, "avg_starter_years_any_team", 0.0)), 2),
             }
         )
     return rows
+
+
+def _clean_text(value: Any) -> str:
+    if value is None:
+        return ""
+    try:
+        if pd.isna(value):
+            return ""
+    except TypeError:
+        pass
+    text = str(value)
+    return "" if text.lower() == "nan" else text
 
 
 def _build_top_players(player_scores: pd.DataFrame) -> list[dict[str, object]]:
@@ -234,7 +349,7 @@ def _build_top_players(player_scores: pd.DataFrame) -> list[dict[str, object]]:
                 "ap": int(row.first_team_all_pro_count),
                 "aw": int(getattr(row, "top5_award_finish_count", 0)),
                 "mvp": int(getattr(row, "top5_mvp_finish_count", 0)),
-                "awd": str(getattr(row, "ap_award_details", "") or ""),
+                "awd": _clean_text(getattr(row, "ap_award_details", "")),
                 "on": bool(row.still_on_drafting_team),
                 "st": bool(row.starter_with_drafting_team),
                 "sa": bool(row.starter_with_any_team),
@@ -261,10 +376,12 @@ def _build_all_players(player_scores: pd.DataFrame) -> list[dict[str, object]]:
                 "ap": int(row.first_team_all_pro_count),
                 "aw": int(getattr(row, "top5_award_finish_count", 0)),
                 "mvp": int(getattr(row, "top5_mvp_finish_count", 0)),
-                "awd": str(getattr(row, "ap_award_details", "") or ""),
+                "awd": _clean_text(getattr(row, "ap_award_details", "")),
                 "bst": bool(getattr(row, "early_round_bust", False)),
                 "sc": round(float(row.raw_player_score), 4),
                 "bas": round(float(getattr(row, "bust_adjusted_raw_player_score", row.raw_player_score)), 4),
+                "syd": int(getattr(row, "starter_seasons_with_drafting_team", 0)),
+                "sya": int(getattr(row, "starter_seasons_with_any_team", 0)),
                 "ssd": round(float(getattr(row, "snap_share_with_drafting_team", 0.0)), 4),
                 "sse": round(float(getattr(row, "snap_share_elsewhere", 0.0)), 4),
                 "psd": round(float(getattr(row, "peak_season_snap_share_with_drafting_team", 0.0)), 4),
@@ -274,23 +391,67 @@ def _build_all_players(player_scores: pd.DataFrame) -> list[dict[str, object]]:
     return rows
 
 
+def _build_sources(data_sources: list[str]) -> str:
+    rows: list[str] = []
+    for source in data_sources:
+        url = SOURCE_LINKS.get(source)
+        label = escape(source)
+        if url:
+            rows.append(f'              <li><a href="{escape(url)}">{label}</a></li>')
+        else:
+            rows.append(f"              <li>{label}</li>")
+    if not rows:
+        return '<ul class="sources-list"><li>Source metadata was not available for this run.</li></ul>'
+    return "<ul class=\"sources-list\">\n" + "\n".join(rows) + "\n            </ul>"
+
+
+def _metadata_for_browser(metadata: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "generatedAt": metadata.get("generated_at"),
+        "draftYears": metadata.get("draft_years", []),
+        "latestRosterSnapshot": metadata.get("latest_roster_snapshot"),
+        "latestSnapCountSeason": metadata.get("latest_snap_count_season"),
+        "penalizeMissingPremiumPicks": bool(metadata.get("penalize_missing_premium_picks", False)),
+        "label": _draft_year_label(metadata),
+    }
+
+
+def _build_window_payload(
+    team_scores: pd.DataFrame,
+    player_scores: pd.DataFrame,
+    metadata: dict[str, Any],
+) -> dict[str, Any]:
+    return {
+        "label": _draft_year_label(metadata),
+        "teamScores": _build_team_scores(team_scores),
+        "topPlayers": _build_top_players(player_scores),
+        "allPlayers": _build_all_players(player_scores),
+        "metadata": _metadata_for_browser(metadata),
+    }
+
+
 def render_interactive_report(
     output_path: Path,
     team_scores: pd.DataFrame,
     player_scores: pd.DataFrame,
     metadata: dict[str, Any],
+    report_windows: dict[int, dict[str, Any]] | None = None,
+    default_window_years: int = 5,
 ) -> None:
     template_path = Path(__file__).with_name("report_template.html")
     template = template_path.read_text(encoding="utf-8")
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+    _ensure_stylesheet(output_path, template)
 
-    team_scores_js = json.dumps(_build_team_scores(team_scores), separators=(",", ":"))
-    top_players_js = json.dumps(_build_top_players(player_scores), separators=(",", ":"))
-    all_players_js = json.dumps(_build_all_players(player_scores), separators=(",", ":"))
     team_info_js = json.dumps(TEAM_INFO, separators=(",", ":"))
     draft_year_label = _draft_year_label(metadata)
-    missing_penalty_label = "enabled" if metadata.get("penalize_missing_premium_picks", False) else "disabled"
+    if report_windows is None:
+        window_key = len(metadata.get("draft_years", [])) or default_window_years
+        report_windows = {window_key: _build_window_payload(team_scores, player_scores, metadata)}
+        default_window_years = window_key
+    report_windows_js = json.dumps(report_windows, separators=(",", ":"))
 
-    html = template
+    html = _externalize_styles(template)
     html = _replace_one(
         r"<title>NFL Draft Efficiency .*?</title>",
         f"<title>NFL Draft Efficiency &mdash; {draft_year_label}</title>",
@@ -298,12 +459,9 @@ def render_interactive_report(
     )
     html = html.replace(">Starter</th>", ">Usage</th>")
     html = html.replace('<div class="score-lbl">Starter</div>', '<div class="score-lbl">Usage</div>')
-    html = html.replace("2021&ndash;2025", draft_year_label.replace("-", "&ndash;"))
-    html = html.replace("Active Starters</th>", "Historical Starters</th>")
-    html = html.replace(
-        "Active Starters = players who are starters with the drafting team as of roster snapshot 2025-W18.",
-        "Historical Starters = players who have recorded starter-level snap seasons with the drafting team since being drafted.",
-    )
+    html = html.replace("2021-2025", draft_year_label)
+    html = html.replace("Active Starters</th>", "Avg Starter Years</th>")
+    html = html.replace("Historical Starters</th>", "Avg Starter Years</th>")
     html = _replace_one(
         r"<!-- SCORING_DETAILS_START -->.*?<!-- SCORING_DETAILS_END -->",
         (
@@ -314,19 +472,12 @@ def render_interactive_report(
         html,
     )
     html = _replace_one(
-        r'<ul class="notes-list">.*?</ul>',
-        f"""<ul class="notes-list">
-          <li>Draft window set to {draft_year_label.replace("-", "&ndash;")} for this run.</li>
-          <li>The table defaults to Overall w/Bust Adj, which uses full-team DEI after early-round bust and missing premium-pick penalties.</li>
-          <li>All-Pro counts come from draft_picks.allpro. AP player-award finalists come from NFL.com AP Honors finalist pages and include MVP, OPOY, DPOY, OROY, DROY, and Comeback Player of the Year.</li>
-          <li>Retention uses canonical team codes plus roster status; released or retired players are not counted as retained.</li>
-          <li>Usage value combines binary historical starter flags with continuous regular-season snap share.</li>
-          <li>Regular-season snap share is measured against full team-season snap totals, not only games played.</li>
-          <li>A small team-record context multiplier adjusts snap-share value so equivalent usage on stronger teams is worth slightly more.</li>
-          <li>Early-round busts are round 1-3 players with at least two eligible seasons, no starter outcome with any team, peak snap share at or below 35%, and no All-Pro or top-5 award honors.</li>
-          <li>Historical Starters are still threshold-based snap-count outcomes since the draft, not current projected depth-chart starters.</li>
-          <li>Missing premium pick penalties are {missing_penalty_label} for this run.</li>
-        </ul>""",
+        r"<!-- SOURCES_START -->.*?<!-- SOURCES_END -->",
+        (
+            "<!-- SOURCES_START -->\n            "
+            + _build_sources(metadata.get("data_sources", []))
+            + "\n            <!-- SOURCES_END -->"
+        ),
         html,
     )
     html = _replace_one(
@@ -339,8 +490,11 @@ def render_interactive_report(
         html,
     )
     html = _replace_one(r"const TEAM_INFO = \{.*?\};", f"const TEAM_INFO = {team_info_js};", html)
-    html = _replace_one(r"const TEAM_SCORES = \[.*?\];", f"const TEAM_SCORES = {team_scores_js};", html)
-    html = _replace_one(r"const TOP_PLAYERS = \[.*?\];", f"const TOP_PLAYERS = {top_players_js};", html)
-    html = _replace_one(r"const ALL_PLAYERS = \[.*?\];", f"const ALL_PLAYERS = {all_players_js};", html)
+    html = _replace_one(r"const REPORT_WINDOWS = \{.*?\};", f"const REPORT_WINDOWS = {report_windows_js};", html)
+    html = _replace_one(
+        r"const DEFAULT_DRAFT_WINDOW = \d+;",
+        f"const DEFAULT_DRAFT_WINDOW = {int(default_window_years)};",
+        html,
+    )
 
     output_path.write_text(html, encoding="utf-8")

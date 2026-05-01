@@ -1,0 +1,18 @@
+draft_year,draft_team,round,pick,player_name,position,gsis_id,pfr_player_id,reason
+2023,WAS,4,118,Braeden Daniels,OL,00-0039010,DaniBr00,no_roster_snapshot_match_and_no_snap_count_match
+2023,MIN,7,222,DeWayne McBride,RB,00-0039046,McBrDe00,no_roster_snapshot_match_and_no_snap_count_match
+2023,JAX,7,227,Raymond Vohasek,DT,,VohaRa00,no_roster_snapshot_match_and_no_snap_count_match
+2023,IND,7,236,Jake Witt,OL,00-0038410,WittJa01,no_roster_snapshot_match_and_no_snap_count_match
+2023,LAC,7,239,Max Duggan,QB,00-0038637,DuggMa00,no_roster_snapshot_match_and_no_snap_count_match
+2023,JAX,7,240,Derek Parish,DL,00-0038638,PariDe00,no_roster_snapshot_match_and_no_snap_count_match
+2024,MIN,4,108,Khyree Jackson,DB,,JackKh00,no_roster_snapshot_match_and_no_snap_count_match
+2024,PIT,6,195,Ryan Watts,SAF,00-0039748,WattRy00,no_roster_snapshot_match_and_no_snap_count_match
+2024,IND,6,201,Micah Abraham,CB,00-0039403,AbraMi00,no_roster_snapshot_match_and_no_snap_count_match
+2024,BAL,6,218,Devin Leary,QB,00-0039801,LearDe00,no_roster_snapshot_match_and_no_snap_count_match
+2024,NO,7,239,Josiah Ezirim,OT,00-0039428,EzirJo00,no_roster_snapshot_match_and_no_snap_count_match
+2024,CAR,7,240,Michael Barrett,LB,00-0039429,BarrMi00,no_roster_snapshot_match_and_no_snap_count_match
+2024,DAL,7,244,Justin Rogers,DL,00-0039432,RogeJu01,no_roster_snapshot_match_and_no_snap_count_match
+2024,GB,7,245,Michael Pratt,QB,00-0039238,PratMi00,no_roster_snapshot_match_and_no_snap_count_match
+2024,NYJ,7,257,Jaylen Key,SAF,00-0039802,KeyxJa00,no_roster_snapshot_match_and_no_snap_count_match
+2025,LV,6,213,Tommy Mellott,QB,00-0040220,MellTo00,no_roster_snapshot_match_and_no_snap_count_match
+2025,BUF,7,240,Kaden Prather,WR,,PratKa00,no_roster_snapshot_match_and_no_snap_count_match

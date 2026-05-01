@@ -105,6 +105,15 @@ def build_player_scores(
     snap_share_points_with_any_team = float(
         snap_share_value.get("with_any_team_per_full_season", 0.35)
     )
+    starter_longevity_value = config.get("starter_longevity_value", {})
+    baseline_starter_seasons = int(starter_longevity_value.get("baseline_starter_seasons", 1))
+    max_extra_starter_seasons = int(starter_longevity_value.get("max_extra_starter_seasons", 4))
+    longevity_points_with_drafting_team = float(
+        starter_longevity_value.get("with_drafting_team_per_extra_starter_season", 0.0)
+    )
+    longevity_points_elsewhere = float(
+        starter_longevity_value.get("elsewhere_per_extra_starter_season", 0.0)
+    )
 
     bool_columns = [
         "still_on_drafting_team",
@@ -161,6 +170,16 @@ def build_player_scores(
         frame["record_adjusted_snap_share_with_drafting_team"].fillna(0.0) * snap_share_points_with_drafting_team
         + frame["record_adjusted_snap_share_elsewhere"].fillna(0.0) * snap_share_points_with_any_team
     )
+    extra_starter_seasons_with_drafting_team = (
+        frame["starter_seasons_with_drafting_team"] - baseline_starter_seasons
+    ).clip(lower=0, upper=max_extra_starter_seasons)
+    extra_starter_seasons_elsewhere = (
+        frame["starter_seasons_with_any_team"] - frame["starter_seasons_with_drafting_team"]
+    ).clip(lower=0, upper=max_extra_starter_seasons)
+    frame["starter_longevity_points_raw"] = (
+        extra_starter_seasons_with_drafting_team * longevity_points_with_drafting_team
+        + extra_starter_seasons_elsewhere * longevity_points_elsewhere
+    )
 
     frame["all_pro_points_raw"] = (
         frame["first_team_all_pro_count"] * float(points["first_team_all_pro"])
@@ -177,6 +196,7 @@ def build_player_scores(
         frame["retention_points_raw"]
         + frame["starter_points_raw"]
         + frame["snap_share_points_raw"]
+        + frame["starter_longevity_points_raw"]
         + frame["star_points_raw"]
     )
     bust_config = config.get("early_round_bust_adjustment", {})
@@ -192,6 +212,7 @@ def build_player_scores(
     frame["retention_points"] = frame["retention_points_raw"] / frame["opportunity_divisor"]
     frame["starter_points"] = frame["starter_points_raw"] / frame["opportunity_divisor"]
     frame["snap_share_points"] = frame["snap_share_points_raw"] / frame["opportunity_divisor"]
+    frame["starter_longevity_points"] = frame["starter_longevity_points_raw"] / frame["opportunity_divisor"]
     frame["star_points"] = frame["star_points_raw"] / frame["opportunity_divisor"]
     frame["bust_penalty_points"] = frame["bust_penalty_points_raw"] / frame["opportunity_divisor"]
     frame["normalized_player_score"] = frame["raw_player_score"] / frame["opportunity_divisor"]
@@ -247,11 +268,13 @@ def build_player_scores(
             "retention_points_raw",
             "starter_points_raw",
             "snap_share_points_raw",
+            "starter_longevity_points_raw",
             "all_pro_points_raw",
             "award_points_raw",
             "retention_points",
             "starter_points",
             "snap_share_points",
+            "starter_longevity_points",
             "star_points_raw",
             "star_points",
             "early_round_bust",

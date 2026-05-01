@@ -1,27 +1,27 @@
 # NFL Draft Efficiency Summary
 
-- Generated at: `2026-05-01T17:26:28.355874+00:00`
+- Generated at: `2026-05-01T23:17:34.364172+00:00`
 - Draft years: `2021, 2022, 2023, 2024, 2025`
 - Latest roster snapshot: `2025-W18`
 - Latest snap-count season: `2025`
 
 ## Headline
 
-`LA` finished first with a draft efficiency index of `125.9`.
+`GB` finished first with an Overall score of `123.8`.
 
-`MIN` finished last with a draft efficiency index of `65.4`.
+`MIN` finished last with an Overall score of `53.8`.
 
 ## Top 10 Teams
 
-| Rank | Team | Draft Efficiency Index | Team Score |
-| --- | --- | ---: | ---: |
-| 1 | LA | 125.9 | 0.943 |
-| 2 | HOU | 117.9 | 0.884 |
-| 3 | TB | 114.0 | 0.854 |
-| 4 | LAC | 112.7 | 0.844 |
-| 5 | GB | 109.1 | 0.817 |
-| 6 | KC | 108.2 | 0.810 |
-| 7 | SF | 108.1 | 0.810 |
-| 8 | DEN | 107.5 | 0.806 |
-| 9 | CLE | 106.3 | 0.797 |
-| 10 | SEA | 104.0 | 0.779 |
+| Rank | Team | Overall | DEI (no BP) | Team Score |
+| --- | --- | ---: | ---: | ---: |
+| 1 | GB | 123.8 | 110.3 | 0.890 |
+| 2 | LAC | 119.3 | 111.7 | 0.902 |
+| 3 | TB | 117.9 | 115.0 | 0.928 |
+| 4 | NE | 113.4 | 100.4 | 0.810 |
+| 5 | CIN | 110.5 | 98.7 | 0.796 |
+| 6 | NYG | 110.0 | 102.1 | 0.824 |
+| 7 | TEN | 109.6 | 101.4 | 0.818 |
+| 8 | DET | 109.4 | 102.0 | 0.823 |
+| 9 | KC | 107.3 | 109.8 | 0.886 |
+| 10 | PIT | 106.7 | 100.8 | 0.814 |

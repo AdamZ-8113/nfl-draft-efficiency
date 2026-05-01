@@ -35,16 +35,31 @@ python -m nfl_draft_efficiency.cli run --draft-window-years 5
 python -m nfl_draft_efficiency.cli run --min-draft-year 2021 --max-draft-year 2025
 ```
 
-To include penalties for missing round 1-3 picks in the bust-adjusted score:
+Missing round 1-3 pick penalties are included by default in the bust-adjusted score.
+To turn them off for a run:
 
 ```bash
-python -m nfl_draft_efficiency.cli run --penalize-missing-premium-picks
+python -m nfl_draft_efficiency.cli run --no-penalize-missing-premium-picks
+```
+
+Build every supported report window from 3 through 8 years, with the report defaulting to 5 years:
+
+```bash
+python scripts/build_report_windows.py
 ```
 
 Regenerate the local report and GitHub Pages entry point from existing output CSVs:
 
 ```bash
 python scripts/render_report.py
+```
+
+Report styling lives in `outputs/report.css` for local review and `docs/report.css` for GitHub Pages.
+The report scripts regenerate HTML and data, but they do not overwrite an existing local stylesheet.
+To intentionally copy local report styling to the Pages stylesheet:
+
+```bash
+python scripts/render_report.py --sync-css
 ```
 
 Refresh cached nflverse data and add an external validation pass:
@@ -60,7 +75,9 @@ python -m nfl_draft_efficiency.cli run --force-refresh-cache --validate-external
 - `outputs/metadata.json`
 - `outputs/unmatched_players.csv`
 - `outputs/report.html`
+- `outputs/report.css`
 - `outputs/summary.md`
+- `outputs/windows/{3..8}/` (when `scripts/build_report_windows.py` is used)
 - `outputs/external_validation.csv` (when `--validate-external-references` is used)
 - `outputs/external_validation_issues.csv` (when `--validate-external-references` is used)
 - `outputs/external_validation_summary.md` (when `--validate-external-references` is used)
@@ -68,8 +85,10 @@ python -m nfl_draft_efficiency.cli run --force-refresh-cache --validate-external
 ## Defaults
 
 - Draft window: `2018-2025`
-- Core score: `draft_efficiency_index`
+- Report default window: `2021-2025`, with selectable 3-8 year windows when built by `scripts/build_report_windows.py`
+- Core score: `bust_adjusted_dei` displayed as `Overall`
 - Honors: `draft_picks.allpro` plus AP player-award finalists/winners from NFL.com
 - Starter model: position-aware snap-count thresholds
+- Starter longevity: capped bonus for starter seasons after the first starter season
 - Bust-adjusted score: configurable round 1-3 bust penalties
-- Missing premium pick penalties: off by default, enabled with `--penalize-missing-premium-picks`
+- Missing premium pick penalties: on by default, disabled with `--no-penalize-missing-premium-picks`

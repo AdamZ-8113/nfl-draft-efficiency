@@ -15,10 +15,13 @@ class AggregationTests(unittest.TestCase):
                 {
                     "draft_player_id": 1,
                     "draft_team": "AAA",
+                    "draft_year": 2025,
+                    "round": 1,
                     "pick_cost": 8.0,
                     "still_on_drafting_team": True,
                     "starter_with_drafting_team": True,
                     "starter_with_any_team": True,
+                    "starter_seasons_with_any_team": 5,
                     "first_team_all_pro_count": 1,
                     "second_team_all_pro_count": 0,
                     "top5_award_finish_count": 0,
@@ -31,10 +34,13 @@ class AggregationTests(unittest.TestCase):
                 {
                     "draft_player_id": 2,
                     "draft_team": "BBB",
+                    "draft_year": 2025,
+                    "round": 5,
                     "pick_cost": 4.0,
                     "still_on_drafting_team": False,
                     "starter_with_drafting_team": False,
                     "starter_with_any_team": True,
+                    "starter_seasons_with_any_team": 2,
                     "first_team_all_pro_count": 0,
                     "second_team_all_pro_count": 0,
                     "top5_award_finish_count": 0,
@@ -55,6 +61,10 @@ class AggregationTests(unittest.TestCase):
         self.assertTrue(math.isclose(bbb["team_score"], 3.0 / 4.0))
         self.assertTrue(math.isclose(aaa["snap_share_score"], 1.5 / 8.0))
         self.assertTrue(math.isclose(bbb["snap_share_score"], 0.5 / 4.0))
+        self.assertTrue(math.isclose(aaa["avg_starter_years_any_team"], 5.0))
+        self.assertTrue(math.isclose(bbb["avg_starter_years_any_team"], 2.0))
+        self.assertIn("late_round_dei", team_scores.columns)
+        self.assertGreater(bbb["late_round_dei"], aaa["late_round_dei"])
         self.assertGreater(aaa["draft_efficiency_index"], bbb["draft_efficiency_index"])
         self.assertEqual(int(aaa["rank"]), 1)
         self.assertEqual(int(bbb["rank"]), 2)

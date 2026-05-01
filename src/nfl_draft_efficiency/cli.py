@@ -43,11 +43,19 @@ def build_parser() -> argparse.ArgumentParser:
     run_parser.add_argument("--skip-scraping", action="store_true", default=False)
     run_parser.add_argument("--force-refresh-cache", action="store_true", default=False)
     run_parser.add_argument("--validate-external-references", action="store_true", default=False)
-    run_parser.add_argument(
+    missing_pick_group = run_parser.add_mutually_exclusive_group()
+    missing_pick_group.add_argument(
         "--penalize-missing-premium-picks",
+        dest="penalize_missing_premium_picks",
         action="store_true",
-        default=False,
-        help="Apply configured round 1-3 penalties when a team has no pick in those rounds for a draft year.",
+        default=True,
+        help="Apply configured round 1-3 penalties when a team has no pick in those rounds for a draft year. Enabled by default.",
+    )
+    missing_pick_group.add_argument(
+        "--no-penalize-missing-premium-picks",
+        dest="penalize_missing_premium_picks",
+        action="store_false",
+        help="Disable configured round 1-3 penalties for missing premium picks.",
     )
     return parser
 
