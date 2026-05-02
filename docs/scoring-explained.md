@@ -45,6 +45,11 @@ Why this matters:
 - A player gets more credit if he became a starter for the team that drafted him.
 - He gets some credit if he became a starter somewhere else instead.
 
+Current starter settings:
+
+- Starter with drafting team: `4` raw points
+- Starter with any team: `2` raw points
+
 Why this matters:
 
 - Turning picks into starters is one of the clearest signs of drafting success.
@@ -71,7 +76,7 @@ Current starter-longevity settings:
 
 - Baseline starter seasons before bonus: `1`
 - Maximum extra starter seasons counted: `4`
-- Extra starter season with drafting team: `0.75` raw points
+- Extra starter season with drafting team: `1.0` raw points
 - Extra starter season elsewhere: `0.25` raw points
 
 Why this matters:

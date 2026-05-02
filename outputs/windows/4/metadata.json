@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-01T23:17:31.119200+00:00",
+  "generated_at": "2026-05-02T00:31:39.232438+00:00",
   "draft_years": [
     2022,
     2023,
@@ -24,7 +24,7 @@
     },
     "points": {
       "still_on_drafting_team": 1,
-      "starter_with_drafting_team": 5,
+      "starter_with_drafting_team": 4,
       "starter_with_any_team": 2,
       "second_team_all_pro": 2,
       "first_team_all_pro": 3,
@@ -51,7 +51,7 @@
     "starter_longevity_value": {
       "baseline_starter_seasons": 1,
       "max_extra_starter_seasons": 4,
-      "with_drafting_team_per_extra_starter_season": 0.75,
+      "with_drafting_team_per_extra_starter_season": 1.0,
       "elsewhere_per_extra_starter_season": 0.25
     },
     "team_record_adjustment": {

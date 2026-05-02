@@ -1,13 +1,13 @@
 # NFL Draft Efficiency Summary
 
-- Generated at: `2026-05-01T23:17:28.476164+00:00`
+- Generated at: `2026-05-02T00:31:36.530175+00:00`
 - Draft years: `2023, 2024, 2025`
 - Latest roster snapshot: `2025-W18`
 - Latest snap-count season: `2025`
 
 ## Headline
 
-`LAC` finished first with an Overall score of `137.9`.
+`LAC` finished first with an Overall score of `136.7`.
 
 `MIN` finished last with an Overall score of `60.5`.
 
@@ -15,13 +15,13 @@
 
 | Rank | Team | Overall | DEI (no BP) | Team Score |
 | --- | --- | ---: | ---: | ---: |
-| 1 | LAC | 137.9 | 123.9 | 1.038 |
-| 2 | TEN | 137.8 | 130.0 | 1.089 |
-| 3 | TB | 132.3 | 120.7 | 1.011 |
-| 4 | NE | 124.5 | 110.9 | 0.929 |
-| 5 | NYG | 124.2 | 121.5 | 1.018 |
-| 6 | ARI | 117.5 | 105.6 | 0.884 |
-| 7 | LV | 113.6 | 101.9 | 0.854 |
-| 8 | CIN | 113.3 | 103.1 | 0.864 |
-| 9 | PIT | 108.3 | 107.1 | 0.897 |
-| 10 | GB | 108.3 | 98.2 | 0.823 |
+| 1 | LAC | 136.7 | 122.6 | 0.933 |
+| 2 | TEN | 136.5 | 128.4 | 0.978 |
+| 3 | TB | 130.8 | 119.2 | 0.907 |
+| 4 | NYG | 124.4 | 121.5 | 0.925 |
+| 5 | NE | 123.6 | 109.7 | 0.835 |
+| 6 | ARI | 116.4 | 104.3 | 0.794 |
+| 7 | CIN | 113.8 | 103.4 | 0.787 |
+| 8 | LV | 113.1 | 101.3 | 0.771 |
+| 9 | PIT | 109.8 | 108.4 | 0.825 |
+| 10 | LA | 108.8 | 126.6 | 0.964 |

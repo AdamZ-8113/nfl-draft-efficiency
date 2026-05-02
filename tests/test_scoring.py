@@ -32,7 +32,7 @@ def _test_config() -> dict:
         "starter_longevity_value": {
             "baseline_starter_seasons": 1,
             "max_extra_starter_seasons": 4,
-            "with_drafting_team_per_extra_starter_season": 0.75,
+            "with_drafting_team_per_extra_starter_season": 1.0,
             "elsewhere_per_extra_starter_season": 0.25,
         },
         "early_round_bust_adjustment": {
@@ -170,10 +170,10 @@ class ScoringTests(unittest.TestCase):
         self.assertEqual(alpha["retention_points_raw"], 0.5)
         self.assertEqual(alpha["starter_points_raw"], 4.0)
         self.assertEqual(alpha["snap_share_points_raw"], 2.0)
-        self.assertEqual(alpha["starter_longevity_points_raw"], 0.75)
+        self.assertEqual(alpha["starter_longevity_points_raw"], 1.0)
         self.assertEqual(alpha["all_pro_points_raw"], 9.0)
         self.assertEqual(alpha["award_points_raw"], 0.0)
-        self.assertEqual(alpha["raw_player_score"], 16.25)
+        self.assertEqual(alpha["raw_player_score"], 16.5)
 
         self.assertEqual(beta["retention_points_raw"], 0.0)
         self.assertEqual(beta["starter_points_raw"], 3.0)
@@ -181,7 +181,7 @@ class ScoringTests(unittest.TestCase):
         self.assertEqual(beta["starter_longevity_points_raw"], 0.25)
         self.assertEqual(beta["raw_player_score"], 4.0)
 
-        self.assertTrue(math.isclose(alpha["normalized_player_score"], 16.25 / math.sqrt(5)))
+        self.assertTrue(math.isclose(alpha["normalized_player_score"], 16.5 / math.sqrt(5)))
         self.assertTrue(math.isclose(beta["normalized_player_score"], 4.0 / math.sqrt(4)))
 
     def test_early_round_bust_penalty_applies_to_low_usage_miss(self) -> None:
