@@ -47,7 +47,7 @@ def main() -> None:
 
     report_windows = {}
     windows_dir = output_dir / "windows"
-    for years in range(3, 9):
+    for years in range(3, 11):
         loaded = _load_window(windows_dir / str(years))
         if loaded is None:
             continue

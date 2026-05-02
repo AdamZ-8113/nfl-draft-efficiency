@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import unittest
+from pathlib import Path
+from tempfile import TemporaryDirectory
 
 import pandas as pd
 
-from nfl_draft_efficiency.awards import build_awards_frame
+from nfl_draft_efficiency.awards import build_awards_frame, load_ap_awards
 
 
 class AwardsTests(unittest.TestCase):
@@ -38,6 +40,39 @@ class AwardsTests(unittest.TestCase):
         self.assertEqual(stroud["ap_award_details"], "2024 MVP")
         self.assertEqual(unmatched["top5_award_finish_count"], 0)
         self.assertEqual(unmatched["top5_mvp_finish_count"], 0)
+
+    def test_load_awards_merges_manual_vote_finishers_without_network(self) -> None:
+        with TemporaryDirectory() as temp_dir:
+            cache_path = Path(temp_dir) / "ap_awards.csv"
+            pd.DataFrame(
+                [
+                    {
+                        "season": 2021,
+                        "award": "OROY",
+                        "player_name": "Ja'Marr Chase",
+                        "team_position": "Cincinnati Bengals WR",
+                        "result": "winner",
+                        "source_url": "cached",
+                    }
+                ]
+            ).to_csv(cache_path, index=False)
+
+            awards = load_ap_awards(cache_path=cache_path)
+
+        chase = awards[
+            (awards["season"] == 2021)
+            & (awards["award"] == "OROY")
+            & (awards["player_name"] == "Ja'Marr Chase")
+        ]
+        bosa = awards[
+            (awards["season"] == 2016)
+            & (awards["award"] == "DROY")
+            & (awards["player_name"] == "Joey Bosa")
+        ]
+
+        self.assertEqual(len(chase), 1)
+        self.assertEqual(chase.iloc[0]["result"], "vote_finisher")
+        self.assertEqual(len(bosa), 1)
 
 
 if __name__ == "__main__":

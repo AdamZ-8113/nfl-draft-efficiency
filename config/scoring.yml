@@ -1,7 +1,7 @@
 {
-  "default_min_draft_year": 2018,
+  "default_min_draft_year": 2016,
   "default_max_draft_year": 2025,
-  "default_draft_window_years": 8,
+  "default_draft_window_years": 10,
   "round_pick_cost": {
     "1": 8.0,
     "2": 6.0,
@@ -26,7 +26,7 @@
   },
   "opportunity_normalization": {
     "method": "sqrt",
-    "max_seasons": 8
+    "max_seasons": 10
   },
   "composite_weights": {
     "retention": 0.2,

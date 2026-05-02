@@ -124,7 +124,9 @@ def run_pipeline(args: argparse.Namespace) -> dict[str, Path]:
             "nflverse snap_counts release CSV",
             "nflverse games.csv regular-season records",
             "draft_picks.allpro",
-            "AP NFL award finalists via NFL.com",
+            "NFL.com AP Honors articles",
+            "Pro Football Reference AP award voting pages",
+            "Associated Press NFL award voting rules",
         ],
         penalize_missing_premium_picks=args.penalize_missing_premium_picks,
     )

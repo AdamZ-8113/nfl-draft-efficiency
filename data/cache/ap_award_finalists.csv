@@ -1,118 +1,257 @@
-season,award,player_name,team_position,result,source_url
-2021,MVP,Aaron Rodgers,Green Bay Packers QB,winner,https://www.nfl.com/news/list-of-nfl-honors-award-winners-from-2021-nfl-season
-2021,OPOY,Cooper Kupp,Los Angeles Rams WR,winner,https://www.nfl.com/news/list-of-nfl-honors-award-winners-from-2021-nfl-season
-2021,DPOY,T.J. Watt,Pittsburgh Steelers LB,winner,https://www.nfl.com/news/list-of-nfl-honors-award-winners-from-2021-nfl-season
-2021,OROY,Ja'Marr Chase,Cincinnati Bengals WR,winner,https://www.nfl.com/news/list-of-nfl-honors-award-winners-from-2021-nfl-season
-2021,DROY,Micah Parsons,Dallas Cowboys LB,winner,https://www.nfl.com/news/list-of-nfl-honors-award-winners-from-2021-nfl-season
-2021,CPOY,Joe Burrow,Cincinnati Bengals QB,winner,https://www.nfl.com/news/list-of-nfl-honors-award-winners-from-2021-nfl-season
-2022,MVP,Josh Allen,Bills QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,MVP,Joe Burrow,Bengals QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,MVP,Jalen Hurts,Eagles QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,MVP,Justin Jefferson,Vikings WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,MVP,Patrick Mahomes,Chiefs QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,DPOY,Nick Bosa,49ers DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,DPOY,Chris Jones,Chiefs DT,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,DPOY,Micah Parsons,Cowboys LB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,OPOY,Tyreek Hill,Dolphins WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,OPOY,Jalen Hurts,Eagles QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,OPOY,Justin Jefferson,Vikings WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,OPOY,Patrick Mahomes,Chiefs QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,OROY,Brock Purdy,49ers QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,OROY,Kenneth Walker III,Seahawks RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,OROY,Garrett Wilson,Jets WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,DROY,Sauce Gardner,Jets CB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,DROY,Aidan Hutchinson,Lions DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,DROY,Tariq Woolen,Seahawks CB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,CPOY,Saquon Barkley,Giants RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,CPOY,Christian McCaffrey,49ers RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2022,CPOY,Geno Smith,Seahawks QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
-2023,MVP,Josh Allen,Buffalo Bills quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,MVP,Lamar Jackson,Baltimore Ravens quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,MVP,Christian McCaffrey,San Francisco 49ers running back,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,MVP,Dak Prescott,Dallas Cowboys quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,MVP,Brock Purdy,San Francisco 49ers quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,DPOY,DaRon Bland,Dallas Cowboys cornerback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,DPOY,Maxx Crosby,Las Vegas Raiders defensive end,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,DPOY,Myles Garrett,Cleveland Browns defensive end,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,DPOY,Micah Parsons,Dallas Cowboys linebacker,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,DPOY,T.J. Watt,Pittsburgh Steelers linebacker,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,OPOY,Tyreek Hill,Miami Dolphins wide receiver,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,OPOY,Lamar Jackson,Baltimore Ravens quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,OPOY,CeeDee Lamb,Dallas Cowboys wide receiver,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,OPOY,Christian McCaffrey,San Francisco 49ers running back,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,OPOY,Dak Prescott,Dallas Cowboys quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,OROY,Jahmyr Gibbs,Detroit Lions running back,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,OROY,Sam LaPorta,Detroit Lions tight end,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,OROY,Puka Nacua,Los Angeles Rams wide receiver,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,OROY,Bijan Robinson,Atlanta Falcons running back,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,OROY,C.J. Stroud,Houston Texans quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,DROY,Will Anderson,Houston Texans defensive end,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,DROY,Jalen Carter,Philadelphia Eagles defensive tackle,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,DROY,Joey Porter Jr.,Pittsburgh Steelers cornerback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,DROY,Kobie Turner,Los Angeles Rams defensive tackler,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,DROY,Devon Witherspoon,Seattle Seahawks cornerback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,CPOY,Joe Flacco,Cleveland Browns quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,CPOY,Damar Hamlin,Buffalo Bills safety,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,CPOY,Baker Mayfield,Tampa Bay Buccaneers quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,CPOY,Matthew Stafford,Los Angeles Rams quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2023,CPOY,Tua Tagovailoa,Miami Dolphins quarterback,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
-2024,MVP,Josh Allen,Buffalo Bills QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,MVP,Saquon Barkley,Philadelphia Eagles RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,MVP,Joe Burrow,Cincinnati Bengals QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,MVP,Jared Goff,Detroit Lions QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,MVP,Lamar Jackson,Baltimore Ravens QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,DPOY,Zack Baun,Philadelphia Eagles LB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,DPOY,Myles Garrett,Cleveland Browns DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,DPOY,Trey Hendrickson,Cincinnati Bengals DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,DPOY,Patrick Surtain II,Denver Broncos CB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,DPOY,T.J. Watt,Pittsburgh Steelers LB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,OPOY,Saquon Barkley,Philadelphia Eagles RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,OPOY,Joe Burrow,Cincinnati Bengals QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,OPOY,Ja'Marr Chase,Cincinnati Bengals WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,OPOY,Derrick Henry,Baltimore Ravens RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,OPOY,Lamar Jackson,Baltimore Ravens QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,OROY,Brock Bowers,Las Vegas Raiders TE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,OROY,Jayden Daniels,Washington Commanders QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,OROY,Malik Nabers,New York Giants WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,OROY,Bo Nix,Denver Broncos QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,OROY,Brian Thomas Jr.,Jacksonville Jaguars WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,DROY,Cooper DeJean,Philadelphia Eagles CB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,DROY,Braden Fiske,Los Angeles Rams DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,DROY,Quinyon Mitchell,Philadelphia Eagles CB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,DROY,Chop Robinson,Miami Dolphins LB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,DROY,Jared Verse,Los Angeles Rams LB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,CPOY,Joe Burrow,Cincinnati Bengals QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,CPOY,Sam Darnold,Minnesota Vikings QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,CPOY,J.K. Dobbins,Los Angeles Chargers RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,CPOY,Christian Gonzalez,New England Patriots CB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2024,CPOY,Damar Hamlin,Buffalo Bills S,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
-2025,MVP,Josh Allen,Buffalo Bills QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,MVP,Trevor Lawrence,Jacksonville Jaguars QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,MVP,Drake Maye,New England Patriots QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,MVP,Christian McCaffrey,San Francisco 49ers RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,MVP,Matthew Stafford,Los Angeles Rams QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,DPOY,Will Anderson Jr.,Houston Texans DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,DPOY,Nik Bonitto,Denver Broncos LB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,DPOY,Myles Garrett,Cleveland Browns DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,DPOY,Aidan Hutchinson,Detroit Lions DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,DPOY,Micah Parsons,Green Bay Packers DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,OPOY,Drake Maye,New England Patriots QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,OPOY,Christian McCaffrey,San Francisco 49ers RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,OPOY,Puka Nacua,Los Angeles Rams WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,OPOY,Bijan Robinson,Atlanta Falcons RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,OPOY,Jaxon Smith-Njigba,Seattle Seahawks WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,OROY,Jaxson Dart,New York Giants QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,OROY,Emeka Egbuka,Tampa Bay Buccaneers WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,OROY,TreVeyon Henderson,New England Patriots RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,OROY,Tetairoa McMillan,Carolina Panthers WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,OROY,Tyler Shough,New Orleans Saints QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,DROY,Abdul Carter,New York Giants LB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,DROY,Nick Emmanwori,Seattle Seahawks DB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,DROY,James Pearce Jr.,Atlanta Falcons DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,DROY,Carson Schwesinger,Cleveland Browns LB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,DROY,Xavier Watts,Atlanta Falcons S,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,CPOY,Stefon Diggs,New England Patriots WR,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,CPOY,Aidan Hutchinson,Detroit Lions DE,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,CPOY,Trevor Lawrence,Jacksonville Jaguars QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,CPOY,Christian McCaffrey,San Francisco 49ers RB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
-2025,CPOY,Dak Prescott,Dallas Cowboys QB,finalist,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+season,award,player_name,team_position,result,rank,votes,source_url
+2016,MVP,Matt Ryan,Atlanta Falcons QB,vote_finisher,1.0,25.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,MVP,Tom Brady,New England Patriots QB,vote_finisher,2.0,10.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,MVP,Derek Carr,Oakland Raiders QB,vote_finisher,3.0,6.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,MVP,Ezekiel Elliott,Dallas Cowboys RB,vote_finisher,4.0,6.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,MVP,Aaron Rodgers,Green Bay Packers QB,vote_finisher,5.0,2.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,MVP,Dak Prescott,Dallas Cowboys QB,vote_finisher,6.0,1.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Matt Ryan,Atlanta Falcons QB,vote_finisher,1.0,15.5,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Aaron Rodgers,Green Bay Packers QB,vote_finisher,2.0,11.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,David Johnson,Arizona Cardinals RB,vote_finisher,3.0,8.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Tom Brady,New England Patriots QB,vote_finisher,4.0,7.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Ezekiel Elliott,Dallas Cowboys RB,vote_finisher,5.0,5.5,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Le'Veon Bell,Pittsburgh Steelers RB,vote_finisher,6.0,1.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Drew Brees,New Orleans Saints QB,vote_finisher,7.0,1.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Derek Carr,Oakland Raiders QB,vote_finisher,8.0,1.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Khalil Mack,Oakland Raiders RDE,vote_finisher,1.0,18.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Von Miller,Denver Broncos LOLB,vote_finisher,2.0,17.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Landon Collins,New York Giants SS,vote_finisher,3.0,9.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Aaron Donald,Los Angeles Rams LDT,vote_finisher,4.0,3.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Sean Lee,Dallas Cowboys RLB,vote_finisher,5.0,2.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Eric Berry,Kansas City Chiefs SS,vote_finisher,6.0,1.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OROY,Dak Prescott,Dallas Cowboys QB,vote_finisher,1.0,28.5,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OROY,Ezekiel Elliott,Dallas Cowboys RB,vote_finisher,2.0,21.5,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DROY,Joey Bosa,San Diego Chargers LDE,vote_finisher,1.0,37.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DROY,Jalen Ramsey,Jacksonville Jaguars RCB,vote_finisher,2.0,10.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DROY,Deion Jones,Atlanta Falcons RILB,vote_finisher,3.0,3.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,CPOY,Jordy Nelson,Green Bay Packers WR,vote_finisher,1.0,36.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,CPOY,Cameron Wake,Miami Dolphins LDE,vote_finisher,2.0,11.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,CPOY,Dennis Pitta,Baltimore Ravens TE,vote_finisher,3.0,2.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,CPOY,Le'Veon Bell,Pittsburgh Steelers RB,vote_finisher,4.0,1.0,https://www.pro-football-reference.com/awards/awards_2016.htm
+2017,MVP,Tom Brady,New England Patriots QB,vote_finisher,1.0,40.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,MVP,Todd Gurley,Los Angeles Rams RB,vote_finisher,2.0,8.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,MVP,Carson Wentz,Philadelphia Eagles QB,vote_finisher,3.0,2.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OPOY,Todd Gurley,Los Angeles Rams RB,vote_finisher,1.0,37.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OPOY,Antonio Brown,Pittsburgh Steelers WR,vote_finisher,2.0,8.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OPOY,Tom Brady,New England Patriots QB,vote_finisher,3.0,4.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OPOY,DeAndre Hopkins,Houston Texans WR,vote_finisher,4.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Aaron Donald,Los Angeles Rams RDE,vote_finisher,1.0,23.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Calais Campbell,Jacksonville Jaguars RDE,vote_finisher,2.0,17.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Chandler Jones,Arizona Cardinals LOLB,vote_finisher,3.0,5.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Cameron Jordan,New Orleans Saints LDE,vote_finisher,4.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,DeMarcus Lawrence,Dallas Cowboys LDE,vote_finisher,5.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Xavier Rhodes,Minnesota Vikings RCB,vote_finisher,6.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Harrison Smith,Minnesota Vikings FS,vote_finisher,7.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Bobby Wagner,Seattle Seahawks MLB,vote_finisher,8.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OROY,Alvin Kamara,New Orleans Saints RB,vote_finisher,1.0,28.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OROY,Kareem Hunt,Kansas City Chiefs RB,vote_finisher,2.0,21.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OROY,Deshaun Watson,Houston Texans QB,vote_finisher,3.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DROY,Marshon Lattimore,New Orleans Saints RCB,vote_finisher,1.0,45.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DROY,Tre'Davious White,Buffalo Bills LCB,vote_finisher,2.0,4.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DROY,Reuben Foster,San Francisco 49ers MLB,vote_finisher,3.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Keenan Allen,Los Angeles Chargers WR,vote_finisher,1.0,28.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Case Keenum,Minnesota Vikings QB,vote_finisher,2.0,8.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Rob Gronkowski,New England Patriots TE,vote_finisher,3.0,5.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Cameron Heyward,Pittsburgh Steelers LDE,vote_finisher,4.0,2.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Jaylon Smith,Dallas Cowboys MLB,vote_finisher,5.0,2.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Kyle Fuller,Chicago Bears CB,vote_finisher,6.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Todd Gurley,Los Angeles Rams RB,vote_finisher,7.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Marshawn Lynch,Oakland Raiders RB,vote_finisher,8.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Manti Te'o,New Orleans Saints MLB,vote_finisher,9.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Ben Watson,Baltimore Ravens TE,vote_finisher,10.0,1.0,https://www.pro-football-reference.com/awards/awards_2017.htm
+2018,MVP,Patrick Mahomes,Kansas City Chiefs QB,vote_finisher,1.0,41.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,MVP,Drew Brees,New Orleans Saints QB,vote_finisher,2.0,9.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OPOY,Patrick Mahomes,Kansas City Chiefs QB,vote_finisher,1.0,30.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OPOY,Drew Brees,New Orleans Saints QB,vote_finisher,2.0,16.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OPOY,DeAndre Hopkins,Houston Texans WR,vote_finisher,3.0,2.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OPOY,Todd Gurley,Los Angeles Rams RB,vote_finisher,4.0,2.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,DPOY,Aaron Donald,Los Angeles Rams DT,vote_finisher,1.0,45.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,DPOY,Khalil Mack,Chicago Bears LB,vote_finisher,2.0,5.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OROY,Saquon Barkley,New York Giants RB,vote_finisher,1.0,26.5,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OROY,Baker Mayfield,Cleveland Browns QB,vote_finisher,2.0,21.5,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OROY,Quenton Nelson,Indianapolis Colts G,vote_finisher,3.0,2.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,DROY,Shaquille Leonard,Indianapolis Colts LB,vote_finisher,1.0,29.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,DROY,Derwin James,Los Angeles Chargers S,vote_finisher,2.0,20.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,DROY,Bradley Chubb,Denver Broncos LB,vote_finisher,3.0,1.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,CPOY,Andrew Luck,Indianapolis Colts QB,vote_finisher,1.0,44.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,CPOY,J.J. Watt,Houston Texans DE,vote_finisher,2.0,4.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,CPOY,Adrian Peterson,Washington Redskins RB,vote_finisher,3.0,2.0,https://www.pro-football-reference.com/awards/awards_2018.htm
+2019,MVP,Lamar Jackson,Baltimore Ravens QB,vote_finisher,1.0,50.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OPOY,Michael Thomas,New Orleans Saints WR,vote_finisher,1.0,19.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OPOY,Lamar Jackson,Baltimore Ravens QB,vote_finisher,2.0,17.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OPOY,Christian McCaffrey,Carolina Panthers RB,vote_finisher,3.0,12.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OPOY,Patrick Mahomes,Kansas City Chiefs QB,vote_finisher,4.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OPOY,Russell Wilson,Seattle Seahawks QB,vote_finisher,5.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Stephon Gilmore,New England Patriots RCB,vote_finisher,1.0,21.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Chandler Jones,Arizona Cardinals LOLB,vote_finisher,2.0,14.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,T.J. Watt,Pittsburgh Steelers LOLB,vote_finisher,3.0,10.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Shaquil Barrett,Tampa Bay Buccaneers ROLB,vote_finisher,4.0,2.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Aaron Donald,Los Angeles Rams RDE,vote_finisher,5.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Danielle Hunter,Minnesota Vikings LDE,vote_finisher,6.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Tre'Davious White,Buffalo Bills RCB,vote_finisher,7.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OROY,Kyler Murray,Arizona Cardinals QB,vote_finisher,1.0,26.5,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OROY,Josh Jacobs,Oakland Raiders RB,vote_finisher,2.0,13.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OROY,A.J. Brown,Tennessee Titans WR,vote_finisher,3.0,9.5,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OROY,Miles Sanders,Philadelphia Eagles RB,vote_finisher,4.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DROY,Nick Bosa,San Francisco 49ers LDE,vote_finisher,1.0,43.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DROY,Maxx Crosby,Oakland Raiders RDE,vote_finisher,2.0,4.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DROY,Devin Bush Jr.,Pittsburgh Steelers LILB,vote_finisher,3.0,2.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DROY,Josh Hines-Allen,Jacksonville Jaguars EDGE,vote_finisher,4.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Ryan Tannehill,Tennessee Titans QB,vote_finisher,1.0,16.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Jimmy Garoppolo,San Francisco 49ers QB,vote_finisher,2.0,15.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Darren Waller,Oakland Raiders TE,vote_finisher,3.0,8.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Travis Frederick,Dallas Cowboys C,vote_finisher,4.0,6.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Teddy Bridgewater,New Orleans Saints QB,vote_finisher,5.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Dalvin Cook,Minnesota Vikings RB,vote_finisher,6.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Cooper Kupp,Los Angeles Rams WR,vote_finisher,7.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Richard Sherman,San Francisco 49ers RCB,vote_finisher,8.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Carson Wentz,Philadelphia Eagles QB,vote_finisher,9.0,1.0,https://www.pro-football-reference.com/awards/awards_2019.htm
+2020,MVP,Aaron Rodgers,Green Bay Packers QB,vote_finisher,1.0,44.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,MVP,Josh Allen,Buffalo Bills QB,vote_finisher,2.0,4.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,MVP,Patrick Mahomes,Kansas City Chiefs QB,vote_finisher,3.0,2.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Derrick Henry,Tennessee Titans RB,vote_finisher,1.0,32.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Patrick Mahomes,Kansas City Chiefs QB,vote_finisher,2.0,5.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Aaron Rodgers,Green Bay Packers QB,vote_finisher,3.0,5.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Josh Allen,Buffalo Bills QB,vote_finisher,4.0,3.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Travis Kelce,Kansas City Chiefs TE,vote_finisher,5.0,3.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Alvin Kamara,New Orleans Saints RB,vote_finisher,6.0,2.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DPOY,Aaron Donald,Los Angeles Rams DT,vote_finisher,1.0,27.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DPOY,T.J. Watt,Pittsburgh Steelers LOLB,vote_finisher,2.0,20.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DPOY,Xavien Howard,Miami Dolphins RCB,vote_finisher,3.0,3.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OROY,Justin Herbert,Los Angeles Chargers QB,vote_finisher,1.0,41.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OROY,Justin Jefferson,Minnesota Vikings WR,vote_finisher,2.0,9.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DROY,Chase Young,Washington Football Team LDE,vote_finisher,1.0,42.5,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DROY,Jeremy Chinn,Carolina Panthers RLB,vote_finisher,2.0,4.5,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DROY,Patrick Queen,Baltimore Ravens LILB,vote_finisher,3.0,2.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DROY,Antoine Winfield Jr.,Tampa Bay Buccaneers SS,vote_finisher,4.0,1.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,CPOY,Alex Smith,Washington Football Team QB,vote_finisher,1.0,49.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,CPOY,Ben Roethlisberger,Pittsburgh Steelers QB,vote_finisher,2.0,1.0,https://www.pro-football-reference.com/awards/awards_2020.htm
+2021,MVP,Aaron Rodgers,Green Bay Packers QB,vote_finisher,1.0,39.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,MVP,Tom Brady,Tampa Bay Buccaneers QB,vote_finisher,2.0,10.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,MVP,Cooper Kupp,Los Angeles Rams WR,vote_finisher,3.0,1.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OPOY,Cooper Kupp,Los Angeles Rams WR,vote_finisher,1.0,35.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OPOY,Jonathan Taylor,Indianapolis Colts RB,vote_finisher,2.0,10.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OPOY,Tom Brady,Tampa Bay Buccaneers QB,vote_finisher,3.0,3.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OPOY,Aaron Rodgers,Green Bay Packers QB,vote_finisher,4.0,2.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,DPOY,T.J. Watt,Pittsburgh Steelers LB,vote_finisher,1.0,42.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,DPOY,Micah Parsons,Dallas Cowboys LB,vote_finisher,2.0,5.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,DPOY,Aaron Donald,Los Angeles Rams DT,vote_finisher,3.0,3.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OROY,Ja'Marr Chase,Cincinnati Bengals WR,vote_finisher,1.0,42.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OROY,Mac Jones,New England Patriots QB,vote_finisher,2.0,5.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OROY,Creed Humphrey,Kansas City Chiefs OL,vote_finisher,3.0,2.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OROY,Rashawn Slater,Los Angeles Chargers T,vote_finisher,4.0,1.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,DROY,Micah Parsons,Dallas Cowboys LB,vote_finisher,1.0,50.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,CPOY,Joe Burrow,Cincinnati Bengals QB,vote_finisher,1.0,28.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,CPOY,Dak Prescott,Dallas Cowboys QB,vote_finisher,2.0,21.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,CPOY,Derwin James,Los Angeles Chargers S,vote_finisher,3.0,1.0,https://www.pro-football-reference.com/awards/awards_2021.htm
+2022,MVP,Josh Allen,Bills QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,MVP,Joe Burrow,Bengals QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,MVP,Jalen Hurts,Eagles QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,MVP,Justin Jefferson,Vikings WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,MVP,Patrick Mahomes,Chiefs QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,DPOY,Nick Bosa,49ers DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,DPOY,Chris Jones,Chiefs DT,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,DPOY,Micah Parsons,Cowboys LB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,OPOY,Tyreek Hill,Dolphins WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,OPOY,Jalen Hurts,Eagles QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,OPOY,Justin Jefferson,Vikings WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,OPOY,Patrick Mahomes,Chiefs QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,OROY,Brock Purdy,49ers QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,OROY,Kenneth Walker III,Seahawks RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,OROY,Garrett Wilson,Jets WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,DROY,Sauce Gardner,Jets CB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,DROY,Aidan Hutchinson,Lions DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,DROY,Tariq Woolen,Seahawks CB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,CPOY,Saquon Barkley,Giants RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,CPOY,Christian McCaffrey,49ers RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2022,CPOY,Geno Smith,Seahawks QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-select-awards-from-2022-season
+2023,MVP,Josh Allen,Buffalo Bills quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,MVP,Lamar Jackson,Baltimore Ravens quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,MVP,Christian McCaffrey,San Francisco 49ers running back,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,MVP,Dak Prescott,Dallas Cowboys quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,MVP,Brock Purdy,San Francisco 49ers quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,DPOY,DaRon Bland,Dallas Cowboys cornerback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,DPOY,Maxx Crosby,Las Vegas Raiders defensive end,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,DPOY,Myles Garrett,Cleveland Browns defensive end,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,DPOY,Micah Parsons,Dallas Cowboys linebacker,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,DPOY,T.J. Watt,Pittsburgh Steelers linebacker,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,OPOY,Tyreek Hill,Miami Dolphins wide receiver,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,OPOY,Lamar Jackson,Baltimore Ravens quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,OPOY,CeeDee Lamb,Dallas Cowboys wide receiver,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,OPOY,Christian McCaffrey,San Francisco 49ers running back,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,OPOY,Dak Prescott,Dallas Cowboys quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,OROY,Jahmyr Gibbs,Detroit Lions running back,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,OROY,Sam LaPorta,Detroit Lions tight end,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,OROY,Puka Nacua,Los Angeles Rams wide receiver,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,OROY,Bijan Robinson,Atlanta Falcons running back,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,OROY,C.J. Stroud,Houston Texans quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,DROY,Will Anderson,Houston Texans defensive end,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,DROY,Jalen Carter,Philadelphia Eagles defensive tackle,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,DROY,Joey Porter Jr.,Pittsburgh Steelers cornerback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,DROY,Kobie Turner,Los Angeles Rams defensive tackler,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,DROY,Devon Witherspoon,Seattle Seahawks cornerback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,CPOY,Joe Flacco,Cleveland Browns quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,CPOY,Damar Hamlin,Buffalo Bills safety,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,CPOY,Baker Mayfield,Tampa Bay Buccaneers quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,CPOY,Matthew Stafford,Los Angeles Rams quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2023,CPOY,Tua Tagovailoa,Miami Dolphins quarterback,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2023-season
+2024,MVP,Josh Allen,Buffalo Bills QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,MVP,Saquon Barkley,Philadelphia Eagles RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,MVP,Joe Burrow,Cincinnati Bengals QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,MVP,Jared Goff,Detroit Lions QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,MVP,Lamar Jackson,Baltimore Ravens QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,DPOY,Zack Baun,Philadelphia Eagles LB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,DPOY,Myles Garrett,Cleveland Browns DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,DPOY,Trey Hendrickson,Cincinnati Bengals DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,DPOY,Patrick Surtain II,Denver Broncos CB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,DPOY,T.J. Watt,Pittsburgh Steelers LB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,OPOY,Saquon Barkley,Philadelphia Eagles RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,OPOY,Joe Burrow,Cincinnati Bengals QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,OPOY,Ja'Marr Chase,Cincinnati Bengals WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,OPOY,Derrick Henry,Baltimore Ravens RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,OPOY,Lamar Jackson,Baltimore Ravens QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,OROY,Brock Bowers,Las Vegas Raiders TE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,OROY,Jayden Daniels,Washington Commanders QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,OROY,Malik Nabers,New York Giants WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,OROY,Bo Nix,Denver Broncos QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,OROY,Brian Thomas Jr.,Jacksonville Jaguars WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,DROY,Cooper DeJean,Philadelphia Eagles CB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,DROY,Braden Fiske,Los Angeles Rams DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,DROY,Quinyon Mitchell,Philadelphia Eagles CB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,DROY,Chop Robinson,Miami Dolphins LB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,DROY,Jared Verse,Los Angeles Rams LB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,CPOY,Joe Burrow,Cincinnati Bengals QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,CPOY,Sam Darnold,Minnesota Vikings QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,CPOY,J.K. Dobbins,Los Angeles Chargers RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,CPOY,Christian Gonzalez,New England Patriots CB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2024,CPOY,Damar Hamlin,Buffalo Bills S,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2024-season
+2025,MVP,Josh Allen,Buffalo Bills QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,MVP,Trevor Lawrence,Jacksonville Jaguars QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,MVP,Drake Maye,New England Patriots QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,MVP,Christian McCaffrey,San Francisco 49ers RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,MVP,Matthew Stafford,Los Angeles Rams QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,DPOY,Will Anderson Jr.,Houston Texans DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,DPOY,Nik Bonitto,Denver Broncos LB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,DPOY,Myles Garrett,Cleveland Browns DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,DPOY,Aidan Hutchinson,Detroit Lions DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,DPOY,Micah Parsons,Green Bay Packers DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,OPOY,Drake Maye,New England Patriots QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,OPOY,Christian McCaffrey,San Francisco 49ers RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,OPOY,Puka Nacua,Los Angeles Rams WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,OPOY,Bijan Robinson,Atlanta Falcons RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,OPOY,Jaxon Smith-Njigba,Seattle Seahawks WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,OROY,Jaxson Dart,New York Giants QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,OROY,Emeka Egbuka,Tampa Bay Buccaneers WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,OROY,TreVeyon Henderson,New England Patriots RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,OROY,Tetairoa McMillan,Carolina Panthers WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,OROY,Tyler Shough,New Orleans Saints QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,DROY,Abdul Carter,New York Giants LB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,DROY,Nick Emmanwori,Seattle Seahawks DB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,DROY,James Pearce Jr.,Atlanta Falcons DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,DROY,Carson Schwesinger,Cleveland Browns LB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,DROY,Xavier Watts,Atlanta Falcons S,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,CPOY,Stefon Diggs,New England Patriots WR,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,CPOY,Aidan Hutchinson,Detroit Lions DE,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,CPOY,Trevor Lawrence,Jacksonville Jaguars QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,CPOY,Christian McCaffrey,San Francisco 49ers RB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season
+2025,CPOY,Dak Prescott,Dallas Cowboys QB,finalist,,,https://www.nfl.com/news/nfl-honors-finalists-announced-for-mvp-other-awards-from-2025-season

@@ -1,6 +1,6 @@
 # NFL Draft Efficiency Summary
 
-- Generated at: `2026-05-02T00:31:39.232438+00:00`
+- Generated at: `2026-05-02T02:46:39.551159+00:00`
 - Draft years: `2022, 2023, 2024, 2025`
 - Latest roster snapshot: `2025-W18`
 - Latest snap-count season: `2025`

@@ -24,9 +24,9 @@ def _copy_default_window(project_root: Path, default_window: int) -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Build 3-8 year model outputs and render the interactive report.")
+    parser = argparse.ArgumentParser(description="Build 3-10 year model outputs and render the interactive report.")
     parser.add_argument("--min-window", type=int, default=3)
-    parser.add_argument("--max-window", type=int, default=8)
+    parser.add_argument("--max-window", type=int, default=10)
     parser.add_argument("--default-window", type=int, default=5)
     parser.add_argument("--skip-scraping", action="store_true", default=False)
     parser.add_argument("--force-refresh-cache", action="store_true", default=False)

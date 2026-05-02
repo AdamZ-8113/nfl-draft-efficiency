@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-02T00:31:56.524506+00:00",
+  "generated_at": "2026-05-02T02:47:00.700829+00:00",
   "draft_years": [
     2018,
     2019,
@@ -14,9 +14,9 @@
   "latest_snap_count_season": 2025,
   "penalize_missing_premium_picks": true,
   "scoring_config": {
-    "default_min_draft_year": 2018,
+    "default_min_draft_year": 2016,
     "default_max_draft_year": 2025,
-    "default_draft_window_years": 8,
+    "default_draft_window_years": 10,
     "round_pick_cost": {
       "1": 8.0,
       "2": 6.0,
@@ -41,7 +41,7 @@
     },
     "opportunity_normalization": {
       "method": "sqrt",
-      "max_seasons": 8
+      "max_seasons": 10
     },
     "composite_weights": {
       "retention": 0.2,
@@ -228,6 +228,8 @@
     "nflverse snap_counts release CSV",
     "nflverse games.csv regular-season records",
     "draft_picks.allpro",
-    "AP NFL award finalists via NFL.com"
+    "NFL.com AP Honors articles",
+    "Pro Football Reference AP award voting pages",
+    "Associated Press NFL award voting rules"
   ]
 }

@@ -1,0 +1,146 @@
+season,award,player_name,team_position,result,rank,votes,source_url
+2016,MVP,Matt Ryan,Atlanta Falcons QB,vote_finisher,1,25,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,MVP,Tom Brady,New England Patriots QB,vote_finisher,2,10,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,MVP,Derek Carr,Oakland Raiders QB,vote_finisher,3,6,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,MVP,Ezekiel Elliott,Dallas Cowboys RB,vote_finisher,4,6,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,MVP,Aaron Rodgers,Green Bay Packers QB,vote_finisher,5,2,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,MVP,Dak Prescott,Dallas Cowboys QB,vote_finisher,6,1,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Matt Ryan,Atlanta Falcons QB,vote_finisher,1,15.5,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Aaron Rodgers,Green Bay Packers QB,vote_finisher,2,11,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,David Johnson,Arizona Cardinals RB,vote_finisher,3,8,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Tom Brady,New England Patriots QB,vote_finisher,4,7,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Ezekiel Elliott,Dallas Cowboys RB,vote_finisher,5,5.5,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Le'Veon Bell,Pittsburgh Steelers RB,vote_finisher,6,1,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Drew Brees,New Orleans Saints QB,vote_finisher,7,1,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OPOY,Derek Carr,Oakland Raiders QB,vote_finisher,8,1,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Khalil Mack,Oakland Raiders RDE,vote_finisher,1,18,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Von Miller,Denver Broncos LOLB,vote_finisher,2,17,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Landon Collins,New York Giants SS,vote_finisher,3,9,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Aaron Donald,Los Angeles Rams LDT,vote_finisher,4,3,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Sean Lee,Dallas Cowboys RLB,vote_finisher,5,2,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DPOY,Eric Berry,Kansas City Chiefs SS,vote_finisher,6,1,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OROY,Dak Prescott,Dallas Cowboys QB,vote_finisher,1,28.5,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,OROY,Ezekiel Elliott,Dallas Cowboys RB,vote_finisher,2,21.5,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DROY,Joey Bosa,San Diego Chargers LDE,vote_finisher,1,37,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DROY,Jalen Ramsey,Jacksonville Jaguars RCB,vote_finisher,2,10,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,DROY,Deion Jones,Atlanta Falcons RILB,vote_finisher,3,3,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,CPOY,Jordy Nelson,Green Bay Packers WR,vote_finisher,1,36,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,CPOY,Cameron Wake,Miami Dolphins LDE,vote_finisher,2,11,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,CPOY,Dennis Pitta,Baltimore Ravens TE,vote_finisher,3,2,https://www.pro-football-reference.com/awards/awards_2016.htm
+2016,CPOY,Le'Veon Bell,Pittsburgh Steelers RB,vote_finisher,4,1,https://www.pro-football-reference.com/awards/awards_2016.htm
+2017,MVP,Tom Brady,New England Patriots QB,vote_finisher,1,40,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,MVP,Todd Gurley,Los Angeles Rams RB,vote_finisher,2,8,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,MVP,Carson Wentz,Philadelphia Eagles QB,vote_finisher,3,2,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OPOY,Todd Gurley,Los Angeles Rams RB,vote_finisher,1,37,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OPOY,Antonio Brown,Pittsburgh Steelers WR,vote_finisher,2,8,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OPOY,Tom Brady,New England Patriots QB,vote_finisher,3,4,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OPOY,DeAndre Hopkins,Houston Texans WR,vote_finisher,4,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Aaron Donald,Los Angeles Rams RDE,vote_finisher,1,23,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Calais Campbell,Jacksonville Jaguars RDE,vote_finisher,2,17,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Chandler Jones,Arizona Cardinals LOLB,vote_finisher,3,5,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Cameron Jordan,New Orleans Saints LDE,vote_finisher,4,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,DeMarcus Lawrence,Dallas Cowboys LDE,vote_finisher,5,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Xavier Rhodes,Minnesota Vikings RCB,vote_finisher,6,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Harrison Smith,Minnesota Vikings FS,vote_finisher,7,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DPOY,Bobby Wagner,Seattle Seahawks MLB,vote_finisher,8,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OROY,Alvin Kamara,New Orleans Saints RB,vote_finisher,1,28,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OROY,Kareem Hunt,Kansas City Chiefs RB,vote_finisher,2,21,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,OROY,Deshaun Watson,Houston Texans QB,vote_finisher,3,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DROY,Marshon Lattimore,New Orleans Saints RCB,vote_finisher,1,45,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DROY,Tre'Davious White,Buffalo Bills LCB,vote_finisher,2,4,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,DROY,Reuben Foster,San Francisco 49ers MLB,vote_finisher,3,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Keenan Allen,Los Angeles Chargers WR,vote_finisher,1,28,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Case Keenum,Minnesota Vikings QB,vote_finisher,2,8,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Rob Gronkowski,New England Patriots TE,vote_finisher,3,5,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Cameron Heyward,Pittsburgh Steelers LDE,vote_finisher,4,2,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Jaylon Smith,Dallas Cowboys MLB,vote_finisher,5,2,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Kyle Fuller,Chicago Bears CB,vote_finisher,6,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Todd Gurley,Los Angeles Rams RB,vote_finisher,7,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Marshawn Lynch,Oakland Raiders RB,vote_finisher,8,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Manti Te'o,New Orleans Saints MLB,vote_finisher,9,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2017,CPOY,Ben Watson,Baltimore Ravens TE,vote_finisher,10,1,https://www.pro-football-reference.com/awards/awards_2017.htm
+2018,MVP,Patrick Mahomes,Kansas City Chiefs QB,vote_finisher,1,41,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,MVP,Drew Brees,New Orleans Saints QB,vote_finisher,2,9,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OPOY,Patrick Mahomes,Kansas City Chiefs QB,vote_finisher,1,30,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OPOY,Drew Brees,New Orleans Saints QB,vote_finisher,2,16,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OPOY,DeAndre Hopkins,Houston Texans WR,vote_finisher,3,2,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OPOY,Todd Gurley,Los Angeles Rams RB,vote_finisher,4,2,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,DPOY,Aaron Donald,Los Angeles Rams DT,vote_finisher,1,45,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,DPOY,Khalil Mack,Chicago Bears LB,vote_finisher,2,5,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OROY,Saquon Barkley,New York Giants RB,vote_finisher,1,26.5,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OROY,Baker Mayfield,Cleveland Browns QB,vote_finisher,2,21.5,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,OROY,Quenton Nelson,Indianapolis Colts G,vote_finisher,3,2,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,DROY,Shaquille Leonard,Indianapolis Colts LB,vote_finisher,1,29,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,DROY,Derwin James,Los Angeles Chargers S,vote_finisher,2,20,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,DROY,Bradley Chubb,Denver Broncos LB,vote_finisher,3,1,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,CPOY,Andrew Luck,Indianapolis Colts QB,vote_finisher,1,44,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,CPOY,J.J. Watt,Houston Texans DE,vote_finisher,2,4,https://www.pro-football-reference.com/awards/awards_2018.htm
+2018,CPOY,Adrian Peterson,Washington Redskins RB,vote_finisher,3,2,https://www.pro-football-reference.com/awards/awards_2018.htm
+2019,MVP,Lamar Jackson,Baltimore Ravens QB,vote_finisher,1,50,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OPOY,Michael Thomas,New Orleans Saints WR,vote_finisher,1,19,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OPOY,Lamar Jackson,Baltimore Ravens QB,vote_finisher,2,17,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OPOY,Christian McCaffrey,Carolina Panthers RB,vote_finisher,3,12,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OPOY,Patrick Mahomes,Kansas City Chiefs QB,vote_finisher,4,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OPOY,Russell Wilson,Seattle Seahawks QB,vote_finisher,5,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Stephon Gilmore,New England Patriots RCB,vote_finisher,1,21,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Chandler Jones,Arizona Cardinals LOLB,vote_finisher,2,14,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,T.J. Watt,Pittsburgh Steelers LOLB,vote_finisher,3,10,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Shaquil Barrett,Tampa Bay Buccaneers ROLB,vote_finisher,4,2,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Aaron Donald,Los Angeles Rams RDE,vote_finisher,5,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Danielle Hunter,Minnesota Vikings LDE,vote_finisher,6,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DPOY,Tre'Davious White,Buffalo Bills RCB,vote_finisher,7,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OROY,Kyler Murray,Arizona Cardinals QB,vote_finisher,1,26.5,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OROY,Josh Jacobs,Oakland Raiders RB,vote_finisher,2,13,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OROY,A.J. Brown,Tennessee Titans WR,vote_finisher,3,9.5,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,OROY,Miles Sanders,Philadelphia Eagles RB,vote_finisher,4,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DROY,Nick Bosa,San Francisco 49ers LDE,vote_finisher,1,43,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DROY,Maxx Crosby,Oakland Raiders RDE,vote_finisher,2,4,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DROY,Devin Bush Jr.,Pittsburgh Steelers LILB,vote_finisher,3,2,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,DROY,Josh Hines-Allen,Jacksonville Jaguars EDGE,vote_finisher,4,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Ryan Tannehill,Tennessee Titans QB,vote_finisher,1,16,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Jimmy Garoppolo,San Francisco 49ers QB,vote_finisher,2,15,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Darren Waller,Oakland Raiders TE,vote_finisher,3,8,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Travis Frederick,Dallas Cowboys C,vote_finisher,4,6,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Teddy Bridgewater,New Orleans Saints QB,vote_finisher,5,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Dalvin Cook,Minnesota Vikings RB,vote_finisher,6,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Cooper Kupp,Los Angeles Rams WR,vote_finisher,7,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Richard Sherman,San Francisco 49ers RCB,vote_finisher,8,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2019,CPOY,Carson Wentz,Philadelphia Eagles QB,vote_finisher,9,1,https://www.pro-football-reference.com/awards/awards_2019.htm
+2020,MVP,Aaron Rodgers,Green Bay Packers QB,vote_finisher,1,44,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,MVP,Josh Allen,Buffalo Bills QB,vote_finisher,2,4,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,MVP,Patrick Mahomes,Kansas City Chiefs QB,vote_finisher,3,2,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Derrick Henry,Tennessee Titans RB,vote_finisher,1,32,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Patrick Mahomes,Kansas City Chiefs QB,vote_finisher,2,5,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Aaron Rodgers,Green Bay Packers QB,vote_finisher,3,5,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Josh Allen,Buffalo Bills QB,vote_finisher,4,3,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Travis Kelce,Kansas City Chiefs TE,vote_finisher,5,3,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OPOY,Alvin Kamara,New Orleans Saints RB,vote_finisher,6,2,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DPOY,Aaron Donald,Los Angeles Rams DT,vote_finisher,1,27,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DPOY,T.J. Watt,Pittsburgh Steelers LOLB,vote_finisher,2,20,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DPOY,Xavien Howard,Miami Dolphins RCB,vote_finisher,3,3,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OROY,Justin Herbert,Los Angeles Chargers QB,vote_finisher,1,41,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,OROY,Justin Jefferson,Minnesota Vikings WR,vote_finisher,2,9,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DROY,Chase Young,Washington Football Team LDE,vote_finisher,1,42.5,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DROY,Jeremy Chinn,Carolina Panthers RLB,vote_finisher,2,4.5,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DROY,Patrick Queen,Baltimore Ravens LILB,vote_finisher,3,2,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,DROY,Antoine Winfield Jr.,Tampa Bay Buccaneers SS,vote_finisher,4,1,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,CPOY,Alex Smith,Washington Football Team QB,vote_finisher,1,49,https://www.pro-football-reference.com/awards/awards_2020.htm
+2020,CPOY,Ben Roethlisberger,Pittsburgh Steelers QB,vote_finisher,2,1,https://www.pro-football-reference.com/awards/awards_2020.htm
+2021,MVP,Aaron Rodgers,Green Bay Packers QB,vote_finisher,1,39,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,MVP,Tom Brady,Tampa Bay Buccaneers QB,vote_finisher,2,10,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,MVP,Cooper Kupp,Los Angeles Rams WR,vote_finisher,3,1,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OPOY,Cooper Kupp,Los Angeles Rams WR,vote_finisher,1,35,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OPOY,Jonathan Taylor,Indianapolis Colts RB,vote_finisher,2,10,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OPOY,Tom Brady,Tampa Bay Buccaneers QB,vote_finisher,3,3,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OPOY,Aaron Rodgers,Green Bay Packers QB,vote_finisher,4,2,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,DPOY,T.J. Watt,Pittsburgh Steelers LB,vote_finisher,1,42,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,DPOY,Micah Parsons,Dallas Cowboys LB,vote_finisher,2,5,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,DPOY,Aaron Donald,Los Angeles Rams DT,vote_finisher,3,3,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OROY,Ja'Marr Chase,Cincinnati Bengals WR,vote_finisher,1,42,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OROY,Mac Jones,New England Patriots QB,vote_finisher,2,5,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OROY,Creed Humphrey,Kansas City Chiefs OL,vote_finisher,3,2,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,OROY,Rashawn Slater,Los Angeles Chargers T,vote_finisher,4,1,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,DROY,Micah Parsons,Dallas Cowboys LB,vote_finisher,1,50,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,CPOY,Joe Burrow,Cincinnati Bengals QB,vote_finisher,1,28,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,CPOY,Dak Prescott,Dallas Cowboys QB,vote_finisher,2,21,https://www.pro-football-reference.com/awards/awards_2021.htm
+2021,CPOY,Derwin James,Los Angeles Chargers S,vote_finisher,3,1,https://www.pro-football-reference.com/awards/awards_2021.htm

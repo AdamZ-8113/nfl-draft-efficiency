@@ -21,7 +21,7 @@ A team scores well when it:
 - gets strong players without spending too much draft capital
 - finds players who earn honors like All-Pro or AP player-award recognition
 
-Then the model adjusts for two things:
+Then the model adjusts for three things:
 
 - newer draft classes have had less time to prove themselves
 - early draft picks are more expensive than late picks
@@ -88,7 +88,7 @@ Why this matters:
 
 - First-team All-Pro adds more value.
 - Second-team All-Pro adds some value.
-- AP player-award finalists and winners add value.
+- AP player-award recognition adds value.
 - AP MVP recognition is tracked separately from other AP player awards.
 
 Why this matters:
@@ -96,6 +96,8 @@ Why this matters:
 - Elite players should move the score more than average starters.
 
 The AP player-award data includes MVP, Offensive Player of the Year, Defensive Player of the Year, Offensive Rookie of the Year, Defensive Rookie of the Year, and Comeback Player of the Year. Coach awards are excluded because they are not player draft outcomes.
+
+For 2022 and later seasons, AP changed to a ranked voting system and NFL.com/AP publish finalists. For 2016-2021, the report uses AP award vote finishers from Pro Football Reference because the same official finalist structure did not exist. The table still labels this column as **Award Finalist**, but the methodology treats it as AP award recognition: finalist/winner data where available, and vote-finisher data for older seasons.
 
 ## What does "starter" mean here?
 
@@ -121,7 +123,7 @@ This adjustment is intentionally modest. The goal is to add context without lett
 
 ## How younger players are treated fairly
 
-A player drafted in 2025 has had much less time to build a resume than a player drafted in 2018.
+A player drafted in 2025 has had much less time to build a resume than a player drafted in 2016.
 
 So the model softens that difference by normalizing scores for opportunity window.
 
@@ -186,6 +188,7 @@ The report also shows supporting views:
 - **Rounds 4-7 Only** isolates late-round draft value.
 - **DEI (no BP)** is the overall Draft Efficiency Index before explicit bust penalties or missing-pick penalties.
 - **Avg Starter Years** is the average number of starter-level seasons per drafted player, counting starter seasons with the drafting team or another NFL team.
+- **Award Finalist** counts AP player-award recognition. For 2022 and later, that means announced finalists/winners; for 2016-2021, that means players who received AP award votes.
 
 Think of it like this:
 
@@ -242,7 +245,9 @@ The model uses public NFL data sources:
 - nflverse snap count release data
 - nflverse regular-season game data for team records
 - `draft_picks.allpro` for All-Pro counts
-- NFL.com AP Honors articles for AP player-award finalists and winners
+- NFL.com AP Honors articles for recent AP player-award recognition
+- Pro Football Reference AP award voting pages for 2016-2021 vote finishers
+- Associated Press public guidance on the 2022 NFL awards voting-system change
 
 ## Bottom line
 

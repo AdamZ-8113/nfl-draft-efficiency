@@ -30,20 +30,32 @@ AP_AWARD_HEADERS: list[tuple[str, str]] = [
     ("AP Assistant Coach of the Year", "ACOY"),
 ]
 
-AP_2021_WINNERS: list[dict[str, object]] = [
-    {"season": 2021, "award": "MVP", "player_name": "Aaron Rodgers", "team_position": "Green Bay Packers QB"},
-    {"season": 2021, "award": "OPOY", "player_name": "Cooper Kupp", "team_position": "Los Angeles Rams WR"},
-    {"season": 2021, "award": "DPOY", "player_name": "T.J. Watt", "team_position": "Pittsburgh Steelers LB"},
-    {"season": 2021, "award": "OROY", "player_name": "Ja'Marr Chase", "team_position": "Cincinnati Bengals WR"},
-    {"season": 2021, "award": "DROY", "player_name": "Micah Parsons", "team_position": "Dallas Cowboys LB"},
-    {"season": 2021, "award": "CPOY", "player_name": "Joe Burrow", "team_position": "Cincinnati Bengals QB"},
-]
-
-AP_2021_SOURCE_URL = "https://www.nfl.com/news/list-of-nfl-honors-award-winners-from-2021-nfl-season"
-
 
 def _default_awards_cache_path() -> Path:
     return get_project_root() / "data" / "cache" / "ap_award_finalists.csv"
+
+
+def _manual_awards_path() -> Path:
+    return get_project_root() / "data" / "ap_award_vote_finishers.csv"
+
+
+def _dedupe_awards(frame: pd.DataFrame) -> pd.DataFrame:
+    if frame.empty:
+        return frame
+    deduped = frame.copy()
+    deduped["season"] = pd.to_numeric(deduped["season"], errors="coerce").fillna(0).astype(int)
+    deduped["award"] = deduped["award"].astype("string").fillna("")
+    deduped["player_name"] = deduped["player_name"].astype("string").fillna("")
+    deduped["normalized_name"] = deduped["player_name"].map(normalize_name)
+    deduped = deduped.drop_duplicates(subset=["season", "award", "normalized_name"], keep="first")
+    return deduped.drop(columns=["normalized_name"])
+
+
+def _load_manual_awards() -> pd.DataFrame:
+    path = _manual_awards_path()
+    if not path.exists():
+        return pd.DataFrame()
+    return pd.read_csv(path)
 
 
 def _fetch_url_text(url: str) -> str:
@@ -95,13 +107,17 @@ def _parse_nfl_awards_page(season: int, url: str) -> list[dict[str, object]]:
 
 def refresh_ap_awards_cache(cache_path: Path | None = None) -> pd.DataFrame:
     cache_path = cache_path or _default_awards_cache_path()
+    frames = []
+    manual_awards = _load_manual_awards()
+    if not manual_awards.empty:
+        frames.append(manual_awards)
     rows: list[dict[str, object]] = []
-    for row in AP_2021_WINNERS:
-        rows.append({**row, "result": "winner", "source_url": AP_2021_SOURCE_URL})
     for season, url in AP_AWARD_URLS.items():
         rows.extend(_parse_nfl_awards_page(season, url))
+    if rows:
+        frames.append(pd.DataFrame(rows))
 
-    frame = pd.DataFrame(rows)
+    frame = _dedupe_awards(pd.concat(frames, ignore_index=True)) if frames else pd.DataFrame()
     cache_path.parent.mkdir(parents=True, exist_ok=True)
     frame.to_csv(cache_path, index=False, quoting=csv.QUOTE_MINIMAL)
     return frame
@@ -109,8 +125,12 @@ def refresh_ap_awards_cache(cache_path: Path | None = None) -> pd.DataFrame:
 
 def load_ap_awards(cache_path: Path | None = None) -> pd.DataFrame:
     cache_path = cache_path or _default_awards_cache_path()
+    manual_awards = _load_manual_awards()
     if cache_path.exists():
-        return pd.read_csv(cache_path)
+        cached = pd.read_csv(cache_path)
+        if manual_awards.empty:
+            return _dedupe_awards(cached)
+        return _dedupe_awards(pd.concat([manual_awards, cached], ignore_index=True))
     return refresh_ap_awards_cache(cache_path)
 
 

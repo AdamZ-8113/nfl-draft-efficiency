@@ -98,8 +98,8 @@ def _build_scoring_details(config: dict[str, Any]) -> str:
         ("Starter with any team", _fmt_points(points.get("starter_with_any_team", 0))),
         ("Second-team All-Pro", _fmt_points(points.get("second_team_all_pro", 0))),
         ("First-team All-Pro", _fmt_points(points.get("first_team_all_pro", 0))),
-        ("AP player-award finalist/winner", _fmt_points(points.get("top5_award_finish", 0))),
-        ("AP MVP finalist/winner", _fmt_points(points.get("top5_mvp_finish", 0))),
+        ("AP player-award recognition", _fmt_points(points.get("top5_award_finish", 0))),
+        ("AP MVP recognition", _fmt_points(points.get("top5_mvp_finish", 0))),
     ]
     snap_rows = [
         (
@@ -244,7 +244,15 @@ SOURCE_LINKS = OrderedDict(
             "draft_picks.allpro",
             "https://github.com/nflverse/nflverse-data/releases/download/draft_picks/draft_picks.csv",
         ),
-        ("AP NFL award finalists via NFL.com", "https://www.nfl.com/news"),
+        ("NFL.com AP Honors articles", "https://www.nfl.com/news"),
+        (
+            "Pro Football Reference AP award voting pages",
+            "https://www.pro-football-reference.com/awards/",
+        ),
+        (
+            "Associated Press NFL award voting rules",
+            "https://www.ap.org/media-center/press-releases/2022/ap-updates-voting-system-for-its-nfl-awards/",
+        ),
     ]
 )
 

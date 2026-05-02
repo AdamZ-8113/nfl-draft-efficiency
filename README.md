@@ -27,7 +27,7 @@ python -m nfl_draft_efficiency.cli run
 python -m unittest discover -s tests
 ```
 
-By default the model includes the eight most recent configured draft classes, currently `2018-2025`.
+By default the model includes the ten most recent configured draft classes, currently `2016-2025`.
 To change the window for a run:
 
 ```bash
@@ -42,7 +42,7 @@ To turn them off for a run:
 python -m nfl_draft_efficiency.cli run --no-penalize-missing-premium-picks
 ```
 
-Build every supported report window from 3 through 8 years, with the report defaulting to 5 years:
+Build every supported report window from 3 through 10 years, with the report defaulting to 5 years:
 
 ```bash
 python scripts/build_report_windows.py
@@ -77,17 +77,17 @@ python -m nfl_draft_efficiency.cli run --force-refresh-cache --validate-external
 - `outputs/report.html`
 - `outputs/report.css`
 - `outputs/summary.md`
-- `outputs/windows/{3..8}/` (when `scripts/build_report_windows.py` is used)
+- `outputs/windows/{3..10}/` (when `scripts/build_report_windows.py` is used)
 - `outputs/external_validation.csv` (when `--validate-external-references` is used)
 - `outputs/external_validation_issues.csv` (when `--validate-external-references` is used)
 - `outputs/external_validation_summary.md` (when `--validate-external-references` is used)
 
 ## Defaults
 
-- Draft window: `2018-2025`
-- Report default window: `2021-2025`, with selectable 3-8 year windows when built by `scripts/build_report_windows.py`
+- Draft window: `2016-2025`
+- Report default window: `2021-2025`, with selectable 3-10 year windows when built by `scripts/build_report_windows.py`
 - Core score: `bust_adjusted_dei` displayed as `Overall`
-- Honors: `draft_picks.allpro` plus AP player-award finalists/winners from NFL.com
+- Honors: `draft_picks.allpro` plus AP player-award recognition from NFL.com and pre-2022 AP vote finishers from Pro Football Reference
 - Starter model: position-aware snap-count thresholds
 - Starter longevity: capped bonus for starter seasons after the first starter season
 - Bust-adjusted score: configurable round 1-3 bust penalties
